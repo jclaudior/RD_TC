@@ -1,0 +1,55 @@
+.nav-rd{
+    background-color: #01784E;
+    color: white;
+}
+
+.br-rd{
+    background-color: #01784E;
+}
+
+.nav-rd ul{
+    list-style: none;
+}
+
+.side-bar{
+    background-color: rgb(220, 220, 220);
+    height: 900px;
+}
+
+.lupa{
+    background-color: #01784E!important;
+}
+
+.font-bold-side-bar{
+    color: rgb(83, 83, 83);
+    font-weight: bolder;
+}
+
+.lupa::before{
+    content: "";
+    background-color: #01784E!important;
+    background: url("../images/sideBar/lupa.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.side-bar .card-header{
+    background-color: #01784E;
+    color: white;
+}
+
+.side-bar h6{
+    color: #01784E;
+    font-weight: bolder;
+}
+
+.side-bar .btn-primary{
+    background-color: #01784E!important;
+}
+
+.side-bar .btn-primary:hover{
+    background-color: #019460!important;
+}
