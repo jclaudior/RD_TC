@@ -22,9 +22,18 @@
     font-weight: bolder;
 }
 
+
+.pesqProduto{
+    border-radius: 5px 0px 0px 5px!important;
+}
+
 .side-bar .pesqProduto:focus{
     border-color: #01784E;
-    box-shadow: 1px 1px     
+    box-shadow: none;    
+}
+
+.lupa{
+    border-radius: 0px 5px 5px 0px!important;
 }
 
 .lupa::before{
