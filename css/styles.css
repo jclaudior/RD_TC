@@ -32,11 +32,11 @@
     box-shadow: none;    
 }
 
-.lupa{
+.side-bar .lupa{
     border-radius: 0px 5px 5px 0px!important;
 }
 
-.lupa::before{
+.side-bar .lupa::before{
     content: "";
     border-color: #01784E;
     background: url("../images/sideBar/lupa.png");
