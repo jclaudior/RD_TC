@@ -16,18 +16,20 @@
     height: 900px;
 }
 
-.lupa{
-    background-color: #01784E!important;
-}
 
 .font-bold-side-bar{
     color: rgb(83, 83, 83);
     font-weight: bolder;
 }
 
+.side-bar .pesqProduto:focus{
+    border-color: #01784E;
+    box-shadow: 1px 1px     
+}
+
 .lupa::before{
     content: "";
-    background-color: #01784E!important;
+    border-color: #01784E;
     background: url("../images/sideBar/lupa.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -48,8 +50,10 @@
 
 .side-bar .btn-primary{
     background-color: #01784E!important;
+    border-color: #01784E;
 }
 
 .side-bar .btn-primary:hover{
     background-color: #019460!important;
+    border-color: #01784E;
 }
