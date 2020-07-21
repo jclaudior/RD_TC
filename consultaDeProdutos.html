@@ -11,28 +11,31 @@
 </head>
 
 <body>
-    <!-- Image and text -->
-    <nav class="navbar navbar-dark  nav-rd">
-        <a class="navbar-brand" href="#">
-            <img src="images/cabecalho/logo.png" width="200" height="100" class="d-inline-block align-top" alt=""
-                loading="lazy">
-        </a>
-        <ul>
-            <li>Funcionario:Lorem Ipsum da Silva</li>
-            <li>Matricula:11111111</li>
-            <li>Loja:255</li>
-        </ul>
-    </nav>
+    <!-- Cabecalho -->
+    <header>
+        <nav class="navbar navbar-dark  nav-rd">
+            <a class="navbar-brand" href="#">
+                <img src="images/cabecalho/logo.png" width="200" height="100" class="d-inline-block align-top" alt=""
+                    loading="lazy">
+            </a>
+            <ul>
+                <li>Funcionario:Lorem Ipsum da Silva</li>
+                <li>Matricula:11111111</li>
+                <li>Loja:255</li>
+            </ul>
+        </nav>
+    </header>
     <div class="container-fluid">
         <div class="row">
-            <div class="side-bar col-3">
-                <form>
+            <div class="side-bar col-lg-3 col-md-4 col-sm-12">
+                 <!--Menu Side-bar-->
+                <form id="form1">
                     <div class="form-row my-3">
                         <div class="col-12">
                             <label class="font-bold-side-bar">Pesquisa de Produtos</label>
                         </div>
                         <div class="col-10 pr-0">
-                            <input type="text" class="form-control pesqProduto">
+                            <input type="text" class="form-control pesqProduto" name="produto" id="produto">
                         </div>
                         <div class="col-2 pl-0">
                             <a type="submit" class="btn btn-primary lupa"></a>
@@ -73,8 +76,8 @@
                     <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control">Sair</a></div>
                 </div>
             </div>
-            <div class="col-9">
-
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <!--Conteudo Principal-->
             </div>
         </div>
     </div>
