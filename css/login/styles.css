@@ -1,0 +1,30 @@
+.br-rd{
+    background-color: #01784E;
+}
+
+.btn-primary{
+    background-color: #01784E!important;
+    border-color: #01784E;
+    color: white!important;
+}
+
+.btn-primary:hover{
+    background-color: #019460!important;
+    border-color: #01784E;
+}
+
+.btn-primary::before{
+    content: "";
+    border-color: #01784E;
+    background: url("../../images/login/person.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+
+.form-control:focus{
+    border-color:  #01784E;
+    box-shadow: none;
+}
