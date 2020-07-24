@@ -70,3 +70,10 @@
 .border-success{
     border-color:  #01784E!important;
 }
+
+.div-table-prod{
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    overflow-x: auto;
+}
