@@ -1,0 +1,15 @@
+h2, h4, h6 {
+    color: #01784E;
+    font-weight: bolder;
+}
+
+.conteudo .btn-primary{
+    background-color: #01784E!important;
+    border-color: #01784E;
+    color: white!important;
+}
+
+.conteudo .btn-primary:hover{
+    background-color: #019460!important;
+    border-color: #01784E;
+}
