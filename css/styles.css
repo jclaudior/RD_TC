@@ -13,7 +13,7 @@
 
 .side-bar{
     background-color: rgb(220, 220, 220);
-    height: 900px;
+    height: 750px;
 }
 
 
@@ -65,4 +65,15 @@
 .side-bar .btn-primary:hover{
     background-color: #019460!important;
     border-color: #01784E;
+}
+.table{
+    font-size: 12px;
+}
+.Space{
+
+    height: 24px;
+}
+.Space_Descricao{
+    background-color: rgb(200, 200, 200);
+    height: 10vh;
 }
