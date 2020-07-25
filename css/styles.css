@@ -1,3 +1,4 @@
+/*cabealho menu*/
 .nav-rd{
     background-color: #01784E;
     color: white;
@@ -5,7 +6,17 @@
 
 .br-rd{
     background-color: #01784E;
+    color: white!important;
 }
+
+.text-white{
+    color: white!important;
+}
+
+.text-green{
+    color: #01784E;
+}
+
 
 .nav-rd ul{
     list-style: none;
@@ -52,19 +63,56 @@
     color: white;
 }
 
+input[type='radio']:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #d1d3d1;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type='radio']:checked:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -2px;
+    left: -1px;
+    position: relative;
+    background-color: #01784E;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
 .side-bar h6{
     color: #01784E;
     font-weight: bolder;
 }
 
-.side-bar .btn-primary{
+.btn-primary{
     background-color: #01784E!important;
-    border-color: #01784E;
+    border-color: #01784E!important;
+    color: white!important;
 }
 
-.side-bar .btn-primary:hover{
+.btn-primary:hover{
     background-color: #019460!important;
-    border-color: #01784E;
+    border-color: #01784E!important;
+}
+
+.btn-primary:active{
+    box-shadow: 0 0 0 0.2rem rgb(1, 120, 78, 0.3)!important;
+}
+
+.btn-primary:link{
+    box-shadow: none!important;
 }
 
 .border-success{
@@ -76,4 +124,45 @@
     overflow-y: hidden;
     white-space: nowrap;
     overflow-x: auto;
+}
+
+/*Reserva de Produto*/
+h1, h2, h4, h6 {
+    color: #01784E;
+    font-weight: bolder;
+}
+
+
+.name1{
+    margin: 10px;
+}
+
+.comeco {
+    background-color: #b1b1b1;
+}
+.add{
+    margin: 35px;
+}
+.Conteudo .btn-primary{
+    background-color: #01784E!important;
+}
+
+/*Login, consultaCliente*/
+.person-icon::before{
+    content: "";
+    background: url("../images/login/person.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+    float: left;
+}
+
+.form-control:focus{
+    border-color:  #01784E!important;
+    box-shadow: 0 0 0 0.2rem rgb(1, 120, 78, 0.3)!important;
+}
+
+.border-rd{
+    border: #01784E 1px solid;
 }

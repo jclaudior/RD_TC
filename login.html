@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link href="css/login/styles.css" rel="stylesheet">
     <title>TC-Login</title>
 </head>
 <body>
@@ -16,21 +16,21 @@
                     <div class="col-12 text-center br-rd">
                         <img src="images/cabecalho/logo.png" width="200" class="my-3">
                     </div>
-                    <div class="col-12 border mt-3 border-success">
-                        <form>
+                    <div class="col-12 mt-3 border-rd">
+                        <form id="form-login">
                             <div class="row d-flex justify-content-center align-items-center">
                                 <div class="col-8">
                                     <div class="row">
                                         <div class="form-group col-12 my-4">
-                                            <label for="usuario">Usuário:</label>
+                                            <label for="usuario" class="text-green">Matrícula Usuário:</label>
                                             <input type="number" class="form-control" id="usuario" name="usuario">
                                         </div>
                                         <div class="form-group col-12 my-4">
-                                            <label for="senha">Senha:</label>
-                                            <input type="password" class="form-control" id="senha">
+                                            <label for="senha" class="text-green">Senha:</label>
+                                            <input type="password" class="form-control" id="senha" name="senha">
                                         </div>
                                         <div class="form-group col-12 my-4 text-center">
-                                           <a type="submit" class="btn btn-primary">Login</a>
+                                           <a type="submit" class="btn btn-primary person-icon">Login</a>
                                         </div>
                                     </div>
                                 </div>
