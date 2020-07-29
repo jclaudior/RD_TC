@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>TC-Consulta de Produtos</title>
+</head>
+
+<body>
+    <!-- Cabecalho -->
+    <header>
+        <nav class="navbar navbar-dark  nav-rd">
+            <a class="navbar-brand" href="">
+                <img src="images/Raiadrogasil_Logo.png" width="85" class="d-inline-block align-top" alt="" loading="lazy">
+            </a>
+            <div class="information-base">
+                <ul>
+                    <li><b>Funcionario: </b> Lorem Ipsum da Silva </li>
+                    <li><b>Matricula: </b> 174602 </li>
+                    <li><b>Loja: </b> 255 - <b>Osasco 11</b> </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="side-bar col-lg-3 col-md-4 col-sm-0">
+                <!--Menu Side-bar-->
+                <form id="form1">
+                    <div class="form-row my-3">
+                        <!--
+                            <div class="col-12">
+                            <label class="font-bold-side-bar">Pesquisa de Produtos</label>
+                        </div>
+                        -->
+                        <div class="col-10 pr-0">
+                            <input type="text" class="form-control pesqProduto" name="produto" id="produto" placeholder="O que deseja encontrar?">
+                        </div>
+                        <div class="col-2 pl-0">
+                            <a type="submit" class="btn btn-primary lupa"></a>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header text-center">Identificação do Cliente</h5>
+                            <div class="card-body">
+                                <h6 class="card-title">Nome do Cliente:</h6>
+                                <p class="card-text font-bold-side-bar">Lorem Ipsum da Silva</p>
+                                <h6 class="card-title">CPF:</h6>
+                                <p class="card-text font-bold-side-bar">494.276.853-52</p>
+                                <h6 class="card-title">Categoria:</h6>
+                                <p class="card-text font-bold-side-bar">Sênior</p>
+                                <h6 class="card-title">Convênio</h6>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="convenio" id="inlineRadio1"
+                                        value="sim">
+                                    <label class="form-check-label font-bold-side-bar" for="inlineRadio1">Sim</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="convenio" id="inlineRadio2"
+                                        value="nao">
+                                    <label class="form-check-label font-bold-side-bar" for="inlineRadio2">Não</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b> Novo Atendimento</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Reserva de Produtos</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Troca de Produtos</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Cupom de Desconto</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Sair</b></a></div>
+                </div>
+                <div class="row" id="onlySpace">
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-12 p-0">
+                <div class="row">
+                        <!--Conteudo Principal-->
+                        <table class="table" id="tableOferta">
+                            <thead class="thead" style="background-color: rgb(88, 88, 88); color: white; font-size: 14px;">
+                                <tr style="height: 12vh;">
+                                    <th scope="col" style="align-content:  center;">Categoria</th>
+                                    <th scope="col">Produto</th>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Desconto</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabelaBody">
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Tratamento de Pele</th>
+                                    <td>Creme</td>
+                                    <td>Creme Anticelulite para Pernas Goicoechea</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">5%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Tratamento de Pele</th>
+                                    <td>Creme</td>
+                                    <td>Hidratante Desodorante Nivea Q10 Plus Pernas Renovadas Anticelulite</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">2%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Produto Infantil</th>
+                                    <td>Fralda</td>
+                                    <td>Fralda Roupinha Huggies Supreme Care Tamanho G</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">7%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Produto Infantil</th>
+                                    <td>Fralda</td>
+                                    <td>Fralda Cremer Tamanho G</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">1,5%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Produto Infantil</th>
+                                    <td>Fralda</td>
+                                    <td>Fralda Cremer Tamanho G</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">1,5%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Escova Denntal</th>
+                                    <td>Colgate</td>
+                                    <td>Escova Dental Oral B Indicator N°35</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">3%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Desodorante</th>
+                                    <td>Rexona</td>
+                                    <td>Desodorante Antitranspirante Rexona Active Dry</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">5%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Escova Dental</th>
+                                    <td>Colgate</td>
+                                    <td>Escova Dental Colgate Slim Soft Black</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">4%</td>
+                                </tr>
+                                <tr style="height: 10vh;">
+                                    <th scope="row">Escova Dental</th>
+                                    <td>Colgate</td>
+                                    <td>Escova Dental Colgate Slim Soft Black</td>
+                                    <td style="color: #01784E; font-size: 18px; font-weight: bold;">4%</td>
+                                </tr>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

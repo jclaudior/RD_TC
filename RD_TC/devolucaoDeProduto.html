@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../RD_TC/css/styles.css" rel="stylesheet">
+    <link href="../RD_TC/css/styles-devDeProd.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>TC-Devolução de Produto</title>
+</head>
+<body>
+    <!-- Cabecalho -->
+    <header>
+        <nav class="navbar navbar-dark  nav-rd">
+            <a class="navbar-brand" href="">
+                <img src="images/Raiadrogasil_Logo.png" width="85" class="d-inline-block align-top" alt="" loading="lazy">
+            </a>
+            <div class="information-base">
+                <ul>
+                    <li><b>Funcionario: </b> Lorem Ipsum da Silva </li>
+                    <li><b>Matricula: </b> 174602 </li>
+                    <li><b>Loja: </b> 255 - <b>Osasco 11</b> </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="side-bar col-lg-3 col-md-4 col-sm-0">
+                <!--Menu Side-bar-->
+                <form id="form1">
+                    <div class="form-row my-3">
+                        <!--
+                            <div class="col-12">
+                            <label class="font-bold-side-bar">Pesquisa de Produtos</label>
+                        </div>
+                        -->
+                        <div class="col-10 pr-0">
+                            <input type="text" class="form-control pesqProduto" name="produto" id="produto" placeholder="O que deseja encontrar?">
+                        </div>
+                        <div class="col-2 pl-0">
+                            <a type="submit" class="btn btn-primary lupa"></a>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header text-center">Identificação do Cliente</h5>
+                            <div class="card-body">
+                                <h6 class="card-title">Nome do Cliente:</h6>
+                                <p class="card-text font-bold-side-bar">Lorem Ipsum da Silva</p>
+                                <h6 class="card-title">CPF:</h6>
+                                <p class="card-text font-bold-side-bar">494.276.853-52</p>
+                                <h6 class="card-title">Categoria:</h6>
+                                <p class="card-text font-bold-side-bar">Sênior</p>
+                                <h6 class="card-title">Convênio</h6>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="convenio" id="inlineRadio1"
+                                        value="sim">
+                                    <label class="form-check-label font-bold-side-bar" for="inlineRadio1">Sim</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="convenio" id="inlineRadio2"
+                                        value="nao">
+                                    <label class="form-check-label font-bold-side-bar" for="inlineRadio2">Não</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b> Novo Atendimento</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Reserva de Produtos</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Troca de Produtos</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Cupom de Desconto</b></a></div>
+                    <div class="col-12 mt-3"><a href="#" class="btn btn-primary form-control"><b>Sair</b></a></div>
+                </div>
+                <div class="row" id="onlySpace">
+
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-12">
+                <!--Conteudo Principal-->
+                <div class="conteudo mt-5 container text-green">
+                    <h2>Devolução / Troca de Produto</h2>
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-12 my-2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="radio1" value="opcao1">
+                                    <label class="form-check-label" for="radio1" style="color: rgb(88, 88, 88);">Com Cupom</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="radio2" value="opcao2">
+                                    <label class="form-check-label" for="radio2" style="color: rgb(88, 88, 88);">Sem Cupom</label>
+                                </div>
+                            </div>
+                            <div class="col-12 my-2" >
+                                <h4>Dados do Cupom de Origem</h4>
+                            </div>
+                            <div class="col-12 my-2">
+                                <div class="row">                                    
+                                    <div class="col-4 form-inline">
+                                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style="color: rgb(88, 88, 88);">Tipo de Devolução:</label>
+                                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                                            <option selected>Escolher...</option>
+                                            <option value="1">Troca</option>
+                                        </select>
+                                    </div>                     
+                                   
+                                    <div class="col-6 form-inline"> 
+                                        <label class="my-1 mr-2" for="inlineFormCustomSelectPref" style="color: rgb(88, 88, 88);">Motivo da Devolução:</label>   
+                                        <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" >
+                                            <option selected>Escolher...</option>
+                                            <option value="1">Compra Incorreta</option>
+                                            <option value="2">Venda Incorreta</option>
+                                            <option value="3">Produto Danificado</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 my-2">
+                                <input class="form-control form-control-lg" type="text" placeholder="Data de Emissão do Cupom">
+                            </div>
+                            <div class="col-12 my-2">
+                                <input class="form-control form-control-lg" type="text" placeholder="N° Cupom">
+                            </div>
+                            <div class="col-12 my-2">
+                                <input class="form-control form-control-lg" type="text" placeholder="N° do Caixa">
+                            </div>
+                            <div class="col-12 my-2">
+                                <input class="form-control form-control-lg" type="text" placeholder="Código da Filial">
+                            </div>
+                            <div class="col-12 my-2">
+                                <input class="form-control form-control-lg" type="text" placeholder="Código do Produto">
+                            </div>
+                            <div class="col-12 my-2">
+                                <input class="form-control form-control-lg" type="text" placeholder="Quantidade">
+                            </div>                            
+                            <div class="col-12 mt-3">
+                                <div class="row d-flex justify-content-end">
+                                    <div class="col-12">
+                                        <a type="submit" class="btn btn-primary form-control btn-lg btn-block">Finalizar</a>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+            </script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+            </script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+            </script>
+</body>
+
+</html>
