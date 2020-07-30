@@ -1,7 +1,6 @@
-
 /*Login, consultaCliente*/
 
-.person-icon::before{
+.person-icon::before {
     content: "";
     background: url("../images/login/person.png");
     background-repeat: no-repeat;
@@ -11,91 +10,92 @@
     float: left;
 }
 
-
-.form-control:focus{
-    border-color:  #01764a!important;
+.form-control:focus {
+    border-color: #01764a!important;
     box-shadow: 0 0 0 0.2rem rgb(1, 120, 78, 0.3)!important;
 }
-.border-rd{
+
+.border-rd {
     border: #01764a 1px solid;
 }
-#loginbox{
+
+#loginbox {
     height: 600px;
 }
-.text-green, .text-white{
+
+.text-green,
+.text-white {
     font-weight: bolder;
 }
 
-.labelDescription{
+.labelDescription {
     color: rgb(88, 88, 88);
 }
 
-.Space_Descricao{
+.Space_Descricao {
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px;
-
     background-color: #d1d3d1;
 }
 
-#tabelaBody{
+#tabelaBody {
     color: rgb(88, 88, 88);
 }
 
+
 /*cabealho menu*/
-.nav-rd{
+
+.nav-rd {
     background-color: #01784E;
     color: white;
 }
 
-.information-base{
+.information-base {
     font-size: 14px;
 }
 
-.br-rd{
+.br-rd {
     background-color: #01784E;
     color: white!important;
 }
 
-.text-white{
+.text-white {
     color: white!important;
 }
 
-.text-green{
+.text-green {
     color: #01784E;
 }
 
-
-.nav-rd ul{
+.nav-rd ul {
     list-style: none;
 }
 
-.side-bar{
+.side-bar {
     background-color: rgb(220, 220, 220);
     height: 100%;
 }
 
-
-.font-bold-side-bar{
+.font-bold-side-bar {
     color: rgb(83, 83, 83);
     font-weight: bolder;
 }
 
-
-.pesqProduto{
+.pesqProduto {
     border-radius: 5px 0px 0px 5px!important;
 }
 
-.side-bar .pesqProduto:focus{
+.side-bar .pesqProduto:focus {
     border-color: #01784E;
-    box-shadow: none;    
+    box-shadow: none;
 }
 
-.side-bar .lupa{
+.side-bar .lupa {
     border-radius: 0px 5px 5px 0px!important;
 }
 
-.side-bar .lupa::before{
+.side-bar .lupa::before {
     content: "";
     border-color: #01784E;
     background: url("../images/sideBar/lupa.png");
@@ -105,29 +105,35 @@
     width: 24px;
     height: 24px;
 }
- #onlySpace{
-     height: 15px;
- }
-.side-bar .card-header{
+
+#onlySpace {
+    height: 15px;
+}
+
+.side-bar .card-header {
     background-color: #01784E;
     font-size: 18px;
     color: white;
 }
-#tableOferta{
-    margin: 30px;
 
+#tableOferta {
+    margin: 30px;
 }
-.card{
+
+.card {
     font-size: 14px;
 }
-#Generic{
+
+#Generic {
     color: rgb(233, 233, 0);
     text-shadow: 1px 1px rgb(88, 88, 88);
 }
-#Referencia{
+
+#Referencia {
     color: rgb(87, 87, 87);
 }
-#Semelhante{
+
+#Semelhante {
     color: red;
     text-shadow: 1px 1px rgb(88, 88, 88);
 }
@@ -160,78 +166,99 @@ input[type='radio']:checked:after {
     border: 2px solid white;
 }
 
-.side-bar h6{
+.side-bar h6 {
     color: #01784E;
     font-weight: bolder;
 }
 
-.btn-primary{
+.btn-primary {
     background-color: #017649!important;
     border-color: #017649!important;
     color: #fff!important;
     font-weight: bolder;
 }
 
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: #008b56!important;
     color: #fff!important;
     border-color: #008b56!important;
 }
-.btn-success:hover{
+
+.btn-success:hover {
     background-color: #008b56!important;
 }
 
-.btn-primary:active{
+.btn-primary:active {
     box-shadow: 0 0 0 0.2rem rgb(1, 120, 78, 0.3)!important;
 }
-.lupa, .person-icon{
+
+.lupa,
+.person-icon {
     background-color: #01764a!important;
     color: #fff!important;
     border-color: #01764a!important;
 }
-.lupa:hover{
-    background-color: #008b56!important;
-    color: #fff!important;
-    border-color: #008b56!important;
-}
-.person-icon:hover{
+
+.lupa:hover {
     background-color: #008b56!important;
     color: #fff!important;
     border-color: #008b56!important;
 }
 
-.btn-primary:link{
+.person-icon:hover {
+    background-color: #008b56!important;
+    color: #fff!important;
+    border-color: #008b56!important;
+}
+
+.btn-primary:link {
     box-shadow: none!important;
 }
 
-.border-success{
-    border-color:  #01764a!important;
+.border-success {
+    border-color: #01764a!important;
 }
 
-.div-table-prod{
+.div-table-prod {
     overflow-x: scroll;
     overflow-y: hidden;
     white-space: nowrap;
     overflow-x: auto;
 }
 
+
 /*Reserva de Produto*/
-h1, h2, h4, h6 {
+
+h1,
+h2,
+h4,
+h6 {
     color: #01764a;
     font-weight: bolder;
 }
 
-
-.name1{
+.name1 {
     margin: 10px;
 }
 
 .comeco {
     background-color: #b1b1b1;
 }
-.add{
+
+.add {
     margin: 35px;
 }
-.Conteudo .btn-primary{
+
+.Conteudo .btn-primary {
     background-color: #01764a!important;
+}
+
+.btn-excluir::before {
+    content: "";
+    background: url("../images/reservaProduto/lixeira.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    width: 24px;
+    height: 24px;
 }
