@@ -229,6 +229,11 @@ input[type='radio']:checked:after {
 
 /*Reserva de Produto*/
 
+.form-check-input,
+.form-check-label {
+    cursor: pointer;
+}
+
 h1,
 h2,
 h4,
