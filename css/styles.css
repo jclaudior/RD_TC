@@ -28,7 +28,7 @@
     font-weight: bolder;
 }
 
-.labelDescription {
+.labelDescription, .text-grey {
     color: rgb(88, 88, 88);
 }
 
@@ -263,6 +263,78 @@ h6 {
     background: url("../images/reservaProduto/lixeira.png");
     background-repeat: no-repeat;
     background-position: center;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.btn-novo::before {
+    content: "";
+    background: url("../images/sideBar/novo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    padding-left: 14%;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.btn-reserva::before {
+    content: "";
+    background: url("../images/sideBar/reserva.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    padding-left: 14%;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.btn-troca::before {
+    content: "";
+    background: url("../images/sideBar/troca.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    padding-left: 14%;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.btn-troca::before {
+    content: "";
+    background: url("../images/sideBar/troca.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    padding-left: 14%;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.btn-cupom::before {
+    content: "";
+    background: url("../images/sideBar/cupom.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    padding-left: 14%;
+    display: block;
+    width: 24px;
+    height: 24px;
+}
+
+.btn-sair::before {
+    content: "";
+    background: url("../images/sideBar/sair.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    padding-left: 60%;
     display: block;
     width: 24px;
     height: 24px;
