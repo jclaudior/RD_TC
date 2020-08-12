@@ -17,7 +17,7 @@ public class TcCupomEntity implements Serializable {
     @Column(name = "ID_CUPOM")
     private BigInteger idCupom;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
     private ClienteEntity clienteEntity;
 

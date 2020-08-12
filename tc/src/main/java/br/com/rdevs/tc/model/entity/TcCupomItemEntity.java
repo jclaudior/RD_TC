@@ -15,7 +15,7 @@ public class TcCupomItemEntity {
     @Column(name = "ID_CUPOM_ITEM")
     private BigInteger idCupomItem;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "ID_CUPOM")
     private TcCupomEntity tcCupomEntity;
 

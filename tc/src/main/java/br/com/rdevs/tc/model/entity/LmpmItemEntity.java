@@ -15,7 +15,7 @@ public class LmpmItemEntity implements Serializable {
     @Column(name = "ID_LMPM_ITEM")
     private int idLmpmItem;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "ID_LMPM")
     private LmpmEntitty lmpmEntitty;
 
