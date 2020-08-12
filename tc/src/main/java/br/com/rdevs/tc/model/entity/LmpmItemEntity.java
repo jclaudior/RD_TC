@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "TB_LMPM_ITE")
+@Table(name = "TB_LMPM_ITEM")
 @Data
 public class LmpmItemEntity implements Serializable {
 
