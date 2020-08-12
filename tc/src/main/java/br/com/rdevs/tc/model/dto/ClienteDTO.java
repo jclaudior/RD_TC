@@ -16,6 +16,7 @@ public class ClienteDTO {
     private String nmCliente;
     private String dsEmail;
     private Date dtCadastro;
+    private String nrCPF;
     private String nrRg;
     private Date dtNascimento;
     private String dsGenero;

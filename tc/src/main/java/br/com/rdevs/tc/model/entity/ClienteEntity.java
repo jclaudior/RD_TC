@@ -26,6 +26,9 @@ public class ClienteEntity implements Serializable {
     @Column(name = "DT_CADASTRO")
     private Date dtCadastro;
 
+    @Column(name = " NR_CPF")
+    private String nrCpf;
+
     @Column(name = "NR_RG")
     private String nrRg;
 
