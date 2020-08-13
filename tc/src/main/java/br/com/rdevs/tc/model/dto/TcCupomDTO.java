@@ -13,6 +13,8 @@ import java.util.Date;
 public class TcCupomDTO {
 
     private BigInteger idCupom;
+
     private Date dtInicialCupom;
+
     private Date dtFinalCupom;
 }
