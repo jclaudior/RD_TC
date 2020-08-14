@@ -1,5 +1,6 @@
 package br.com.rdevs.tc.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class LmpmItemEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "ID_LMPM")
     private LmpmEntitty lmpmEntitty;
-
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
     private ProdutoEntity produtoEntity;
