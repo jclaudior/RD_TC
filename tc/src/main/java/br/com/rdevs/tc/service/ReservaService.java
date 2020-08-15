@@ -30,35 +30,37 @@ public class ReservaService {
 
     public List<ReservaDTO> listarPorCliente(BigInteger idCliente) {
 
-        List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
-        List<ReservaDTO> listDTO = new ArrayList<>();
-        for (ReservaEntity entity : listEntity) {
-            ReservaDTO dto = new ReservaDTO();
-            dto.setClienteDTO(clienteBO.parseDTO(entity.getCliente()));
-            dto.setDtInicialReserva(entity.getDtFinalReserva());
-            dto.setDtFinalReserva(entity.getDtFinalReserva());
-
-            List<ReservaItemDTO> listaItemDTO = new ArrayList<>();
-            for (ReservaItemEntity item : entity.getItens()) {
-                ReservaItemDTO itemDTO = new ReservaItemDTO();
-                ProdutoDTO produtoDTO = new ProdutoDTO();
-                produtoDTO.setCdProduto(item.getProduto().getCdProduto());
-                produtoDTO.setIdCategoria(item.getProduto().getIdCategoria());
-                produtoDTO.setIdStatusProduto(item.getProduto().getIdStatusProduto());
-                produtoDTO.setIdTipoProduto(item.getProduto().getIdTipoProduto());
-                produtoDTO.setNmFabricante(item.getProduto().getNmFabricante());
-                produtoDTO.setNmFantasia(item.getProduto().getNmFantasia());
-                produtoDTO.setVlUnidade(item.getProduto().getVlUnidade());
-
-                itemDTO.setProduto(produtoDTO);
-                itemDTO.setQtProduto(item.getQtProduto());
-                listaItemDTO.add(itemDTO);
-
-            }
-            dto.setItens(listaItemDTO);
-            listDTO.add(dto);
-        }
-        return listDTO;
+//        List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
+//        List<ReservaEntity> listEntity = repository.findAll();
+//        List<ReservaDTO> listDTO = new ArrayList<>();
+//        for (ReservaEntity entity : listEntity) {
+//            ReservaDTO dto = new ReservaDTO();
+//            dto.setClienteDTO(clienteBO.parseDTO(entity.getCliente()));
+//            dto.setDtInicialReserva(entity.getDtFinalReserva());
+//            dto.setDtFinalReserva(entity.getDtFinalReserva());
+//
+//            List<ReservaItemDTO> listaItemDTO = new ArrayList<>();
+//            for (ReservaItemEntity item : entity.getItens()) {
+//                ReservaItemDTO itemDTO = new ReservaItemDTO();
+//                ProdutoDTO produtoDTO = new ProdutoDTO();
+//                produtoDTO.setCdProduto(item.getProduto().getCdProduto());
+//                produtoDTO.setIdCategoria(item.getProduto().getIdCategoria());
+//                produtoDTO.setIdStatusProduto(item.getProduto().getIdStatusProduto());
+//                produtoDTO.setIdTipoProduto(item.getProduto().getIdTipoProduto());
+//                produtoDTO.setNmFabricante(item.getProduto().getNmFabricante());
+//                produtoDTO.setNmFantasia(item.getProduto().getNmFantasia());
+//                produtoDTO.setVlUnidade(item.getProduto().getVlUnidade());
+//
+//                itemDTO.setProduto(produtoDTO);
+//                itemDTO.setQtProduto(item.getQtProduto());
+//                listaItemDTO.add(itemDTO);
+//
+//            }
+//            dto.setItens(listaItemDTO);
+//            listDTO.add(dto);
+//        }
+//        return listDTO;
+        return null;
     }
 
 
