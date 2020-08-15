@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_TC_RESERVA")
@@ -19,12 +20,15 @@ public class ReservaEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
-    private BigInteger idCliente;
+    private ClienteEntity cliente;
 
     @Column(name = "DT_INICIAL_RESERVA")
     private Date dtInicialReserva;
 
     @Column(name = "DT_FINAL_RESERVA")
     private Date dtFinalReserva;
+
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    private List<ReservaItemEntity> itens;
 
 }
