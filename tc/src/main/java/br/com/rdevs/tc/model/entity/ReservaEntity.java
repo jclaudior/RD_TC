@@ -19,12 +19,11 @@ public class ReservaEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
-    private BigInteger idCliente;
+    private ClienteEntity cliente;
 
     @Column(name = "DT_INICIAL_RESERVA")
     private Date dtInicialReserva;
 
     @Column(name = "DT_FINAL_RESERVA")
     private Date dtFinalReserva;
-
 }

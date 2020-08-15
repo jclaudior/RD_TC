@@ -12,5 +12,4 @@ public interface ClienteRepository extends JpaRepository<ClienteEntity, BigInteg
     List<ClienteEntity> findByNrRg (String Rg);
 
     List<ClienteEntity> findByNrCpf (String CPF);
-
 }

@@ -15,13 +15,14 @@ public class ReservaItemEntity {
     @Column(name = "ID_TC_RESERVA_ITEM")
     private BigInteger idTcReservaItem;
 
+
     @ManyToOne
     @JoinColumn(name = "ID_RESERVA")
-    private Integer idReserva;
+    private ReservaEntity reserva;
 
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
-    private BigInteger cdProduto;
+    private ProdutoEntity produto;
 
     @Column(name = "QT_PRODUTO")
     private Integer qtProduto;
