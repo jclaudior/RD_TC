@@ -18,11 +18,9 @@ public class ReservaEntity implements Serializable {
     @Column(name = "ID_TC_RESERVA")
     private Integer idTcReserva;
 
-//    @ManyToOne
-//    @JoinColumn(name = "ID_CLIENTE")
-//    private ClienteEntity cliente;
-    @Column(name = "ID_CLIENTE")
-    private Integer cliente;
+    @ManyToOne
+    @JoinColumn(name = "ID_CLIENTE")
+    private ClienteEntity cliente;
 
     @Column(name = "DT_INICIAL_RESERVA")
     private Date dtInicialReserva;
