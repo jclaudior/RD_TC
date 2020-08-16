@@ -13,4 +13,6 @@ public class TcCupomItemDTO {
 
     private BigInteger idCupomItem;
     private float pcDesconto;
+    private TcCupomDTO cupom;
+    private ProdutoDTO produto;
 }
