@@ -8,51 +8,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 
-@NamedNativeQuery(name = "listarProduto", query = "SELECT\n" +
-        "P.CD_PRODUTO,\n" +
-        "P.ID_STATUS_PRODUTO,\n" +
-        "P.ID_CATEGORIA,\n" +
-        "P.ID_TIPO_PRODUTO,\n" +
-        "P.NM_FABRICANTE,\n" +
-        "P.NM_FANTASIA,\n" +
-        "P.VL_UNIDADE,\n" +
-        "LMPM.QT_PRODUTO,\n" +
-        "LMPM.PC_DESCONTO,\n" +
-        "LMPM.DT_INICIO_LMPM,\n" +
-        "LMPM.DT_FIM_LMPM\n" +
-        "FROM TB_PRODUTO as P\n" +
-        "LEFT JOIN (SELECT L.ID_LMPM,\n" +
-        "                  L.DT_INICIO_LMPM,\n" +
-        "                  L.DT_FIM_LMPM,\n" +
-        "                  LI.CD_PRODUTO,\n" +
-        "                  LI.QT_PRODUTO,\n" +
-        "                  LI.PC_DESCONTO\n" +
-        "           FROM TB_LMPM L\n" +
-        "           INNER JOIN TB_LMPM_ITEM LI ON (LI.ID_LMPM = L.ID_LMPM)\n" +
-        "           WHERE SYSDATE() BETWEEN L.DT_INICIO_LMPM AND L.DT_FIM_LMPM) LMPM ON (LMPM.CD_PRODUTO = P.CD_PRODUTO)")
-@NamedNativeQuery( name = "listarPorProduto", query = "SELECT\n" +
-        "P.CD_PRODUTO,\n" +
-        "P.ID_STATUS_PRODUTO,\n" +
-        "P.ID_CATEGORIA,\n" +
-        "P.ID_TIPO_PRODUTO,\n" +
-        "P.NM_FABRICANTE,\n" +
-        "P.NM_FANTASIA,\n" +
-        "P.VL_UNIDADE,\n" +
-        "LMPM.QT_PRODUTO,\n" +
-        "LMPM.PC_DESCONTO,\n" +
-        "LMPM.DT_INICIO_LMPM,\n" +
-        "LMPM.DT_FIM_LMPM\n" +
-        "FROM TB_PRODUTO as P\n" +
-        "LEFT JOIN (SELECT L.ID_LMPM,\n" +
-        "                  L.DT_INICIO_LMPM,\n" +
-        "                  L.DT_FIM_LMPM,\n" +
-        "                  LI.CD_PRODUTO,\n" +
-        "                  LI.QT_PRODUTO,\n" +
-        "                  LI.PC_DESCONTO\n" +
-        "           FROM TB_LMPM L\n" +
-        "           INNER JOIN TB_LMPM_ITEM LI ON (LI.ID_LMPM = L.ID_LMPM)\n" +
-        "           WHERE SYSDATE() BETWEEN L.DT_INICIO_LMPM AND L.DT_FIM_LMPM) LMPM ON (LMPM.CD_PRODUTO = P.CD_PRODUTO)\n" +
-        "WHERE P.CD_PRODUTO = ?\n" )
+
 @Entity
 @Table(name = "TB_PRODUTO")
 @Data
