@@ -1,5 +1,6 @@
 package br.com.rdevs.tc.controller;
 
+import br.com.rdevs.tc.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
