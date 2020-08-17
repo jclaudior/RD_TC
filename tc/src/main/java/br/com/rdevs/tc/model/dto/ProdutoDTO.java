@@ -1,10 +1,12 @@
 package br.com.rdevs.tc.model.dto;
 
+import br.com.rdevs.tc.model.entity.LmpmItemEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -18,4 +20,5 @@ public class ProdutoDTO {
     private String nmFantasia;
     private String nmFabricante;
     private double vlUnidade;
+    private List<LmpmItemDTO> lmpmLista;
 }
