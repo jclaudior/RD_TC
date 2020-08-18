@@ -124,19 +124,6 @@
     font-size: 14px;
 }
 
-#Generic {
-    color: rgb(233, 233, 0);
-    text-shadow: 1px 1px rgb(88, 88, 88);
-}
-
-#Referencia {
-    color: rgb(87, 87, 87);
-}
-
-#Semelhante {
-    color: red;
-    text-shadow: 1px 1px rgb(88, 88, 88);
-}
 
 input[type='radio']:after {
     width: 15px;

@@ -4,9 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -14,10 +13,12 @@ import java.util.Date;
 public class ReservaDTO {
 
 
-    private Integer idTcReserva;
-    private BigInteger idCliente;
+    private ClienteDTO clienteDTO;
     private Date dtInicialReserva;
     private Date dtFinalReserva;
+    private List<ReservaItemDTO> itens;
+
+
 
 }
 

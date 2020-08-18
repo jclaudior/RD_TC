@@ -11,278 +11,167 @@
 </head>
 
 <body>
-    <!-- Cabecalho -->
-    <header>
-        <nav class="navbar navbar-dark  nav-rd">
-            <a class="navbar-brand" href="">
-                <img src="images/Raiadrogasil_Logo.png" width="200" class="d-inline-block align-top" alt="" loading="lazy">
-            </a>
-            <div class="information-base">
-                <ul>
-                    <li><b>Funcionario: </b> Lorem Ipsum da Silva </li>
-                    <li><b>Matricula: </b> 174602 </li>
-                    <li><b>Loja: </b> 255 - <b>Osasco 11</b> </li>
-                </ul>
+    <div class="col-lg-9 col-md-8 col-sm-12">
+        <div>
+            <div class="Space">
+
             </div>
-        </nav>
-    </header>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="side-bar col-lg-3 col-md-4 col-sm-0">
-                <!--Menu Side-bar-->
-                <form id="form1">
-                    <div class="form-row my-3">
-                        <!--
-                            <div class="col-12">
-                            <label class="font-bold-side-bar">Pesquisa de Produtos</label>
-                        </div>
-                        -->
-                        <div class="col-10 pr-0">
-                            <input type="text" class="form-control pesqProduto" name="produto" id="produto" placeholder="O que deseja encontrar?">
-                        </div>
-                        <div class="col-2 pl-0">
-                            <a type="submit" class="btn btn-primary lupa"></a>
-                        </div>
-                    </div>
-                </form>
+            <div class="Space_Descricao">
                 <div class="row">
+                    <div class="col-8">
+                        <label class="labelDescription"><b>Categoria: </b></label>
+                        <label class="labelDescription">Chupeta</label>
+                    </div>
+                    <div class="col-4">
+                        <label class="labelDescription"><b>Status: </b></label>
+                        <label class="labelDescription">Fine!</label>
+                    </div>
                     <div class="col-12">
-                        <div class="card">
-                            <h5 class="card-header text-center">Identificação do Cliente</h5>
-                            <div class="card-body">
-                                <h6 class="card-title">Nome do Cliente:</h6>
-                                <p class="card-text font-bold-side-bar">Lorem Ipsum da Silva</p>
-                                <h6 class="card-title">CPF:</h6>
-                                <p class="card-text font-bold-side-bar">494.276.853-52</p>
-                                <h6 class="card-title">Categoria:</h6>
-                                <p class="card-text font-bold-side-bar">Sênior</p>
-                                <!-- <h6 class="card-title">Convênio</h6> -->
-                                <!-- <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="convenio" id="inlineRadio1" value="sim">
-                                    <label class="form-check-label font-bold-side-bar" for="inlineRadio1">Sim</label>
-                                </div>
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="convenio" id="inlineRadio2" value="nao">
-                                    <label class="form-check-label font-bold-side-bar" for="inlineRadio2">Não</label>
-                                </div> -->
-                            </div>
-                        </div>
+                        <label class="labelDescription"><b>Descrição Completa: </b></label>
+                        <label class="labelDescription">Chupeta Super Ventilada Ortodôntica Rosa Fase 2</label>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-12 mt-3"><a href="SelecionarCliente.html" class="btn btn-primary form-control btn-novo"><b> Novo
-                                Atendimento</b></a></div>
-                    <div class="col-12 mt-3"><a href="Reserva_De_Produtos.html" class="btn btn-primary form-control btn-reserva"><b>Reserva de
-                                Produtos</b></a></div>
-                    <div class="col-12 mt-3"><a href="devolucaoDeProduto.html" class="btn btn-primary form-control btn-troca"><b>Troca de
-                                Produtos</b></a></div>
-                    <div class="col-12 mt-3"><a href="ofertaPorCliente.html" class="btn btn-primary form-control btn-cupom"><b>Cupom de
-                                Desconto</b></a></div>
-                    <div class="col-12 mt-3"><a href="login.html" class="btn btn-primary form-control btn-sair"><b>Sair</b></a></div>
-                </div>
-                <div class="row" id="onlySpace">
-
                 </div>
             </div>
-            <div class="col-lg-9 col-md-8 col-sm-12">
-                <div>
-                    <div class="Space">
-
-                    </div>
-                    <div class="Space_Descricao">
-                        <div class="row">
-                            <div class="col-8">
-                                <label class="labelDescription"><b>Categoria: </b></label>
-                                <label class="labelDescription">Chupeta</label>
-                            </div>
-                            <div class="col-4">
-                                <label class="labelDescription"><b>Status: </b></label>
-                                <label class="labelDescription">Fine!</label>
-                            </div>
-                            <div class="col-12">
-                                <label class="labelDescription"><b>Descrição Completa: </b></label>
-                                <label class="labelDescription">Chupeta Super Ventilada Ortodôntica Rosa Fase 2</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="div-table-prod">
-                        <table class="table ">
-                            <thead class="thead" style="background-color: rgb(115, 115, 115); color: white; font-size: 14px;">
-                                <tr>
-                                    <th scope="col">Tp</th>
-                                    <th scope="col">Forn</th>
-                                    <th scope="col">Cod</th>
-                                    <th scope="col">Descrição</th>
-                                    <th scope="col">Est</th>
-                                    <th scope="col">VB</th>
-                                    <th scope="col">MP</th>
-                                    <th scope="col">PMC</th>
-                                    <th scope="col">$V Exclu</th>
-                                    <th scope="col">%</th>
-                                    <th scope="col">$VU</th>
-                                    <th scope="col">LMPM</th>
-                                    <!-- <th scope="col">FP</th>
-                                    <th scope="col">LAB</th>
-                                    <th scope="col">PBM</th>
-                                    <th scope="col">Seru</th> -->
-                                    <th scope="col">Reserva</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row" id="Generic">G</th>
-                                    <td>Kuka</td>
-                                    <td>26724</td>
-                                    <td>Chupeta Super Ventilada Ortodôntica Rosa Fase 2</td>
-                                    <td>127</td>
-                                    <td>250</td>
-                                    <td>%</td>
-                                    <td>20,15</td>
-                                    <td>14,99</td>
-                                    <td>%</td>
-                                    <td>14,99</td>
-                                    <td></td>
-                                    <!-- <td>BR</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>$</td> -->
-                                    <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
-                                            </b></a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" id="Generic">G</th>
-                                    <td>Genomma</td>
-                                    <td>60617</td>
-                                    <td>Pomada para Tratamento de Hemorróidas Proctan</td>
-                                    <td>10</td>
-                                    <td>200</td>
-                                    <td>%</td>
-                                    <td>50,40</td>
-                                    <td>32,90</td>
-                                    <td>%</td>
-                                    <td>32,90</td>
-                                    <td></td>
-                                    <!-- <td>BR</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>$</td> -->
-                                    <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
-                                            </b></a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" id="Referencia">R</th>
-                                    <td>Dorflex</td>
-                                    <td>33027</td>
-                                    <td>Dorflex</td>
-                                    <td>10</td>
-                                    <td>200</td>
-                                    <td>%</td>
-                                    <td>5,52</td>
-                                    <td>10,5</td>
-                                    <td>%</td>
-                                    <td>5,52</td>
-                                    <td></td>
-                                    <!-- <td>BR</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>$</td> -->
-                                    <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
-                                            </b></a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" id="Semelhante">S</th>
-                                    <td>Cotonetes</td>
-                                    <td>33027</td>
-                                    <td>Hastes Flexíveis Cotonetes</td>
-                                    <td>85</td>
-                                    <td>150</td>
-                                    <td>%</td>
-                                    <td>6,69</td>
-                                    <td>15,55</td>
-                                    <td>%</td>
-                                    <td>6,69</td>
-                                    <td></td>
-                                    <!-- <td>BR</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>$</td> -->
-                                    <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
-                                            </b></a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" id="Generic">G</th>
-                                    <td>Huggies</td>
-                                    <td>33027</td>
-                                    <td>Toalhas Umedecidas Huggies Max Clean</td>
-                                    <td>10</td>
-                                    <td>20</td>
-                                    <td>%</td>
-                                    <td>35,66</td>
-                                    <td>40,15</td>
-                                    <td>%</td>
-                                    <td>35,66</td>
-                                    <td></td>
-                                    <!-- <td>BR</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>$</td> -->
-                                    <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
-                                            </b></a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" id="Referencia">R</th>
-                                    <td>Needs</td>
-                                    <td>33027</td>
-                                    <td>Algodão em Bolas Needs</td>
-                                    <td>8</td>
-                                    <td>10</td>
-                                    <td>%</td>
-                                    <td>7,79</td>
-                                    <td>10,15</td>
-                                    <td>%</td>
-                                    <td>7,79</td>
-                                    <td></td>
-                                    <!-- <td>BR</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>$</td> -->
-                                    <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
-                                            </b></a></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" id="Referencia">R</th>
-                                    <td>Needs</td>
-                                    <td>33027</td>
-                                    <td>Algodão em Bolas Needs</td>
-                                    <td>8</td>
-                                    <td>10</td>
-                                    <td>%</td>
-                                    <td>7,79</td>
-                                    <td>10,15</td>
-                                    <td>%</td>
-                                    <td>7,79</td>
-                                    <td></td>
-                                    <!-- <td>BR</td>
-                                    <td></td>
-                                    <td></td>
-                                    <td>$</td> -->
-                                    <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
-                                            </b></a></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--Conteudo Principal-->
-                </div>
+            <div class="div-table-prod">
+                <table class="table ">
+                    <thead class="thead" style="background-color: rgb(115, 115, 115); color: white; font-size: 14px;">
+                        <tr>
+                            <th scope="col">Tp</th>
+                            <th scope="col">Forn</th>
+                            <th scope="col">Cod</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Est</th>
+                            <th scope="col">VB</th>
+                            <th scope="col">MP</th>
+                            <th scope="col">PMC</th>
+                            <th scope="col">$V Exclu</th>
+                            <th scope="col">%</th>
+                            <th scope="col">$VU</th>
+                            <th scope="col">LMPM</th>
+                            <th scope="col">Reserva</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" id="Generic">G</th>
+                            <td>Kuka</td>
+                            <td>26724</td>
+                            <td>Chupeta Super Ventilada Ortodôntica Rosa Fase 2</td>
+                            <td>127</td>
+                            <td>250</td>
+                            <td>%</td>
+                            <td>20,15</td>
+                            <td>14,99</td>
+                            <td>%</td>
+                            <td>14,99</td>
+                            <td></td>
+                            <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
+                            </b></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="Generic">G</th>
+                            <td>Genomma</td>
+                            <td>60617</td>
+                            <td>Pomada para Tratamento de Hemorróidas Proctan</td>
+                            <td>10</td>
+                            <td>200</td>
+                            <td>%</td>
+                            <td>50,40</td>
+                            <td>32,90</td>
+                            <td>%</td>
+                            <td>32,90</td>
+                            <td></td>
+                            <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
+                            </b></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="Referencia">R</th>
+                            <td>Dorflex</td>
+                            <td>33027</td>
+                            <td>Dorflex</td>
+                            <td>10</td>
+                            <td>200</td>
+                            <td>%</td>
+                            <td>5,52</td>
+                            <td>10,5</td>
+                            <td>%</td>
+                            <td>5,52</td>
+                            <td></td>
+                            <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
+                            </b></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="Semelhante">S</th>
+                            <td>Cotonetes</td>
+                            <td>33027</td>
+                            <td>Hastes Flexíveis Cotonetes</td>
+                            <td>85</td>
+                            <td>150</td>
+                            <td>%</td>
+                            <td>6,69</td>
+                            <td>15,55</td>
+                            <td>%</td>
+                            <td>6,69</td>
+                            <td></td>
+                            <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
+                            </b></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="Generic">G</th>
+                            <td>Huggies</td>
+                            <td>33027</td>
+                            <td>Toalhas Umedecidas Huggies Max Clean</td>
+                            <td>10</td>
+                            <td>20</td>
+                            <td>%</td>
+                            <td>35,66</td>
+                            <td>40,15</td>
+                            <td>%</td>
+                            <td>35,66</td>
+                            <td></td>
+                            <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
+                            </b></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="Referencia">R</th>
+                            <td>Needs</td>
+                            <td>33027</td>
+                            <td>Algodão em Bolas Needs</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>%</td>
+                            <td>7,79</td>
+                            <td>10,15</td>
+                            <td>%</td>
+                            <td>7,79</td>
+                            <td></td>
+                            <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
+                            </b></a></td>
+                        </tr>
+                        <tr>
+                            <th scope="row" id="Referencia">R</th>
+                            <td>Needs</td>
+                            <td>33027</td>
+                            <td>Algodão em Bolas Needs</td>
+                            <td>8</td>
+                            <td>10</td>
+                            <td>%</td>
+                            <td>7,79</td>
+                            <td>10,15</td>
+                            <td>%</td>
+                            <td>7,79</td>
+                            <td></td>
+                            <td><a href="#" class="btn btn-success form-control" style="background-color: #01784E; border-color: #01784E;"><b> Reserva
+                            </b></a></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-        </script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-        </script>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
 
 </html>

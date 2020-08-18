@@ -11,12 +11,14 @@ import java.math.BigInteger;
 public class ReservaItemEntity {
 
     @Id
-//    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-////    @Column(name = "ID_TC_RESERVA_ITEM")
-////    private BigInteger idTcReservaItem;
-    @Column(name = "ID_RESERVA")
-    private Integer idReserva;
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_TC_RESERVA_ITEM")
+    private BigInteger idTcReservaItem;
 
+
+    @ManyToOne
+    @JoinColumn(name = "ID_RESERVA")
+    private ReservaEntity reserva;
 
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
@@ -24,6 +26,10 @@ public class ReservaItemEntity {
 
     @Column(name = "QT_PRODUTO")
     private Integer qtProduto;
+
+
+
+
 
 
 }

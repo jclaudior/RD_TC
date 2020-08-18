@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_TC_RESERVA")
@@ -26,4 +27,8 @@ public class ReservaEntity implements Serializable {
 
     @Column(name = "DT_FINAL_RESERVA")
     private Date dtFinalReserva;
+
+    @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
+    private List<ReservaItemEntity> itens;
+
 }
