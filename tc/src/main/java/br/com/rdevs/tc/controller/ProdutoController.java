@@ -17,9 +17,15 @@ public class ProdutoController {
         return ResponseEntity.ok().body(produtoService.listarProduto());
     }
 
-    @GetMapping("/produto/{codigo}")
+    @GetMapping("/produto/codigo/{codigo}")
     public ResponseEntity produtoId(@PathVariable("codigo") BigInteger cdProduto){
 
         return ResponseEntity.ok().body(produtoService.listarPorId(cdProduto));
+    }
+
+    @GetMapping("/produto/nome/{nome}")
+    public ResponseEntity produtoNome(@PathVariable("nome") String nomeProduto){
+
+        return ResponseEntity.ok().body(produtoService.listarPorNome(nomeProduto));
     }
 }

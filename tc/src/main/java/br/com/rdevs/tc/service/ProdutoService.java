@@ -36,4 +36,14 @@ public class ProdutoService {
 
         return produtoDTO;
     }
+
+    public List<ProdutoDTO> listarPorNome(String nomeProduto){
+        List<ProdutoEntity> listaEntity = produtoRep.findByNmFantasiaContaining(nomeProduto);
+        List<ProdutoDTO> listaDto = new ArrayList<>();
+        for (ProdutoEntity produtoEntity: listaEntity) {
+            listaDto.add(produtoBo.ParseToDto(produtoEntity));
+
+        }
+        return listaDto;
+    }
 }
