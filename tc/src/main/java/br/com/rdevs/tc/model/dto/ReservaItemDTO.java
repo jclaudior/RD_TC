@@ -15,7 +15,7 @@ import java.math.BigInteger;
 @Data
 public class ReservaItemDTO {
 
-    private BigInteger idReserva;
+    //private Long idReserva;
     private ProdutoDTO produto;
     private Integer qtProduto;
 

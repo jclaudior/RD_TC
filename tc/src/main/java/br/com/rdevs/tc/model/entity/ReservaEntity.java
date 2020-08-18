@@ -16,7 +16,7 @@ public class ReservaEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_TC_RESERVA")
-    private Integer idTcReserva;
+    private BigInteger idTcReserva;
 
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")

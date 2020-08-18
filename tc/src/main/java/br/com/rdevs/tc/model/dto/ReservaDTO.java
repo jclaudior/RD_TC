@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class ReservaDTO {
     private ClienteDTO clienteDTO;
     private Date dtInicialReserva;
     private Date dtFinalReserva;
-    private Integer idTcReserva;
+    private BigInteger idTcReserva;
     private List<ReservaItemDTO> itens;
 
 

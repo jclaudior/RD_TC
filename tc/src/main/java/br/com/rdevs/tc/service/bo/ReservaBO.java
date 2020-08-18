@@ -37,7 +37,7 @@ public class ReservaBO {
         List<ReservaItemDTO> listaItemDTO = new ArrayList<>();
         for (ReservaItemEntity item : entity.getItens()) {
             ReservaItemDTO itemDTO = new ReservaItemDTO();
-            itemDTO.setIdReserva(item.getIdTcReservaItem());
+           // itemDTO.setIdReserva(item.getIdTcReservaItem());
             ProdutoDTO produtoDTO = produtoBo.ParseToDto(item.getProduto());
             itemDTO.setProduto(produtoDTO);
             itemDTO.setQtProduto(item.getQtProduto());
@@ -66,7 +66,7 @@ public class ReservaBO {
         List<ReservaItemEntity> listaItemEntity = new ArrayList<>();
         for (ReservaItemDTO item : dto.getItens()) {
             ReservaItemEntity itemEntity = new ReservaItemEntity();
-            itemEntity.setIdTcReservaItem(item.getIdReserva());
+           // itemEntity.setIdTcReservaItem(item.getIdReserva());
             ProdutoEntity produtoEntity = produtoBo.ParseEntity(item.getProduto());
             itemEntity.setProduto(produtoEntity);
             itemEntity.setQtProduto(item.getQtProduto());

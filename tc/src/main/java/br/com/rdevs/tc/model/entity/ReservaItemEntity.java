@@ -4,24 +4,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_TC_RESERVA_ITEM")
 @Data
-public class ReservaItemEntity {
+public class ReservaItemEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_TC_RESERVA_ITEM")
-    private BigInteger idTcReservaItem;
-
-
     @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "ID_RESERVA")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_TC_RESERVA")
     private ReservaEntity reserva;
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
     private ProdutoEntity produto;
