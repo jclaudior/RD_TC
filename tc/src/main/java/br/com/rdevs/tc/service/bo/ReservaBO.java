@@ -71,6 +71,7 @@ public class ReservaBO {
             itemEntity.setProduto(produtoEntity);
             itemEntity.setQtProduto(item.getQtProduto());
             listaItemEntity.add(itemEntity);
+            itemEntity.setReserva(entity);
         }
         entity.setItens(listaItemEntity);
 
