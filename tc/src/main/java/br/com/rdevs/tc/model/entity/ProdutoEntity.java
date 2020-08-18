@@ -5,6 +5,9 @@ import lombok.Data;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.List;
+
+
 
 @Entity
 @Table(name = "TB_PRODUTO")
@@ -33,4 +36,9 @@ public class ProdutoEntity implements Serializable {
 
     @Column(name = "VL_UNIDADE")
     private double vlUnidade;
+
+    @OneToMany
+    @JoinColumn(name = "CD_PRODUTO")
+    private List<LmpmItemEntity> lmpmLista;
+
 }

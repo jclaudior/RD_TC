@@ -18,27 +18,30 @@ public class ClienteBO {
             return true;
         }
     }
+
     public boolean isCPF(String dadosCliente) {
         if (dadosCliente == null)
             return false;
-        if(dadosCliente.length()== 11)
+        if (dadosCliente.length() == 11)
             return true;
         else
             return false;
 
     }
+
     public boolean isRg(String dadosCliente) {
         if (dadosCliente == null)
             return false;
-        if(dadosCliente.length()== 9)
+        if (dadosCliente.length() == 9)
             return true;
         else
             return false;
 
     }
+
     public ClienteDTO parseDTO(ClienteEntity entity) {
-        if(entity == null){
-           return null;
+        if (entity == null) {
+            return null;
         }
         ClienteDTO dto = new ClienteDTO();
         dto.setIdCliente(entity.getIdCliente());
@@ -58,6 +61,22 @@ public class ClienteBO {
         return dto;
     }
 
+    public ClienteEntity parseEntity(ClienteDTO dto) {
+        if (dto == null)
+            return null;
 
-}
+            ClienteEntity entity = new ClienteEntity();
+            entity.setIdCliente(dto.getIdCliente());
+            entity.setNmCliente(dto.getNmCliente());
+            entity.setDsEmail(dto.getDsEmail());
+            entity.setDtCadastro(dto.getDtCadastro());
+            entity.setNrCpf(dto.getNrCPF());
+            entity.setNrRg(dto.getNrRg());
+            entity.setDtNascimento(dto.getDtNascimento());
+            entity.setDsGenero(dto.getDsGenero());
+            entity.setNrTelefoneCliente(dto.getNrTelefoneCliente());
+            return entity;
+        }
+    }
+
 

@@ -16,6 +16,7 @@ public class ReservaDTO {
     private ClienteDTO clienteDTO;
     private Date dtInicialReserva;
     private Date dtFinalReserva;
+    private Integer idTcReserva;
     private List<ReservaItemDTO> itens;
 
 

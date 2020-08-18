@@ -1,10 +1,10 @@
 package br.com.rdevs.tc.controller;
 
+import br.com.rdevs.tc.model.dto.ReservaDTO;
+import br.com.rdevs.tc.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
 
@@ -18,6 +18,13 @@ public class ReservaController {
     public ResponseEntity listarPorCliente(@RequestParam("idCliente") BigInteger idCliente) {
         return ResponseEntity.ok().body(reservaService.listarPorCliente(idCliente));
 
+    }
+
+    @PostMapping("/reserva")
+    public ResponseEntity inserir(@RequestBody ReservaDTO dto){
+        reservaService.inserir(dto);
+
+        return ResponseEntity.ok().body(dto);
     }
 
 }
