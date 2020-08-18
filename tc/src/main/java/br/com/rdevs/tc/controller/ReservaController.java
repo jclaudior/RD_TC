@@ -22,9 +22,7 @@ public class ReservaController {
 
     @PostMapping("/reserva")
     public ResponseEntity inserir(@RequestBody ReservaDTO dto){
-        reservaService.inserir(dto);
-
-        return ResponseEntity.ok().body(dto);
+        return ResponseEntity.ok().body(reservaService.inserir(dto));
     }
 
 }

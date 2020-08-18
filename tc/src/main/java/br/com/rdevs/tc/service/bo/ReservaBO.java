@@ -9,6 +9,7 @@ import br.com.rdevs.tc.model.entity.ReservaItemEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,12 +34,11 @@ public class ReservaBO {
         dto.setClienteDTO(clienteBO.parseDTO(entity.getCliente()));
         dto.setDtInicialReserva(entity.getDtFinalReserva());
         dto.setDtFinalReserva(entity.getDtFinalReserva());
-
         List<ReservaItemDTO> listaItemDTO = new ArrayList<>();
         for (ReservaItemEntity item : entity.getItens()) {
             ReservaItemDTO itemDTO = new ReservaItemDTO();
+            itemDTO.setIdReserva(item.getIdTcReservaItem());
             ProdutoDTO produtoDTO = produtoBo.ParseToDto(item.getProduto());
-
             itemDTO.setProduto(produtoDTO);
             itemDTO.setQtProduto(item.getQtProduto());
             listaItemDTO.add(itemDTO);
@@ -66,9 +66,8 @@ public class ReservaBO {
         List<ReservaItemEntity> listaItemEntity = new ArrayList<>();
         for (ReservaItemDTO item : dto.getItens()) {
             ReservaItemEntity itemEntity = new ReservaItemEntity();
+            itemEntity.setIdTcReservaItem(item.getIdReserva());
             ProdutoEntity produtoEntity = produtoBo.ParseEntity(item.getProduto());
-
-
             itemEntity.setProduto(produtoEntity);
             itemEntity.setQtProduto(item.getQtProduto());
             listaItemEntity.add(itemEntity);
