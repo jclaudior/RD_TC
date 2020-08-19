@@ -19,11 +19,14 @@ public class ProdutoBo {
     @Autowired
     LmpmItemBo lmpmItemBo;
 
+    @Autowired
+    CategoriaProdutoBO categoriaProdutoBO;
+
     public ProdutoDTO ParseToDto(ProdutoEntity produtoEntity) {
 
         ProdutoDTO produtoDTO = new ProdutoDTO();
         produtoDTO.setCdProduto(produtoEntity.getCdProduto());
-        produtoDTO.setIdCategoria(produtoEntity.getIdCategoria());
+        produtoDTO.setCategoria(categoriaProdutoBO.parseDTO(produtoEntity.getCategoria()));
         produtoDTO.setIdStatusProduto(produtoEntity.getIdStatusProduto());
         produtoDTO.setIdTipoProduto(produtoEntity.getIdTipoProduto());
         produtoDTO.setNmFabricante(produtoEntity.getNmFabricante());
@@ -49,7 +52,7 @@ public class ProdutoBo {
 
         ProdutoEntity produtoEntity = new ProdutoEntity();
         produtoEntity.setCdProduto(produtoDTO.getCdProduto());
-        produtoEntity.setIdCategoria(produtoDTO.getIdCategoria());
+        produtoEntity.setCategoria(categoriaProdutoBO.parseEntity(produtoDTO.getCategoria()));
         produtoEntity.setIdStatusProduto(produtoDTO.getIdStatusProduto());
         produtoEntity.setIdTipoProduto(produtoDTO.getIdTipoProduto());
         produtoEntity.setNmFabricante(produtoDTO.getNmFabricante());

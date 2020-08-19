@@ -22,8 +22,9 @@ public class ProdutoEntity implements Serializable {
     @Column(name = "ID_STATUS_PRODUTO")
     private BigInteger idStatusProduto;
 
-    @Column(name = "ID_CATEGORIA")
-    private BigInteger idCategoria;
+    @ManyToOne
+    @JoinColumn(name = "ID_CATEGORIA")
+    private CategoriaProdutoEntity categoria;
 
     @Column(name = "ID_TIPO_PRODUTO")
     private BigInteger idTipoProduto;

@@ -15,7 +15,7 @@ public class ProdutoDTO {
 
     private BigInteger cdProduto;
     private BigInteger idStatusProduto;
-    private BigInteger idCategoria;
+    private CategoriaProdutoDTO categoria;
     private BigInteger idTipoProduto;
     private String nmFantasia;
     private String nmFabricante;
