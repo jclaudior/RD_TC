@@ -17,9 +17,22 @@ public class ProdutoController {
         return ResponseEntity.ok().body(produtoService.listarProduto());
     }
 
+<<<<<<< HEAD
+    @GetMapping("/produto/codigo/{codigo}")
+=======
     @GetMapping("/produto/{codigo}")
+>>>>>>> APIRESERVA3
     public ResponseEntity produtoId(@PathVariable("codigo") BigInteger cdProduto){
 
         return ResponseEntity.ok().body(produtoService.listarPorId(cdProduto));
     }
+<<<<<<< HEAD
+
+    @GetMapping("/produto/nome/{nome}")
+    public ResponseEntity produtoNome(@PathVariable("nome") String nomeProduto){
+
+        return ResponseEntity.ok().body(produtoService.listarPorNome(nomeProduto));
+    }
+=======
+>>>>>>> APIRESERVA3
 }

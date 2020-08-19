@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+
+import java.util.Date;
+
 import java.util.List;
 
 @Component
@@ -15,6 +18,7 @@ public class ProdutoBo {
 
     @Autowired
     LmpmItemBo lmpmItemBo;
+
     public ProdutoDTO ParseToDto(ProdutoEntity produtoEntity) {
 
         ProdutoDTO produtoDTO = new ProdutoDTO();
@@ -25,14 +29,45 @@ public class ProdutoBo {
         produtoDTO.setNmFabricante(produtoEntity.getNmFabricante());
         produtoDTO.setNmFantasia(produtoEntity.getNmFantasia());
         produtoDTO.setVlUnidade(produtoEntity.getVlUnidade());
+
         List<LmpmItemDTO>  lmpmItemDTO = new ArrayList<>();
+<<<<<<< HEAD
         if(produtoDTO.getLmpmLista() != null) {
             for (LmpmItemEntity lmpmItemEntity : produtoEntity.getLmpmLista()) {
+=======
+        for (LmpmItemEntity lmpmItemEntity:produtoEntity.getLmpmLista()) {
+            Date dataAtual = new Date();
+            Date dataDaPromocao = lmpmItemBo.parseToDto(lmpmItemEntity).getLmpm().getDtFimLmpm();
+            if (dataDaPromocao.after(dataAtual) || dataDaPromocao.after(dataAtual)) {
+>>>>>>> 3805d3cd39b27e7829409379d3e387539df1b9ef
                 lmpmItemDTO.add(lmpmItemBo.parseToDto(lmpmItemEntity));
             }
         }
         produtoDTO.setLmpmLista(lmpmItemDTO);
         return produtoDTO;
+
+
     }
 
-}
+    public ProdutoEntity ParseEntity(ProdutoDTO produtoDTO) {
+
+        ProdutoEntity produtoEntity = new ProdutoEntity();
+        produtoEntity.setCdProduto(produtoDTO.getCdProduto());
+        produtoEntity.setIdCategoria(produtoDTO.getIdCategoria());
+        produtoEntity.setIdStatusProduto(produtoDTO.getIdStatusProduto());
+        produtoEntity.setIdTipoProduto(produtoDTO.getIdTipoProduto());
+        produtoEntity.setNmFabricante(produtoDTO.getNmFabricante());
+        produtoEntity.setNmFantasia(produtoDTO.getNmFantasia());
+        produtoEntity.setVlUnidade(produtoDTO.getVlUnidade());
+        List<LmpmItemEntity> lmpmItemEntity = new ArrayList<>();
+        if (produtoDTO.getLmpmLista() != null) {
+            for (LmpmItemDTO lmpmItemDTO : produtoDTO.getLmpmLista()) {
+                lmpmItemEntity.add(lmpmItemBo.parseEntity(lmpmItemDTO));
+            }
+            }
+            produtoEntity.setLmpmLista(lmpmItemEntity);
+
+            return produtoEntity;
+        }
+    }
+
