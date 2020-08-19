@@ -18,35 +18,34 @@ public class ProdutoService {
     private ProdutoBo produtoBo;
     @Autowired
     private ProdutoRepository produtoRep;
-    public List<ProdutoDTO> listarProduto(){
+
+    public List<ProdutoDTO> listarProduto() {
         List<ProdutoEntity> listaEntity = produtoRep.findAll();
         List<ProdutoDTO> listaDto = new ArrayList<>();
-        for (ProdutoEntity produtoEntity: listaEntity) {
+        for (ProdutoEntity produtoEntity : listaEntity) {
             listaDto.add(produtoBo.ParseToDto(produtoEntity));
 
         }
         return listaDto;
     }
 
-    public ProdutoDTO listarPorId(BigInteger cdProduto){
+    public ProdutoDTO listarPorId(BigInteger cdProduto) {
         ProdutoEntity produtoEntity = produtoRep.getOne(cdProduto);
         ProdutoDTO produtoDTO = new ProdutoDTO();
-            produtoDTO = (produtoBo.ParseToDto(produtoEntity));
+        produtoDTO = (produtoBo.ParseToDto(produtoEntity));
 
 
         return produtoDTO;
     }
-<<<<<<< HEAD
 
-    public List<ProdutoDTO> listarPorNome(String nomeProduto){
+
+    public List<ProdutoDTO> listarPorNome(String nomeProduto) {
         List<ProdutoEntity> listaEntity = produtoRep.findByNmFantasiaContaining(nomeProduto);
         List<ProdutoDTO> listaDto = new ArrayList<>();
-        for (ProdutoEntity produtoEntity: listaEntity) {
+        for (ProdutoEntity produtoEntity : listaEntity) {
             listaDto.add(produtoBo.ParseToDto(produtoEntity));
 
         }
         return listaDto;
     }
-=======
->>>>>>> APIRESERVA3
 }
