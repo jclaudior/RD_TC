@@ -31,18 +31,14 @@ public class ProdutoBo {
         produtoDTO.setVlUnidade(produtoEntity.getVlUnidade());
 
         List<LmpmItemDTO>  lmpmItemDTO = new ArrayList<>();
-<<<<<<< HEAD
-        if(produtoDTO.getLmpmLista() != null) {
             for (LmpmItemEntity lmpmItemEntity : produtoEntity.getLmpmLista()) {
-=======
-        for (LmpmItemEntity lmpmItemEntity:produtoEntity.getLmpmLista()) {
-            Date dataAtual = new Date();
-            Date dataDaPromocao = lmpmItemBo.parseToDto(lmpmItemEntity).getLmpm().getDtFimLmpm();
-            if (dataDaPromocao.after(dataAtual) || dataDaPromocao.after(dataAtual)) {
->>>>>>> 3805d3cd39b27e7829409379d3e387539df1b9ef
-                lmpmItemDTO.add(lmpmItemBo.parseToDto(lmpmItemEntity));
+                Date dataAtual = new Date();
+                Date dataDaPromocao = lmpmItemBo.parseToDto(lmpmItemEntity).getLmpm().getDtFimLmpm();
+                if (dataDaPromocao.after(dataAtual)||dataDaPromocao.equals(dataAtual)) {
+                    lmpmItemDTO.add(lmpmItemBo.parseToDto(lmpmItemEntity));
+                }
             }
-        }
+
         produtoDTO.setLmpmLista(lmpmItemDTO);
         return produtoDTO;
 

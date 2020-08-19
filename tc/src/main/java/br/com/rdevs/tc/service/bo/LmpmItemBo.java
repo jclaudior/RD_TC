@@ -1,6 +1,6 @@
 package br.com.rdevs.tc.service.bo;
 
-import br.com.rdevs.tc.model.dto.LmpmDTO;
+
 import br.com.rdevs.tc.model.dto.LmpmItemDTO;
 import br.com.rdevs.tc.model.entity.LmpmItemEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +21,7 @@ public class LmpmItemBo {
         return lmpmItemDTO;
 
     }
-<<<<<<< HEAD
-=======
+
 
     public LmpmItemEntity parseEntity(LmpmItemDTO lmpmItemDTO){
         LmpmItemEntity lmpmItemEntity = new LmpmItemEntity();
@@ -35,5 +34,4 @@ public class LmpmItemBo {
     }
 
 
->>>>>>> APIRESERVA3
 }

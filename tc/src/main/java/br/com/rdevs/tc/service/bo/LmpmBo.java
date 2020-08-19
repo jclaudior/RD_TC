@@ -15,8 +15,7 @@ public class LmpmBo {
 
         return lmpmDTO;
     }
-<<<<<<< HEAD
-=======
+
 
     public LmpmEntitty parseToEntity(LmpmDTO lmpmDTO){
         LmpmEntitty lmpmEntitty = new LmpmEntitty();
@@ -26,7 +25,4 @@ public class LmpmBo {
 
         return lmpmEntitty;
     }
-
-
->>>>>>> APIRESERVA3
 }

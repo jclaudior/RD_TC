@@ -1,9 +1,8 @@
 package br.com.rdevs.tc.controller;
 
-<<<<<<< HEAD
-=======
+
 import br.com.rdevs.tc.model.dto.ReservaDTO;
->>>>>>> APIRESERVA3
+
 import br.com.rdevs.tc.service.ReservaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
