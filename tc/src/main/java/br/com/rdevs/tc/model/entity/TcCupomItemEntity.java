@@ -1,5 +1,6 @@
 package br.com.rdevs.tc.model.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,7 +18,8 @@ public class TcCupomItemEntity {
 
     @ManyToOne
     @JoinColumn(name = "ID_CUPOM")
-    private TcCupomEntity tcCupomEntity;
+    @JsonIgnore
+    private TcCupomEntity tcCupom;
 
     @Column(name = "PC_DESCONTO")
     private float pcDesconto;

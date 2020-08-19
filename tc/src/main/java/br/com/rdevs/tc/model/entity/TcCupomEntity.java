@@ -19,7 +19,7 @@ public class TcCupomEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
-    private ClienteEntity clienteEntity;
+    private ClienteEntity cliente;
 
     @Column(name = "DT_INICIAL_CUPOM")
     private Date dtInicialCupom;

@@ -23,7 +23,9 @@ public class CupomService {
         TcCupomEntity entity = new TcCupomEntity();
         TcCupomDTO dto = new TcCupomDTO();
 
-        entity = repository.getOne(idCupom);
+        entity = repository.findByClienteIdCliente(idCupom);
+
+        //entity = repository.getOne(idCupom);
 
         dto = bo.parseToDTO(entity);
 

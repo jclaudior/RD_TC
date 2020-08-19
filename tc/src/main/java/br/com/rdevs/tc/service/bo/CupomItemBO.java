@@ -13,13 +13,17 @@ public class CupomItemBO {
         if(entity == null){
             return null;
         }
+
         TcCupomItemDTO dto = new TcCupomItemDTO();
 
         dto.setIdCupomItem(entity.getIdCupomItem());
         dto.setPcDesconto(entity.getPcDesconto());
 
-        CupomBO cupom = new CupomBO();
-        dto.setCupom(cupom.parseToDTO(entity.getTcCupomEntity()));
+        //CupomBO cupom = new CupomBO();
+        //dto.setCupom(cupom.parseToDTO(entity.getTcCupom()));
+
+        ProdutoBo produto = new ProdutoBo();
+        dto.setProduto(produto.ParseToDto(entity.getProdutoEntity()));
 
         return dto;
     }

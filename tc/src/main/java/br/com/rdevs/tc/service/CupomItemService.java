@@ -1,5 +1,6 @@
 package br.com.rdevs.tc.service;
 
+import br.com.rdevs.tc.model.dto.ReservaDTO;
 import br.com.rdevs.tc.model.dto.TcCupomDTO;
 import br.com.rdevs.tc.model.dto.TcCupomItemDTO;
 import br.com.rdevs.tc.model.entity.TcCupomEntity;
@@ -10,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class CupomItemService {
@@ -20,14 +23,21 @@ public class CupomItemService {
     @Autowired
     CupomItemBO bo;
 
-    public TcCupomItemDTO buscarItemCupom(BigInteger idItemCupom){
-        TcCupomItemEntity entity = new TcCupomItemEntity();
-        TcCupomItemDTO dto = new TcCupomItemDTO();
+    public List<TcCupomItemDTO> buscarItemCupom(BigInteger idItemCupom){
+        List<TcCupomItemEntity> listEntity = new ArrayList<>();
+        List<TcCupomItemDTO> listDto = new ArrayList<>();
 
-        entity = repository.getOne(idItemCupom);
+        listEntity = repository.findByTcCupomIdCupom(idItemCupom);
 
-        dto = bo.parseToDTO(entity);
+        for(TcCupomItemEntity entity : listEntity){
+            TcCupomItemDTO dto = new TcCupomItemDTO();
+            dto = bo.parseToDTO(entity);
+            listDto.add(dto);
+        }
+        //listEntity = repository.findByTcCupomIdCupom(idItemCupom);
 
-        return dto;
+        //dto = bo.parseToDTO(entity);
+
+        return listDto;
     }
 }
