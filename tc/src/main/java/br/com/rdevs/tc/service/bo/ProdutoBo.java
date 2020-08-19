@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Component
@@ -27,7 +28,11 @@ public class ProdutoBo {
         produtoDTO.setVlUnidade(produtoEntity.getVlUnidade());
         List<LmpmItemDTO>  lmpmItemDTO = new ArrayList<>();
         for (LmpmItemEntity lmpmItemEntity:produtoEntity.getLmpmLista()) {
-            lmpmItemDTO.add(lmpmItemBo.parseToDto(lmpmItemEntity));
+            Date dataAtual = new Date();
+            Date dataDaPromocao = lmpmItemBo.parseToDto(lmpmItemEntity).getLmpm().getDtFimLmpm();
+            if(dataDaPromocao.after(dataAtual)||dataDaPromocao.after(dataAtual)) {
+                lmpmItemDTO.add(lmpmItemBo.parseToDto(lmpmItemEntity));
+            }
         }
         produtoDTO.setLmpmLista(lmpmItemDTO);
         return produtoDTO;
