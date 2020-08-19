@@ -15,4 +15,18 @@ public class LmpmBo {
 
         return lmpmDTO;
     }
+<<<<<<< HEAD
+=======
+
+    public LmpmEntitty parseToEntity(LmpmDTO lmpmDTO){
+        LmpmEntitty lmpmEntitty = new LmpmEntitty();
+        lmpmEntitty.setDtInicioLmpm(lmpmDTO.getDtInicioLmpm());
+        lmpmEntitty.setDtFimLmpm(lmpmDTO.getDtFimLmpm());
+
+
+        return lmpmEntitty;
+    }
+
+
+>>>>>>> APIRESERVA3
 }

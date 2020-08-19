@@ -36,6 +36,7 @@ public class ProdutoService {
 
         return produtoDTO;
     }
+<<<<<<< HEAD
 
     public List<ProdutoDTO> listarPorNome(String nomeProduto){
         List<ProdutoEntity> listaEntity = produtoRep.findByNmFantasiaContaining(nomeProduto);
@@ -46,4 +47,6 @@ public class ProdutoService {
         }
         return listaDto;
     }
+=======
+>>>>>>> APIRESERVA3
 }

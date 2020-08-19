@@ -21,4 +21,19 @@ public class LmpmItemBo {
         return lmpmItemDTO;
 
     }
+<<<<<<< HEAD
+=======
+
+    public LmpmItemEntity parseEntity(LmpmItemDTO lmpmItemDTO){
+        LmpmItemEntity lmpmItemEntity = new LmpmItemEntity();
+        lmpmItemEntity.setIdLmpmItem(lmpmItemDTO.getIdLmpmItem());
+        lmpmItemEntity.setPcDesconto(lmpmItemDTO.getPcDesconto());
+        lmpmItemEntity.setQtProduto(lmpmItemDTO.getQtProduto());
+        lmpmItemEntity.setLmpmEntitty(lmpmBo.parseToEntity(lmpmItemDTO.getLmpm()));
+        return lmpmItemEntity;
+
+    }
+
+
+>>>>>>> APIRESERVA3
 }
