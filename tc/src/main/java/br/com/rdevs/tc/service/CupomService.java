@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -22,8 +23,8 @@ public class CupomService {
     public TcCupomDTO buscarCupom(BigInteger idCupom){
         TcCupomEntity entity = new TcCupomEntity();
         TcCupomDTO dto = new TcCupomDTO();
-
-        entity = repository.findByClienteIdCliente(idCupom);
+        Date date = new Date();
+        entity = repository.findByClienteIdClienteAndDtFinalCupomGreaterThanEqual(idCupom, date);
 
         //entity = repository.getOne(idCupom);
 
