@@ -21,8 +21,6 @@ public class LmpmItemBo {
         return lmpmItemDTO;
 
     }
-<<<<<<< HEAD
-=======
 
     public LmpmItemEntity parseEntity(LmpmItemDTO lmpmItemDTO){
         LmpmItemEntity lmpmItemEntity = new LmpmItemEntity();
@@ -35,5 +33,4 @@ public class LmpmItemBo {
     }
 
 
->>>>>>> APIRESERVA3
 }
