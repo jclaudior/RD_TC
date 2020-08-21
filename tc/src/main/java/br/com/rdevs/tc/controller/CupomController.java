@@ -17,6 +17,6 @@ public class CupomController {
 
     @GetMapping("/cupom/{codigo}")
     public ResponseEntity buscaPorCupom(@PathVariable("codigo")BigInteger codigo){
-        return ResponseEntity.ok().body(service.buscarCupom(codigo));
+        return service.buscarCupom(codigo);
     }
 }

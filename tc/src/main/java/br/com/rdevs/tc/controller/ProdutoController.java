@@ -29,7 +29,7 @@ public class ProdutoController {
     @GetMapping("/produto/nome/{nome}")
     public ResponseEntity produtoNome(@PathVariable("nome") String nomeProduto){
 
-        return ResponseEntity.ok().body(produtoService.listarPorNome(nomeProduto));
+        return produtoService.listarPorNome(nomeProduto);
     }
 
 }
