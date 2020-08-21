@@ -14,4 +14,9 @@ public class MelhorPrecoDTO {
     private BigInteger idMelhorPreco;
     private int qtItem;
     private float pcDesconto;
+    private ProdutoDTO produto;
+    private OperadorDTO operador;
+    private ClienteDTO cliente;
+    private float vlDesconto;
+
 }
