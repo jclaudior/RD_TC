@@ -21,7 +21,6 @@ public class LoginController {
 
     @PostMapping
     public ResponseEntity login(@RequestBody OperadorDTO dto) {
-        OperadorDTO usuario = loginService.login(dto.getNrMatricula(), dto.getPwOperador());
-        return ResponseEntity.ok().body(usuario);
+        return loginService.login(dto.getNrMatricula(), dto.getPwOperador());
     }
 }

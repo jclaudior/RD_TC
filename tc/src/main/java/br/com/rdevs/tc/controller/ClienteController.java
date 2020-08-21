@@ -15,7 +15,7 @@ public class ClienteController {
 
     @GetMapping("/cliente")
     public ResponseEntity buscarCliente(@RequestParam("dadosCliente")String dadosCliente) {
-        return ResponseEntity.ok().body(service.buscarCliente(dadosCliente));
+        return service.buscarCliente(dadosCliente);
 
     }
 

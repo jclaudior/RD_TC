@@ -1,10 +1,13 @@
 package br.com.rdevs.tc.service;
 
+import br.com.rdevs.tc.model.dto.ResultData;
 import br.com.rdevs.tc.model.dto.TcCupomDTO;
 import br.com.rdevs.tc.model.entity.TcCupomEntity;
 import br.com.rdevs.tc.repository.CupomRepository;
 import br.com.rdevs.tc.service.bo.CupomBO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -20,17 +23,24 @@ public class CupomService {
     @Autowired
     CupomBO bo;
 
-    public TcCupomDTO buscarCupom(BigInteger idCupom){
-        TcCupomEntity entity = new TcCupomEntity();
-        TcCupomDTO dto = new TcCupomDTO();
-        Date date = new Date();
-        entity = repository.findByClienteIdClienteAndDtFinalCupomGreaterThanEqual(idCupom, date);
-
-        //entity = repository.getOne(idCupom);
-
-        dto = bo.parseToDTO(entity);
-
-        return dto;
+    public ResponseEntity buscarCupom(BigInteger idCliente){
+        ResultData resultData = null;
+        if(Integer.parseInt(idCliente.toString()) <= 0){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro id cliente invalido! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+        try {
+            TcCupomEntity entity = new TcCupomEntity();
+            TcCupomDTO dto = new TcCupomDTO();
+            Date date = new Date();
+            entity = repository.findByClienteIdClienteAndDtFinalCupomGreaterThanEqual(idCliente, date);
+            dto = bo.parseToDTO(entity);
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Consulta de cupom realizada com sucesso!", dto);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+        }catch (Exception e){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao consultar cupom " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
     }
 
 }
