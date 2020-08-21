@@ -15,8 +15,8 @@ public class CupomController {
     @Autowired
     CupomService service;
 
-    @GetMapping("/cupom/{codigo}")
-    public ResponseEntity buscaPorCupom(@PathVariable("codigo")BigInteger codigo){
-        return service.buscarCupom(codigo);
+    @GetMapping("/cupom/{codigoCliente}")
+    public ResponseEntity buscarCupom(@PathVariable("codigoCliente")BigInteger codigoCliente){
+        return service.buscarCupom(codigoCliente);
     }
 }
