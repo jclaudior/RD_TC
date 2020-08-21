@@ -87,8 +87,8 @@ public class ReservaService {
                 repository.save(entity);
             }
 
-            resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Reserva gravada com sucesso!", entity);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+            resultData = new ResultData(HttpStatus.CREATED.value(), "Reserva gravada com sucesso!", entity);
+            return ResponseEntity.status(HttpStatus.CREATED).body(resultData);
         }catch(Exception e){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao gravar reserva! " + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
