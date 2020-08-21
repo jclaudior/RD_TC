@@ -32,4 +32,7 @@ public class MelhorPrecoEntity {
 
     @Column(name = "PC_DESCONTO")
     private float pcDesconto;
+
+    @Column(name = "VL_DESCONTO")
+    private  float vlDesconto;
 }
