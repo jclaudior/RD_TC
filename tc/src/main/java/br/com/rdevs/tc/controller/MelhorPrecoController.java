@@ -19,6 +19,7 @@ public class MelhorPrecoController {
     @PostMapping("/melhorpreco")
     public ResponseEntity inserir(@RequestBody MelhorPrecoDTO dto){
         return  service.inserir(dto);
+
     }
 
 }

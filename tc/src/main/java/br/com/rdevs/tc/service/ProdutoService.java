@@ -27,12 +27,12 @@ public class ProdutoService {
     public ResponseEntity listarProduto() {
         ResultData resultData = null;
         try {
-        List<ProdutoEntity> listaEntity = produtoRep.findAll();
-        List<ProdutoDTO> listaDto = new ArrayList<>();
-        for (ProdutoEntity produtoEntity : listaEntity) {
-            listaDto.add(produtoBo.ParseToDto(produtoEntity));
+            List<ProdutoEntity> listaEntity = produtoRep.findAll();
+            List<ProdutoDTO> listaDto = new ArrayList<>();
+            for (ProdutoEntity produtoEntity : listaEntity) {
+                listaDto.add(produtoBo.ParseToDto(produtoEntity));
 
-        }
+            }
             resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Listagem de produtos realizada com sucesso!",listaDto);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
         }catch(Exception e){
