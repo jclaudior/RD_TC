@@ -43,12 +43,12 @@ public class ClienteService {
             for (ClienteEntity entity : listEntity) {
                 ClienteDTO dto = bo.parseDTO(entity);
                 listDTO.add(dto);
+                if(listDTO.size() == 0){
+                    resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao consultar cliente!");
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+                }
+            }
 
-            }
-            if(listDTO.size() == 0){
-                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao consultar cliente!");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
-            }
             resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Consulta de cliente realizada com sucesso!", listDTO);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
         }catch(Exception e){
