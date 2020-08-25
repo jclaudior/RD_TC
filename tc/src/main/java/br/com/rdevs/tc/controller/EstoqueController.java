@@ -19,16 +19,16 @@ public class EstoqueController {
 
     @GetMapping("/{cdFilial}")
     public ResponseEntity listarTodas(@PathVariable("cdFilial")BigInteger cdFilial) {
-        return ResponseEntity.ok().body(service.listarTodas(cdFilial));
+        return service.listarTodas(cdFilial);
     }
 
     @GetMapping("/{cdFilial}/codigo/{cdProduto}")
     public ResponseEntity listarPorId(@PathVariable("cdFilial")BigInteger cdFilial, @PathVariable("cdProduto")BigInteger cdProduto) {
-        return ResponseEntity.ok().body(service.listarPorId(cdFilial, cdProduto));
+        return service.listarPorId(cdFilial, cdProduto);
     }
 
     @GetMapping("/{cdFilial}/nome/{nmFantasia}")
     public ResponseEntity listarPorNome(@PathVariable("cdFilial")BigInteger cdFilial, @PathVariable("nmFantasia")String nmFantasia) {
-        return ResponseEntity.ok().body(service.listPorNome(cdFilial, nmFantasia));
+        return service.listPorNome(cdFilial, nmFantasia);
     }
 }
