@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class OperacaoDTO {
 
     private Long cdOperacao;
-    private Long tipoOperacao;
     private String descricaoOperacao;
 
 }

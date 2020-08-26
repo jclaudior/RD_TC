@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 
 @AllArgsConstructor
@@ -14,19 +15,12 @@ import java.util.Date;
 public class DocumentoFiscalDTO {
 
     private Long idDocumentoFiscal;
-
-    private Long cdOperacao;
-
-    private BigInteger cdFilial;
-
-    private BigInteger idCliente;
-
-    private Long idFornecedor;
-
-    private Long idRecarga;
+    private OperacaoDTO operacao;
+    private FilialDTO filial;
+    private ClienteDTO cliente;
+    private MotivoDTO motivo;
 
     private Date dataAbertura;
-
     private Date dataFechamento;
 
     private Integer flagNota;
@@ -35,16 +29,8 @@ public class DocumentoFiscalDTO {
 
     private Integer numeroCaixa;
 
-//    private Long idMotivo;
-//
-//    private Long numeroNota;
-//
-//    private Long numeroChaveAcesso;
-//
-//    private Long numeroSerie;
-//
-//    private Date dataEmissao;
-//
-//    private Date dataEntrada;
+    private List<DocumentoItemDTO> itens;
+
+
 
 }

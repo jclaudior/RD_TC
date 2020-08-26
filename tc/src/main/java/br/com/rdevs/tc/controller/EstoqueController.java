@@ -24,7 +24,7 @@ public class EstoqueController {
 
     @GetMapping("/{cdFilial}/codigo/{cdProduto}")
     public ResponseEntity listarPorId(@PathVariable("cdFilial")BigInteger cdFilial, @PathVariable("cdProduto")BigInteger cdProduto) {
-        return ResponseEntity.ok().body(service.listarPorId(cdFilial, cdProduto));
+        return service.listarPorId(cdFilial, cdProduto);
     }
 
     @GetMapping("/{cdFilial}/nome/{nmFantasia}")
