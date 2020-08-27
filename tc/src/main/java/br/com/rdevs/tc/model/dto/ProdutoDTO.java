@@ -20,5 +20,5 @@ public class ProdutoDTO {
     private String nmFantasia;
     private String nmFabricante;
     private double vlUnidade;
-    private List<LmpmItemDTO> lmpmLista;
+    private LmpmItemDTO lmpmItem;
 }
