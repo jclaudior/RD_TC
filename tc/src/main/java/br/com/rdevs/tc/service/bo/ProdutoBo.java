@@ -32,6 +32,7 @@ public class ProdutoBo {
         produtoDTO.setNmFabricante(produtoEntity.getNmFabricante());
         produtoDTO.setNmFantasia(produtoEntity.getNmFantasia());
         produtoDTO.setVlUnidade(produtoEntity.getVlUnidade());
+        produtoDTO.setDsProduto(produtoEntity.getDsProduto());
 
         List<LmpmItemDTO>  lmpmItemDTO = new ArrayList<>();
             for (LmpmItemEntity lmpmItemEntity : produtoEntity.getLmpmLista()) {
@@ -57,6 +58,7 @@ public class ProdutoBo {
         produtoEntity.setNmFabricante(produtoDTO.getNmFabricante());
         produtoEntity.setNmFantasia(produtoDTO.getNmFantasia());
         produtoEntity.setVlUnidade(produtoDTO.getVlUnidade());
+        produtoEntity.setDsProduto(produtoDTO.getDsProduto());
         List<LmpmItemEntity> lmpmItemEntity = new ArrayList<>();
 //        if (produtoDTO.getLmpmLista() != null) {
 //            for (LmpmItemDTO lmpmItemDTO : produtoDTO.getLmpmLista()) {

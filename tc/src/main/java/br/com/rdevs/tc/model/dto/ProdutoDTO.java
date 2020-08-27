@@ -20,5 +20,6 @@ public class ProdutoDTO {
     private String nmFantasia;
     private String nmFabricante;
     private double vlUnidade;
+    private String dsProduto;
     private LmpmItemDTO lmpmItem;
 }

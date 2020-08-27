@@ -38,6 +38,9 @@ public class ProdutoEntity implements Serializable {
     @Column(name = "VL_UNIDADE")
     private double vlUnidade;
 
+    @Column(name="DS_PRODUTO")
+    private String dsProduto;
+
     @OneToMany
     @JoinColumn(name = "CD_PRODUTO")
     private List<LmpmItemEntity> lmpmLista;
