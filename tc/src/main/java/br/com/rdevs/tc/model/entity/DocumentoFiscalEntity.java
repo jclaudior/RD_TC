@@ -34,7 +34,7 @@ public class DocumentoFiscalEntity implements Serializable  {
     private ClienteEntity cliente;
 
     @OneToOne
-    @JoinColumn(name = "ID_MOTIVO", insertable = false, updatable = false)
+    @JoinColumn(name = "ID_MOTIVO")
     private MotivoEntity motivoDevolucao;
 
     @Column(name = "DT_ABERTURA")
