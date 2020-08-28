@@ -19,12 +19,17 @@ public class ProdutoEntity implements Serializable {
     @Column(name = "CD_PRODUTO")
     private BigInteger cdProduto;
 
-    @Column(name = "ID_STATUS_PRODUTO")
-    private BigInteger idStatusProduto;
+    @OneToOne
+    @JoinColumn(name = "ID_STATUS_PRODUTO")
+    private StatusProdutoEntity statusProduto;
 
     @ManyToOne
     @JoinColumn(name = "ID_CATEGORIA")
     private CategoriaProdutoEntity categoria;
+
+    @OneToOne
+    @JoinColumn(name = "ID_SUB_CATEGORIA")
+    private SubCategoriaProdutoEntity subCategoria;
 
     @Column(name = "ID_TIPO_PRODUTO")
     private BigInteger idTipoProduto;
@@ -44,5 +49,9 @@ public class ProdutoEntity implements Serializable {
     @OneToMany
     @JoinColumn(name = "CD_PRODUTO")
     private List<LmpmItemEntity> lmpmLista;
+
+
+
+
 
 }

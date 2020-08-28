@@ -17,8 +17,8 @@ public class CategoriaProdutoEntity {
     @Column(name="DS_CATEGORIA")
     private String dsCategoria;
 
-    @OneToOne
-    @JoinColumn(name ="ID_SUB_CATEGORIA")
-    private SubCategoriaProdutoEntity subCategoria;
+//    @OneToOne
+//    @JoinColumn(name ="ID_SUB_CATEGORIA")
+//    private SubCategoriaProdutoEntity subCategoria;
 
 }

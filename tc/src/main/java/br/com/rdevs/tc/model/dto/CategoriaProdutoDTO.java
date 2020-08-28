@@ -11,5 +11,5 @@ import java.math.BigInteger;
 public class CategoriaProdutoDTO {
     private BigInteger idCategoria;
     private String dsCategoria;
-    private SubCategoriaProdutoDTO subCategoria;
+    //private SubCategoriaProdutoDTO subCategoria;
 }

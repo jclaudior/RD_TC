@@ -14,7 +14,7 @@ import java.util.List;
 public class ProdutoDTO {
 
     private BigInteger cdProduto;
-    private BigInteger idStatusProduto;
+    private StatusProdutoDTO statusProduto;
     private CategoriaProdutoDTO categoria;
     private BigInteger idTipoProduto;
     private String nmFantasia;
@@ -22,4 +22,5 @@ public class ProdutoDTO {
     private double vlUnidade;
     private String dsProduto;
     private LmpmItemDTO lmpmItem;
+    private SubCategoriaProdutoDTO subCategoria;
 }

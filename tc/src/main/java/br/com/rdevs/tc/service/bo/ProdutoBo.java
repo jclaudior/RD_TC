@@ -2,6 +2,7 @@ package br.com.rdevs.tc.service.bo;
 
 import br.com.rdevs.tc.model.dto.LmpmItemDTO;
 import br.com.rdevs.tc.model.dto.ProdutoDTO;
+import br.com.rdevs.tc.model.dto.SubCategoriaProdutoDTO;
 import br.com.rdevs.tc.model.entity.LmpmItemEntity;
 import br.com.rdevs.tc.model.entity.ProdutoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +23,19 @@ public class ProdutoBo {
     @Autowired
     CategoriaProdutoBO categoriaProdutoBO;
 
+    @Autowired
+    SubCategoriaProdutoBO subCategoriaProdutoBO;
+
+    @Autowired
+    StatusProdutoBO statusProdutoBO;
+
     public ProdutoDTO ParseToDto(ProdutoEntity produtoEntity) {
 
         ProdutoDTO produtoDTO = new ProdutoDTO();
         produtoDTO.setCdProduto(produtoEntity.getCdProduto());
         produtoDTO.setCategoria(categoriaProdutoBO.parseDTO(produtoEntity.getCategoria()));
-        produtoDTO.setIdStatusProduto(produtoEntity.getIdStatusProduto());
+        produtoDTO.setStatusProduto(statusProdutoBO.parseToDTO(produtoEntity.getStatusProduto()));
+        //produtoDTO.setIdStatusProduto(produtoEntity.getIdStatusProduto());
         produtoDTO.setIdTipoProduto(produtoEntity.getIdTipoProduto());
         produtoDTO.setNmFabricante(produtoEntity.getNmFabricante());
         produtoDTO.setNmFantasia(produtoEntity.getNmFantasia());
@@ -42,9 +50,10 @@ public class ProdutoBo {
                     produtoDTO.setLmpmItem(lmpmItemBo.parseToDto(lmpmItemEntity));
                 }
             }
+        produtoDTO.setSubCategoria(subCategoriaProdutoBO.parseDTO((produtoEntity.getSubCategoria())));
+
 
         return produtoDTO;
-
 
     }
 
@@ -53,7 +62,8 @@ public class ProdutoBo {
         ProdutoEntity produtoEntity = new ProdutoEntity();
         produtoEntity.setCdProduto(produtoDTO.getCdProduto());
         produtoEntity.setCategoria(categoriaProdutoBO.parseEntity(produtoDTO.getCategoria()));
-        produtoEntity.setIdStatusProduto(produtoDTO.getIdStatusProduto());
+        produtoEntity.setStatusProduto(statusProdutoBO.parseToEntity(produtoDTO.getStatusProduto()));
+        //produtoEntity.setIdStatusProduto(produtoDTO.getIdStatusProduto());
         produtoEntity.setIdTipoProduto(produtoDTO.getIdTipoProduto());
         produtoEntity.setNmFabricante(produtoDTO.getNmFabricante());
         produtoEntity.setNmFantasia(produtoDTO.getNmFantasia());
@@ -67,7 +77,11 @@ public class ProdutoBo {
 //            }
 //            produtoEntity.setLmpmLista(lmpmItemEntity);
 
+        produtoEntity.setSubCategoria(subCategoriaProdutoBO.parseEntity(produtoDTO.getSubCategoria()));
+
             return produtoEntity;
-        }
+
     }
+}
+
 

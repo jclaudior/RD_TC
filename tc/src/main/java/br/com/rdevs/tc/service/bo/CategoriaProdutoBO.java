@@ -16,7 +16,7 @@ public class CategoriaProdutoBO {
         CategoriaProdutoDTO categoriaProdutoDTO = new CategoriaProdutoDTO();
         categoriaProdutoDTO.setIdCategoria(categoriaProdutoEntity.getIdCategoria());
         categoriaProdutoDTO.setDsCategoria(categoriaProdutoEntity.getDsCategoria());
-        categoriaProdutoDTO.setSubCategoria(subCategoriaProdutoBO.parseDTO(categoriaProdutoEntity.getSubCategoria()));
+        //categoriaProdutoDTO.setSubCategoria(subCategoriaProdutoBO.parseDTO(categoriaProdutoEntity.getSubCategoria()));
         return categoriaProdutoDTO;
     }
 
@@ -24,7 +24,7 @@ public class CategoriaProdutoBO {
         CategoriaProdutoEntity categoriaProdutoEntity = new CategoriaProdutoEntity();
         categoriaProdutoEntity.setIdCategoria(categoriaProdutoDTO.getIdCategoria());
         categoriaProdutoEntity.setDsCategoria(categoriaProdutoDTO.getDsCategoria());
-        categoriaProdutoEntity.setSubCategoria(subCategoriaProdutoBO.parseEntity(categoriaProdutoDTO.getSubCategoria()));
+        //categoriaProdutoEntity.setSubCategoria(subCategoriaProdutoBO.parseEntity(categoriaProdutoDTO.getSubCategoria()));
         return categoriaProdutoEntity;
     }
 
