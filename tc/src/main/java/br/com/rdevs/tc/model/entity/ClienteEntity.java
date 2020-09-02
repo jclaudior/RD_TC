@@ -46,7 +46,7 @@ public class ClienteEntity implements Serializable {
     @JoinColumn(name = "ID_CATEGORIA_CLIENTE")
     private CategoriaClienteEntity categoriaClienteEntity;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "TB_ENDERECO_CLIENTE",
             joinColumns = @JoinColumn(name = "ID_CLIENTE"),
             inverseJoinColumns = @JoinColumn(name = "ID_ENDERECO")

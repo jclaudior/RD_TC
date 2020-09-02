@@ -3,6 +3,7 @@ package br.com.rdevs.tc.service.bo;
 import br.com.rdevs.tc.model.dto.CategoriaClienteDTO;
 import br.com.rdevs.tc.model.dto.ClienteDTO;
 import br.com.rdevs.tc.model.dto.EnderecoDTO;
+import br.com.rdevs.tc.model.entity.CategoriaClienteEntity;
 import br.com.rdevs.tc.model.entity.ClienteEntity;
 import br.com.rdevs.tc.model.entity.EnderecoEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,10 @@ public class ClienteBO {
             entity.setDtNascimento(dto.getDtNascimento());
             entity.setDsGenero(dto.getDsGenero());
             entity.setNrTelefoneCliente(dto.getNrTelefoneCliente());
+        CategoriaClienteEntity categoriaEntity = new CategoriaClienteEntity();
+        categoriaEntity.setIdCategoriaCliente(dto.getCategoriaClienteDTO().getIdCategoriaCliente());
+        entity.setCategoriaClienteEntity(categoriaEntity);
+
 
         List<EnderecoEntity> enderecoEntityList = new ArrayList<>();
         for (EnderecoDTO enderecoDTO: dto.getEnderecos()) {

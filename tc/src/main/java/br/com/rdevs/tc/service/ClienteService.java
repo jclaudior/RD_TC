@@ -60,6 +60,11 @@ public class ClienteService {
     }
 
 
+    public void inserir(ClienteDTO dto) {
+        ClienteEntity entity = bo.parseEntity(dto);
+        if(entity.getNrCpf() != null)
+            repository.save(entity);
+    }
 
 
 }
