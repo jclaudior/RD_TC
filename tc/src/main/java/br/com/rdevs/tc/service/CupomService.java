@@ -35,12 +35,12 @@ public class CupomService {
             Date date = new Date();
             entity = repository.findByClienteIdClienteAndDtFinalCupomGreaterThanEqual(idCliente, date);
             dto = bo.parseToDTO(entity);
-            resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Consulta de cupom realizada com sucesso!", dto);
-            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
-        }catch (Exception e){
-            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao consultar cupom " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
-        }
+        resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Consulta de cupom realizada com sucesso!", dto);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+    }catch (Exception e){
+        resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao consultar cupom " + e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+    }
     }
 
 }
