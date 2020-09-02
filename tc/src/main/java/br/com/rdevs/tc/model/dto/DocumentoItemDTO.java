@@ -5,13 +5,13 @@ import lombok.Data;
 @Data
 public class DocumentoItemDTO {
 
-    private Long documentoFiscal;
+    private DocumentoFiscalDTO idDocumentoFiscal;
 
-    private Long numItemDoc;
+    private Long numItemDocumento;
 
-    private Long cdProduto;
+    private ProdutoDTO produto;
 
-    private Long qtdItem;
+    private Long qtItem;
 
     private Double valorItem;
 
