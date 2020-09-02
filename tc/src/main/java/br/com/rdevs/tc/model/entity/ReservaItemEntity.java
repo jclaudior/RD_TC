@@ -13,6 +13,7 @@ import java.io.Serializable;
 @Entity
 @Table(name = "TB_TC_RESERVA_ITEM")
 @Data
+@IdClass(ReservaItemPK.class)
 public class ReservaItemEntity implements Serializable {
 
     @Id
