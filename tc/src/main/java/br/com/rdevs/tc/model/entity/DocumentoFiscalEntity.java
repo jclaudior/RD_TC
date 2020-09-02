@@ -14,16 +14,17 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DocumentoFiscalEntity implements Serializable  {
+public class
+DocumentoFiscalEntity implements Serializable  {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DOCUMENTO_FISCAL")
     private Long idDocumentoFiscal;
 
     @JoinColumn(name = "CD_OPERACAO")
     @ManyToOne
-    private OperacaoEntity cdOperacao;
+    private OperacaoEntity operacao;
 
     @ManyToOne
     @JoinColumn(name = "CD_FILIAL")
@@ -32,6 +33,10 @@ public class DocumentoFiscalEntity implements Serializable  {
     @ManyToOne
     @JoinColumn(name = "ID_CLIENTE")
     private ClienteEntity cliente;
+
+    @OneToOne
+    @JoinColumn(name = "ID_MOTIVO")
+    private MotivoEntity motivoDevolucao;
 
     @Column(name = "DT_ABERTURA")
     private Date dataAbertura;
@@ -48,8 +53,6 @@ public class DocumentoFiscalEntity implements Serializable  {
     @Column(name = "NR_CAIXA")
     private Integer numeroCaixa;
 
-    @OneToMany
-    @JoinColumn(name = "ID_NF")
+    @OneToMany(mappedBy = "idDocumentoFiscal", cascade = CascadeType.ALL)
     private List<DocumentoItemEntity> itens;
-
 }

@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "TB_DOCUMENTO_FISCAL_ITEM")
+@Table(name = "TB_DOCUMENTO_ITEM")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,18 +17,18 @@ import java.io.Serializable;
 public class DocumentoItemEntity implements Serializable {
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ID_DOCUMENTO")
+    @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     @JsonIgnore
     @Id
-    private DocumentoFiscalEntity documentoFiscal;
+    private DocumentoFiscalEntity idDocumentoFiscal;
 
     @Id
     @Column(name = "NR_ITEM_DOCUMENTO")
-    private Long numItemDoc;
+    private Long numItemDocumento;
 
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
-    private ProdutoEntity cdProduto;
+    private ProdutoEntity produto;
 
     @Column (name = "QT_ITEM")
     private Long qtdItem;

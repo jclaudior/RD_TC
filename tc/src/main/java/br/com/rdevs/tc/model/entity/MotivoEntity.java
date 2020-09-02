@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
 
-@Enabled
+@Entity
 @Table(name = "TB_MOTIVO")
 @Data
 public class MotivoEntity implements Serializable {
