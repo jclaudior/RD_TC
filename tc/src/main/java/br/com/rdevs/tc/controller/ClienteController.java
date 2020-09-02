@@ -21,9 +21,7 @@ public class ClienteController {
 
     @PostMapping("/cliente")
     public ResponseEntity inserir(@RequestBody ClienteDTO dto){
-        service.inserir(dto);
-
-        return ResponseEntity.ok().body(dto);
+       return  service.inserir(dto);
     }
 
 

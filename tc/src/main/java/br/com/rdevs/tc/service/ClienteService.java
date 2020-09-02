@@ -22,9 +22,9 @@ public class ClienteService {
     @Autowired
     ClienteBO bo;
 
-    public ResponseEntity buscarCliente(String dadosCliente){
+    public ResponseEntity buscarCliente(String dadosCliente) {
         ResultData resultData = null;
-        if(dadosCliente.isEmpty()){
+        if (dadosCliente.isEmpty()) {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados do cliente Invalidos!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
@@ -40,7 +40,7 @@ public class ClienteService {
                 listEntity = repository.findByNrRg(dadosCliente);
 
             }
-            if(listEntity.size() == 0){
+            if (listEntity.size() == 0) {
                 resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao consultar cliente!");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
             }
@@ -50,20 +50,38 @@ public class ClienteService {
             }
 
 
-
             resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Consulta de cliente realizada com sucesso!", listDTO);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
-        }catch(Exception e){
+        } catch (Exception e) {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao consultar cliente " + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
     }
 
 
-    public void inserir(ClienteDTO dto) {
-        ClienteEntity entity = bo.parseEntity(dto);
-        if(entity.getNrCpf() != null)
+    public ResponseEntity inserir(ClienteDTO dto) {
+        ResultData resultData = null;
+        if (dto.getNrCPF() != null) {
+            List<ClienteEntity> checarCliente = new ArrayList<>();
+
+            checarCliente = repository.findByNrCpf(dto.getNrCPF());
+            if (checarCliente.size() > 0) {
+                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "CPF já cadastrado na base de dados.");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+            }
+            checarCliente = repository.findByNrRg(dto.getNrRg());
+            if (checarCliente.size() > 0) {
+                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "RG já cadastrado na base de dados.");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+            }
+
+            ClienteEntity entity = bo.parseEntity(dto);
             repository.save(entity);
+            resultData = new ResultData(HttpStatus.CREATED.value(), "Cadastro realizado com sucesso!");
+            return ResponseEntity.status(HttpStatus.CREATED).body(resultData);
+        }
+        resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados invalidos!");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
     }
 
 
