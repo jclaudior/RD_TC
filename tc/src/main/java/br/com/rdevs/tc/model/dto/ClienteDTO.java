@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,4 +23,7 @@ public class ClienteDTO {
     private String dsGenero;
     private String nrTelefoneCliente;
     private CategoriaClienteDTO categoriaClienteDTO;
+
+    private List<EnderecoDTO> enderecos;
+
 }
