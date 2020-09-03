@@ -51,7 +51,7 @@ public class CupomService {
 
             SimpleMailMessage email = new SimpleMailMessage();
             email.setTo(dto.getCliente().getDsEmail());
-            email.setSubject("Olá, este é o seu cupom de ofertas!");
+            email.setSubject(dto.getCliente().getNmCliente() + ", este é o seu cupom de ofertas, aproveite!");
             email.setText(corpoEmail);
             mailSender.send(email);
         }
