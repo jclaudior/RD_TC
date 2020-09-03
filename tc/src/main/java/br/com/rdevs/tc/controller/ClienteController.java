@@ -16,9 +16,5 @@ public class ClienteController {
     @GetMapping("/cliente")
     public ResponseEntity buscarCliente(@RequestParam("dadosCliente")String dadosCliente) {
         return service.buscarCliente(dadosCliente);
-
     }
-
-
-
 }

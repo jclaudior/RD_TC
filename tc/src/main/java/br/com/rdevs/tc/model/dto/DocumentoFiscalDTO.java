@@ -31,6 +31,8 @@ public class DocumentoFiscalDTO {
 
     private List<DocumentoItemDTO> itens;
 
+    private  List<PagamentoDocDTO> tipoPagamento;
+
 
 
 }

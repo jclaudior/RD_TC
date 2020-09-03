@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface EstoqueRepository extends JpaRepository<EstoqueEntitty, BigInteger> {
 
-    List<EstoqueEntitty> findByFilialCdFilialAndProdutoCdProduto(BigInteger cdFilial, BigInteger cdProduto);
+    EstoqueEntitty findByFilialCdFilialAndProdutoCdProduto(BigInteger cdFilial, BigInteger cdProduto);
 
     List<EstoqueEntitty> findByFilialCdFilial(BigInteger cdFilial);
 

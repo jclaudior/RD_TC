@@ -49,6 +49,9 @@ public class DocumentoFiscalBO {
     @Autowired
     ProdutoBo produtoBo;
 
+    @Autowired
+    TipoPagamentoRepository repositoryPagamento;
+
     public DocumentoFiscalDTO parseToDTO(DocumentoFiscalEntity entity){
         DocumentoFiscalDTO dto = new DocumentoFiscalDTO();
 

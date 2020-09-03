@@ -31,7 +31,7 @@ public class DocumentoItemEntity implements Serializable {
     private ProdutoEntity produto;
 
     @Column (name = "QT_ITEM")
-    private Long qtdItem;
+    private Integer qtdItem;
 
     @Column (name = "PC_ICMS")
     private Double porcentoIcms;
