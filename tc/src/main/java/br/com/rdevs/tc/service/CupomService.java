@@ -8,6 +8,8 @@ import br.com.rdevs.tc.service.bo.CupomBO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mail.SimpleMailMessage;
+import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -22,6 +24,17 @@ public class CupomService {
 
     @Autowired
     CupomBO bo;
+
+    @Autowired
+    private JavaMailSender mailSender;
+
+    public void enviar() {
+        SimpleMailMessage email = new SimpleMailMessage();
+        email.setTo("joaoclaudiodiva@gmail.com");
+        email.setSubject("Teste envio de e-mail");
+        email.setText("Enviei este e-mail usando Spring Boot.");
+        mailSender.send(email);
+    }
 
     public ResponseEntity buscarCupom(BigInteger idCliente){
         ResultData resultData = null;
