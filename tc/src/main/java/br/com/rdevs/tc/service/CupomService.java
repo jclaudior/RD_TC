@@ -51,8 +51,8 @@ public class CupomService {
 
             SimpleMailMessage email = new SimpleMailMessage();
             email.setTo(dto.getCliente().getDsEmail());
-            email.setSubject(dto.getCliente().getNmCliente() + ", este é o seu cupom de ofertas, aproveite!");
-            email.setText(corpoEmail);
+            email.setSubject("RaiaDrogasil & Você");
+            email.setText(dto.getCliente().getNmCliente() + ", estas são suas ofertas do dia! " + corpoEmail);
             mailSender.send(email);
         }
 
