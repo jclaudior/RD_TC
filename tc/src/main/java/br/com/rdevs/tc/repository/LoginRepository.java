@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface LoginRepository extends JpaRepository<OperadorEntity, BigInteger> {
     List<OperadorEntity> findByNrMatriculaAndPwOperador (BigInteger nrMatricula, String pwOperador);
+    List<OperadorEntity> findByNrMatriculaAndNrCpf (BigInteger nrMatricula, String NrCpf);
+
 }
