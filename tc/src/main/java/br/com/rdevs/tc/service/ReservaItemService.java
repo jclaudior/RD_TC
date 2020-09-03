@@ -1,6 +1,7 @@
 package br.com.rdevs.tc.service;
 
 import br.com.rdevs.tc.model.dto.ReservaItemDTO;
+import br.com.rdevs.tc.model.dto.ResultData;
 import br.com.rdevs.tc.model.entity.ProdutoEntity;
 import br.com.rdevs.tc.model.entity.ReservaEntity;
 import br.com.rdevs.tc.model.entity.ReservaItemEntity;
@@ -10,6 +11,7 @@ import br.com.rdevs.tc.service.bo.ProdutoBo;
 import br.com.rdevs.tc.service.bo.ReservaBO;
 import br.com.rdevs.tc.service.bo.ReservaItemBO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -50,32 +52,81 @@ public class ReservaItemService {
         return reservaItemDTO;
     }
 
-    public ReservaItemDTO alterar(ReservaItemDTO dto) {
-        ReservaItemPK pk = new ReservaItemPK();
-        pk.setReserva(reservaBO.parseToEntity(dto.getReserva(), null));
-        pk.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+    public ResponseEntity alterar(ReservaItemDTO dto) {
+        ResultData resultData = null;
 
-        ReservaItemEntity entity = repository.getOne(pk);
+        if (dto.getReserva() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados da reserva inválidos! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
 
-        entity.setQtProduto(dto.getQtProduto());
+        if (dto.getProduto() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados do produto inválidos! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
 
-        repository.save(entity);
+        if (dto.getQtProduto() <= 0 || dto.getQtProduto() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Quantidade de produto inválido! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
 
-        return dto;
+        try {
+            ReservaItemPK pk = new ReservaItemPK();
+            pk.setReserva(reservaBO.parseToEntity(dto.getReserva(), null));
+            pk.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+
+            ReservaItemEntity entity = repository.getOne(pk);
+
+            entity.setQtProduto(dto.getQtProduto());
+
+            repository.save(entity);
+
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Alteração realizada com sucesso!", dto);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+
+        } catch (Exception e) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(),"Erro ao alterar o item da reserva! " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+
     }
 
-    public ReservaItemDTO deletar(ReservaItemDTO dto) {
-        ReservaItemPK pk = new ReservaItemPK();
-        pk.setReserva(reservaBO.parseToEntity(dto.getReserva(), null));
-        pk.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+    public ResponseEntity deletar(ReservaItemDTO dto) {
+        ResultData resultData = null;
 
-        ReservaItemEntity entity = repository.getOne(pk);
+        if (dto.getReserva() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados da reserva inválidos! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
 
-        entity.setProduto(produtoBo.ParseEntity(dto.getProduto()));
-        entity.setQtProduto(dto.getQtProduto());
+        if (dto.getProduto() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados do produto inválidos! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
 
-        repository.delete(entity);
+        if (dto.getQtProduto() <= 0 || dto.getQtProduto() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Quantidade de produto inválido! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
 
-        return dto;
+        try {
+            ReservaItemPK pk = new ReservaItemPK();
+            pk.setReserva(reservaBO.parseToEntity(dto.getReserva(), null));
+            pk.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+
+            ReservaItemEntity entity = repository.getOne(pk);
+
+            entity.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+            entity.setQtProduto(dto.getQtProduto());
+
+            repository.delete(entity);
+
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Item excluído com sucesso!", dto);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+
+        } catch (Exception e) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao excluir o item da reserva! " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
     }
 }

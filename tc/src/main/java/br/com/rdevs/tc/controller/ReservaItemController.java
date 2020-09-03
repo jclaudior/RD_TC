@@ -4,6 +4,7 @@ import br.com.rdevs.tc.model.dto.ReservaItemDTO;
 import br.com.rdevs.tc.model.entity.ReservaItemEntity;
 import br.com.rdevs.tc.service.ReservaItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -23,12 +24,12 @@ public class ReservaItemController {
     }
 
     @PutMapping
-    public ReservaItemDTO alterar(@RequestBody ReservaItemDTO dto) {
+    public ResponseEntity alterar(@RequestBody ReservaItemDTO dto) {
         return reservaItemService.alterar(dto);
     }
 
     @DeleteMapping
-    public ReservaItemDTO deletar(@RequestBody ReservaItemDTO dto) {
+    public ResponseEntity deletar(@RequestBody ReservaItemDTO dto) {
         return reservaItemService.deletar(dto);
     }
 }
