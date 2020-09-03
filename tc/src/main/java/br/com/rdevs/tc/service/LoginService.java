@@ -25,11 +25,12 @@ public class LoginService {
 
     public ResponseEntity login(BigInteger nrMatricula, String pwOperador) {
         ResultData resultData = null;
-        if(nrMatricula == null){
+
+        if(nrMatricula == null) {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Matricula invalida!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
-        if(pwOperador == null){
+        if(pwOperador == null) {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Password invalido!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
@@ -57,18 +58,36 @@ public class LoginService {
         }
 
     }
-    public void atualizar(OperadorDTO dto) {
+    public ResponseEntity atualizar(OperadorDTO dto) {
+        ResultData resultData = null;
 
-        List<OperadorEntity> operadorEntityList = repository.findByNrMatriculaAndNrCpf(dto.getNrMatricula(), dto.getNrCpf());
-        OperadorEntity entity = operadorEntityList.get(0);
-        if (entity != null) {
-        //   entity = loginBO.parseToEntity(dto, entity);
-            String codificado = Base64.getEncoder().encodeToString(dto.getPwOperador().getBytes());
-            entity.setPwOperador(codificado);
-            repository.save((entity));
+        if(dto.getNrMatricula() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Matricula invalida!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+        if(dto.getPwOperador() == null) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Password invalido!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+
+        try {
+            List<OperadorEntity> operadorEntityList = repository.findByNrMatriculaAndNrCpf(dto.getNrMatricula(), dto.getNrCpf());
+            OperadorEntity entity = operadorEntityList.get(0);
+
+            if (entity != null) {
+                String codificado = Base64.getEncoder().encodeToString(dto.getPwOperador().getBytes());
+                entity.setPwOperador(codificado);
+                repository.save((entity));
+            }
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Senha atualizada com sucesso!", dto);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+
+        } catch (Exception e) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao atualizar a senha! " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
     }
 
-    }
+}
 
 
