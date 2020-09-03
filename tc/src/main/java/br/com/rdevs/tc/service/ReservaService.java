@@ -1,12 +1,9 @@
 package br.com.rdevs.tc.service;
 
-import br.com.rdevs.tc.model.dto.ProdutoDTO;
 import br.com.rdevs.tc.model.dto.ReservaDTO;
-import br.com.rdevs.tc.model.dto.ReservaItemDTO;
 
 import br.com.rdevs.tc.model.dto.ResultData;
 import br.com.rdevs.tc.model.entity.ReservaEntity;
-import br.com.rdevs.tc.model.entity.ReservaItemEntity;
 import br.com.rdevs.tc.repository.ClienteRepository;
 import br.com.rdevs.tc.repository.ReservaRepository;
 import br.com.rdevs.tc.service.bo.ClienteBO;
