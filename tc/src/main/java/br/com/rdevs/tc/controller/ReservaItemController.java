@@ -26,4 +26,9 @@ public class ReservaItemController {
     public ReservaItemDTO alterar(@RequestBody ReservaItemDTO dto) {
         return reservaItemService.alterar(dto);
     }
+
+    @DeleteMapping
+    public ReservaItemDTO deletar(@RequestBody ReservaItemDTO dto) {
+        return reservaItemService.deletar(dto);
+    }
 }

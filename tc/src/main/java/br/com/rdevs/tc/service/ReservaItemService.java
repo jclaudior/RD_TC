@@ -63,4 +63,19 @@ public class ReservaItemService {
 
         return dto;
     }
+
+    public ReservaItemDTO deletar(ReservaItemDTO dto) {
+        ReservaItemPK pk = new ReservaItemPK();
+        pk.setReserva(reservaBO.parseToEntity(dto.getReserva(), null));
+        pk.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+
+        ReservaItemEntity entity = repository.getOne(pk);
+
+        entity.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+        entity.setQtProduto(dto.getQtProduto());
+
+        repository.delete(entity);
+
+        return dto;
+    }
 }
