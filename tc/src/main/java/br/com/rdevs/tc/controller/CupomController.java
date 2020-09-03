@@ -20,9 +20,9 @@ public class CupomController {
     public ResponseEntity buscarCupom(@PathVariable("codigoCliente")BigInteger codigoCliente){
         return service.buscarCupom(codigoCliente);
     }
-    @GetMapping("/cupom/enviar")
-    public void enviar() {
-        service.enviar();
+    @GetMapping("/cupom/enviar/{codigoCliente}")
+    public void enviar(@PathVariable("codigoCliente")BigInteger codigoCliente){
+        service.enviar(codigoCliente);
 
     }
 }
