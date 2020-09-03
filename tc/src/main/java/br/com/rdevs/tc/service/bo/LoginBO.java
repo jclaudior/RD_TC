@@ -4,6 +4,8 @@ import br.com.rdevs.tc.model.dto.OperadorDTO;
 import br.com.rdevs.tc.model.entity.OperadorEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.Base64;
+
 @Component
 public class LoginBO {
 
@@ -26,6 +28,7 @@ public class LoginBO {
 
     public OperadorEntity parseToEntity(OperadorDTO dto, OperadorEntity entity) {
 
+
         if (entity == null)
             entity = new OperadorEntity();
 
@@ -38,7 +41,9 @@ public class LoginBO {
         entity.setNrMatricula(dto.getNrMatricula());
         entity.setDsCargo(dto.getDsCargo());
         entity.setCdFilial(dto.getCdFilial());
-        entity.setPwOperador(dto.getPwOperador());
+
+        String codificado = Base64.getEncoder().encodeToString(dto.getPwOperador().getBytes());
+        entity.setPwOperador(codificado);
 
         return entity;
     }
