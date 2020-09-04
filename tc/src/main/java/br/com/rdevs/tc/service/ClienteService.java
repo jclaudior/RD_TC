@@ -61,19 +61,19 @@ public class ClienteService {
 
     public ResponseEntity inserir(ClienteDTO dto) {
         ResultData resultData = null;
-        if (dto.getNrCPF() != null) {
-            List<ClienteEntity> checarCliente = new ArrayList<>();
+            if (dto.getNrCPF() != null) {
+                List<ClienteEntity> checarCliente = new ArrayList<>();
 
-            checarCliente = repository.findByNrCpf(dto.getNrCPF());
-            if (checarCliente.size() > 0) {
-                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "CPF já cadastrado na base de dados.");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
-            }
-            checarCliente = repository.findByNrRg(dto.getNrRg());
-            if (checarCliente.size() > 0) {
-                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "RG já cadastrado na base de dados.");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
-            }
+                checarCliente = repository.findByNrCpf(dto.getNrCPF());
+                if (checarCliente.size() > 0) {
+                    resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "CPF já cadastrado na base de dados.");
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+                }
+                checarCliente = repository.findByNrRg(dto.getNrRg());
+                if (checarCliente.size() > 0) {
+                    resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "RG já cadastrado na base de dados.");
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+                }
 
             ClienteEntity entity = bo.parseEntity(dto);
             repository.save(entity);

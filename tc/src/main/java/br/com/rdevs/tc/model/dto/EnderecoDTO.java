@@ -18,5 +18,6 @@ public class EnderecoDTO {
     private String nrEndereco;
     private String nrCep;
     private String cidade;
+    private String dsBairro;
     private String sgEstado;
 }

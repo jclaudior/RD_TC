@@ -19,6 +19,7 @@ public class EnderecoBO {
         dto.setNrEndereco(entity.getNrEndereco());
         dto.setNrCep(entity.getNrCep());
         dto.setSgEstado(entity.getSgEstado());
+        dto.setDsBairro(entity.getDsBairro());
         dto.setCidade(entity.getCidade());
 
         return dto;
@@ -33,6 +34,7 @@ public class EnderecoBO {
         entity.setNrEndereco(dto.getNrEndereco());
         entity.setNrCep(dto.getNrCep());
         entity.setSgEstado(dto.getSgEstado());
+        entity.setDsBairro(dto.getDsBairro());
         entity.setCidade(dto.getCidade());
 
         return entity;

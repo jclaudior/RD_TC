@@ -28,12 +28,11 @@ public class EnderecoEntity implements Serializable {
     @Column(name="DS_CIDADE")
     private String cidade;
 
+    @Column(name="DS_BAIRRO")
+    private String dsBairro;
+
     @Column(name="SG_ESTADO")
     private String sgEstado;
-
-
-
-
 
 }
 

@@ -13,11 +13,11 @@ import java.util.List;
 @NoArgsConstructor
 public class ReservaDTO {
 
-
+    private BigInteger idTcReserva;
     private ClienteDTO clienteDTO;
     private Date dtInicialReserva;
     private Date dtFinalReserva;
-    private BigInteger idTcReserva;
+    private Date dtBaixa;
     private List<ReservaItemDTO> itens;
 
 
