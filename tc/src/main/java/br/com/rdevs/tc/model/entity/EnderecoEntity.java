@@ -34,9 +34,5 @@ public class EnderecoEntity implements Serializable {
     @Column(name="SG_ESTADO")
     private String sgEstado;
 
-
-
-
-
 }
 

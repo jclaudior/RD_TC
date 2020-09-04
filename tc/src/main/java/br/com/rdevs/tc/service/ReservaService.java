@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,14 +36,16 @@ public class ReservaService {
     private ReservaBO reservaBo;
 
 
-    public ResponseEntity listarPorCliente(BigInteger idCliente) {
+    public ResponseEntity listarPorClienteReservasValidas(BigInteger idCliente) {
         ResultData resultData = null;
         if(Integer.parseInt(idCliente.toString()) <= 0){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro id cliente invalido! ");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
         try {
-            List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
+            Date date = new Date();
+//            List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
+            List<ReservaEntity> listEntity = repository.findByClienteIdClienteAndDtBaixaIsNullAndDtFinalReservaGreaterThanEqual(idCliente, date);
             List<ReservaDTO> listDTO = new ArrayList<>();
             for (ReservaEntity entity : listEntity) {
 
@@ -88,6 +91,30 @@ public class ReservaService {
             return ResponseEntity.status(HttpStatus.CREATED).body(resultData);
         }catch(Exception e){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao gravar reserva! " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+
+    }
+
+    public ResponseEntity listarPorClienteReservasVencidas() {
+        ResultData resultData = null;
+
+        try {
+            Date date = new Date();
+//            List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
+            List<ReservaEntity> listEntity = repository.findByDtBaixaIsNotNull();
+            List<ReservaDTO> listDTO = new ArrayList<>();
+            for (ReservaEntity entity : listEntity) {
+
+                ReservaDTO dto = reservaBo.parseToDTO(entity);
+
+                listDTO.add(dto);
+            }
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Consulta de reserva do cliente realizada com sucesso!",listDTO);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+        }
+        catch (Exception e){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(),"Erro ao consultar reserva do cliente! " + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
 

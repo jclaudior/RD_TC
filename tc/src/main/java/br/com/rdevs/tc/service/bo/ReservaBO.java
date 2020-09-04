@@ -32,7 +32,7 @@ public class ReservaBO {
             return dto;
 
         dto.setClienteDTO(clienteBO.parseDTO(entity.getCliente()));
-        dto.setDtInicialReserva(entity.getDtFinalReserva());
+        dto.setDtInicialReserva(entity.getDtInicialReserva());
         dto.setDtFinalReserva(entity.getDtFinalReserva());
         dto.setDtBaixa(entity.getDtBaixa());
         List<ReservaItemDTO> listaItemDTO = new ArrayList<>();
