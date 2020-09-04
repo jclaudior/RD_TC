@@ -17,5 +17,6 @@ public interface ReservaRepository extends JpaRepository<ReservaEntity, Integer>
     //Query de reservas abertas
     List<ReservaEntity> findByClienteIdClienteAndDtBaixaIsNullAndDtFinalReservaGreaterThanEqual(BigInteger idCliente, Date date);
 
-    List<ReservaEntity> findByClienteIdCliente
+    //Query de reservas vencidas
+    List<ReservaEntity> findByDtBaixaIsNotNull();
 }

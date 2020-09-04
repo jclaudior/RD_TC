@@ -11,18 +11,24 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigInteger;
 
 @RestController
+@RequestMapping("/reserva")
 public class ReservaController {
 
     @Autowired
     ReservaService reservaService;
 
-    @GetMapping("/reserva")
-    public ResponseEntity listarPorCliente(@RequestParam("idCliente") BigInteger idCliente) {
+    @GetMapping
+    public ResponseEntity listarReservasValidasPorCliente(@RequestParam("idCliente") BigInteger idCliente) {
         return reservaService.listarPorClienteReservasValidas(idCliente);
 
     }
 
-    @PostMapping("/reserva")
+    @GetMapping("/vencidas")
+    public ResponseEntity listarReservasVencidasPorCliente() {
+        return reservaService.listarPorClienteReservasVencidas();
+    }
+
+    @PostMapping
     public ResponseEntity inserir(@RequestBody ReservaDTO dto) {
         return reservaService.inserir(dto);
     }
