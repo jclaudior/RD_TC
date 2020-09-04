@@ -1,6 +1,7 @@
 package br.com.rdevs.tc.service.bo;
 
 import br.com.rdevs.tc.model.dto.TipoPagamentoDTO;
+import br.com.rdevs.tc.model.entity.ReservaEntity;
 import br.com.rdevs.tc.model.entity.TipoPagamentoEntity;
 import br.com.rdevs.tc.repository.DocumentoFiscalRepository;
 import org.springframework.beans.factory.annotation.Autowired;

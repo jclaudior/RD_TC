@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
+
 @RestController
 @RequestMapping("/nf")
 public class DocumentoFiscalController {
@@ -16,7 +18,7 @@ public class DocumentoFiscalController {
     DocumentoFiscalService service;
 
     @GetMapping("/{codigoCupomFiscal}")
-    public ResponseEntity buscarPorId(@PathVariable("codigoCupomFiscal") Long idDocumentoFiscal){
+    public ResponseEntity buscarPorId(@PathVariable("codigoCupomFiscal") BigInteger idDocumentoFiscal){
         return ResponseEntity.ok().body(service.buscarPorId(idDocumentoFiscal));
     }
 

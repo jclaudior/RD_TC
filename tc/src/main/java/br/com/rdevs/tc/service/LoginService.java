@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import java.math.BigInteger;
+import java.util.Base64;
 import java.util.List;
 
 @Component
@@ -32,8 +33,13 @@ public class LoginService {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Password invalido!");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
+
+
         try {
-            List<OperadorEntity> listEntity = repository.findByNrMatriculaAndPwOperador(nrMatricula, pwOperador);
+
+            String codificado = Base64.getEncoder().encodeToString(pwOperador.getBytes());
+
+            List<OperadorEntity> listEntity = repository.findByNrMatriculaAndPwOperador(nrMatricula, codificado);
             if(listEntity.size() == 0){
                 resultData = new ResultData(HttpStatus.UNAUTHORIZED.value(), "Matricula ou Senha Incorreta!");
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(resultData);

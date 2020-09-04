@@ -36,11 +36,17 @@ public class DocumentoFiscalService {
     @Autowired
     EstoqueBO estoqueBO;
 
-    public ResponseEntity buscarPorId(Long idDocumentoFiscal) {
+    @Autowired
+    AlterarEstoqueService altEstoqueService;
+
+    BigInteger idOperacaoVenda = BigInteger.valueOf(1);
+
+    public ResponseEntity buscarPorId(BigInteger idDocumentoFiscal) {
         ResultData resultData = null;
         try {
             //Id da operação deve ser fixo, sempre pegar o ID da tabela de operação correspondente ao tipo "VENDA"
-            DocumentoFiscalEntity documentoFiscal = repository.findByOperacaoCdOperacaoAndIdDocumentoFiscal((long) 1, idDocumentoFiscal);
+
+            DocumentoFiscalEntity documentoFiscal = repository.findByOperacaoCdOperacaoAndIdDocumentoFiscal(idOperacaoVenda, idDocumentoFiscal);
             DocumentoFiscalDTO documentoDTO = new DocumentoFiscalDTO();
             documentoDTO = bo.parseToDTO(documentoFiscal);
             //return documentoDTO;
@@ -56,24 +62,7 @@ public class DocumentoFiscalService {
     public void inserir (DocumentoFiscalDTO dto) {
 
         DocumentoFiscalEntity entity = bo.parseToEntity(dto);
-
-        //BigInteger idMotivoDevolucao = BigInteger.valueOf(3);
-        if(entity.getMotivoDevolucao().getIdMotivo() != BigInteger.valueOf(3) || entity.getMotivoDevolucao().getIdMotivo() != BigInteger.valueOf(4)) {
-            List<DocumentoItemEntity> listItens = entity.getItens();
-            for (DocumentoItemEntity currentItem : listItens) {
-
-                BigInteger cdProduto = currentItem.getProduto().getCdProduto();
-                BigInteger cdFilial = entity.getFilial().getCdFilial();
-
-                EstoqueEntitty entityEstoque = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial, cdProduto);
-
-                Integer ajustEstoque = entityEstoque.getQtEstoque() + currentItem.getQtdItem();
-                entityEstoque.setQtEstoque(ajustEstoque);
-
-                estoqueRepository.save(entityEstoque);
-            }
-        }
-
+        altEstoqueService.devolucaoParaEstoque(entity);
         repository.save(entity);
     }
 }

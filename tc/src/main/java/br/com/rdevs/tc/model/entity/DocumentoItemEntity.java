@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_DOCUMENTO_ITEM")
@@ -24,7 +25,7 @@ public class DocumentoItemEntity implements Serializable {
 
     @Id
     @Column(name = "NR_ITEM_DOCUMENTO")
-    private Long numItemDocumento;
+    private BigInteger numItemDocumento;
 
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
@@ -41,5 +42,8 @@ public class DocumentoItemEntity implements Serializable {
 
     @Column (name = "VL_ITEM")
     private Double valorItem;
+
+    @Column (name = "QT_DEVOLVIDA")
+    private Integer qtDevolvida;
 
 }

@@ -16,6 +16,7 @@ public class DocumentoItemBO {
     @Autowired
     ProdutoBo produtoBo;
 
+
     public DocumentoItemDTO parseToDTO(DocumentoItemEntity entity){
 
         DocumentoItemDTO itemDTO = new DocumentoItemDTO();
@@ -27,6 +28,7 @@ public class DocumentoItemBO {
         itemDTO.setValorItem(entity.getValorItem());
         itemDTO.setPorcentoIcms(entity.getPorcentoIcms());
         itemDTO.setValorIcms(entity.getValorIcms());
+        itemDTO.setQtDevolvida(entity.getQtDevolvida());
 
         return itemDTO;
 

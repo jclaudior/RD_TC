@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.math.BigInteger;
 
-public interface OperacaoRepository extends JpaRepository<OperacaoEntity, Long> {
+public interface OperacaoRepository extends JpaRepository<OperacaoEntity, BigInteger> {
 }

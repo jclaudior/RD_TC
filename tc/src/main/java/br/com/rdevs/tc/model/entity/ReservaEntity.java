@@ -29,6 +29,7 @@ public class ReservaEntity implements Serializable {
     @Column(name = "DT_FINAL_RESERVA")
     private Date dtFinalReserva;
 
+
     @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
     private List<ReservaItemEntity> itens;
 

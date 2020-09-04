@@ -1,7 +1,6 @@
 package br.com.rdevs.tc.service.bo;
 
 import br.com.rdevs.tc.model.dto.PagamentoDocDTO;
-import br.com.rdevs.tc.model.entity.DocumentoFiscalEntity;
 import br.com.rdevs.tc.model.entity.PagamentoDocEntity;
 import br.com.rdevs.tc.repository.DocumentoFiscalRepository;
 import br.com.rdevs.tc.repository.TipoPagamentoRepository;
@@ -28,7 +27,6 @@ public class PagamentoDocBO {
         PagamentoDocDTO dto = new PagamentoDocDTO();
 
         dto.setIdPagamento(entity.getIdPagamento());
-        dto.setDocumentoFiscal(docBO.parseToDTO(entity.getDocumentoFiscal()));
         dto.setTipoPagamento(pagamentoBO.parseToDTO(entity.getTipoPagamento()));
         dto.setVlPagamento(entity.getVlPagamento());
 
@@ -40,7 +38,6 @@ public class PagamentoDocBO {
 
         entity.setIdPagamento(dto.getIdPagamento());
 
-        entity.setDocumentoFiscal(docRepository.getOne(dto.getDocumentoFiscal().getIdDocumentoFiscal()));
         entity.setTipoPagamento(pagamentoRepository.getOne(dto.getTipoPagamento().getIdTipoPagamento()));
 
         entity.setVlPagamento(dto.getVlPagamento());

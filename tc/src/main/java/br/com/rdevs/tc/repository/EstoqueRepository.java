@@ -10,6 +10,8 @@ public interface EstoqueRepository extends JpaRepository<EstoqueEntitty, BigInte
 
     EstoqueEntitty findByFilialCdFilialAndProdutoCdProduto(BigInteger cdFilial, BigInteger cdProduto);
 
+    EstoqueEntitty findByProdutoCdProduto(BigInteger cdProduto);
+
     List<EstoqueEntitty> findByFilialCdFilial(BigInteger cdFilial);
 
     List<EstoqueEntitty> findByFilialCdFilialAndProdutoNmFantasiaContaining(BigInteger cdFilial, String nmFantasia);

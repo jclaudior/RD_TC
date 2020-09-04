@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "TB_CLIENTE")
@@ -44,4 +45,11 @@ public class ClienteEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "ID_CATEGORIA_CLIENTE")
     private CategoriaClienteEntity categoriaClienteEntity;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "TB_ENDERECO_CLIENTE",
+            joinColumns = @JoinColumn(name = "ID_CLIENTE"),
+            inverseJoinColumns = @JoinColumn(name = "ID_ENDERECO")
+    )
+    private List<EnderecoEntity> enderecos;
 }

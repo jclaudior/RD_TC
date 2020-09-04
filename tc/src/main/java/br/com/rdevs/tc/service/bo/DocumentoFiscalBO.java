@@ -1,15 +1,16 @@
 package br.com.rdevs.tc.service.bo;
 
+import br.com.rdevs.tc.model.dto.DevolucaoDTO;
 import br.com.rdevs.tc.model.dto.DocumentoFiscalDTO;
 import br.com.rdevs.tc.model.dto.DocumentoItemDTO;
-import br.com.rdevs.tc.model.entity.DocumentoFiscalEntity;
-import br.com.rdevs.tc.model.entity.DocumentoItemEntity;
-import br.com.rdevs.tc.model.entity.OperacaoEntity;
-import br.com.rdevs.tc.model.entity.ProdutoEntity;
+import br.com.rdevs.tc.model.dto.PagamentoDocDTO;
+import br.com.rdevs.tc.model.entity.*;
 import br.com.rdevs.tc.repository.*;
+import br.com.rdevs.tc.service.DevolucaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +51,16 @@ public class DocumentoFiscalBO {
     ProdutoBo produtoBo;
 
     @Autowired
-    TipoPagamentoRepository repositoryPagamento;
+    PagamentoDocRepository repositoryPagamento;
+
+    @Autowired
+    PagamentoDocBO pagamentoBO;
+
+    @Autowired
+    DevolucaoService devolucaoService;
+
+    @Autowired
+    DocumentoFiscalRepository docRepository;
 
     public DocumentoFiscalDTO parseToDTO(DocumentoFiscalEntity entity){
         DocumentoFiscalDTO dto = new DocumentoFiscalDTO();
@@ -69,6 +79,7 @@ public class DocumentoFiscalBO {
         dto.setValorDocumento(entity.getValorDocumento());
         dto.setNumeroCaixa(entity.getNumeroCaixa());
 
+
         //Set Itens
         List<DocumentoItemEntity> listDocumentoEntity = repositoryDocumentoItem.findByIdDocumentoFiscalIdDocumentoFiscal(entity.getIdDocumentoFiscal());
         List<DocumentoItemDTO> listDocumentoDTO = new ArrayList<>();
@@ -80,6 +91,18 @@ public class DocumentoFiscalBO {
             listDocumentoDTO.add(itemDTO);
         }
         dto.setItens(listDocumentoDTO);
+
+        //Set Tipos Pagamento
+        List<PagamentoDocEntity> listTipoPagamento  = repositoryPagamento.findBydocumentoFiscalIdDocumentoFiscal(entity.getIdDocumentoFiscal());
+        List<PagamentoDocDTO> listPagamentoDTO = new ArrayList<>();
+
+        for(PagamentoDocEntity pagDocEntity: listTipoPagamento){
+            PagamentoDocDTO pagDto = new PagamentoDocDTO();
+
+            pagDto = pagamentoBO.parseToDTO(pagDocEntity);
+            listPagamentoDTO.add(pagDto);
+        }
+        dto.setTipoPagamento(listPagamentoDTO);
 
         return dto;
     }
@@ -101,9 +124,11 @@ public class DocumentoFiscalBO {
         entity.setNumeroCaixa(dto.getNumeroCaixa());
 
         List<DocumentoItemEntity> listItemEntity = new ArrayList<>();
+
         for(DocumentoItemDTO itemDTO: dto.getItens()){
 
             DocumentoItemEntity entityItem = new DocumentoItemEntity();
+
             entityItem.setNumItemDocumento(itemDTO.getNumItemDocumento());
             ProdutoEntity produtoEntity = produtoBo.ParseEntity(itemDTO.getProduto());
             entityItem.setProduto(produtoEntity);
@@ -111,12 +136,26 @@ public class DocumentoFiscalBO {
             entityItem.setValorItem(itemDTO.getValorItem());
             entityItem.setValorIcms(itemDTO.getValorIcms());
             entityItem.setPorcentoIcms(itemDTO.getPorcentoIcms());
+            entityItem.setQtDevolvida(itemDTO.getQtItem());
+
+            DevolucaoDTO devoDto = new DevolucaoDTO();
+
+            devoDto.setDocumentoFiscal(dto.getIdDocumnetoFiscalVenda());
+            devoDto.setNrItemDocumento(dto.getNrNumeroItem());
+            devoDto.setCliente(clienteBO.parseDTO(entity.getCliente()));
+            devoDto.setVlDevolucao(entity.getValorDocumento());
+            devoDto.setTipoPagamento(itemDTO.getFormaDevolucao());
+
+            devolucaoService.inserirDevolucao(devoDto);
+
+            //DocumentoItemEntity entityNota = repositoryDocumentoItem.findByIdDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(devoDto.getDocumentoFiscal(), devoDto.getNrItemDocumento());
+
+            //entityNota.setQtDevolvida(itemDTO.getQtItem());
+            //repositoryDocumentoItem.save(entityNota);
 
             entityItem.setIdDocumentoFiscal(entity);
-
             listItemEntity.add(entityItem);
         }
-
         entity.setItens(listItemEntity);
 
         return entity;

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,7 @@ DocumentoFiscalEntity implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_DOCUMENTO_FISCAL")
-    private Long idDocumentoFiscal;
+    private BigInteger idDocumentoFiscal;
 
     @JoinColumn(name = "CD_OPERACAO")
     @ManyToOne
@@ -55,4 +56,7 @@ DocumentoFiscalEntity implements Serializable  {
 
     @OneToMany(mappedBy = "idDocumentoFiscal", cascade = CascadeType.ALL)
     private List<DocumentoItemEntity> itens;
+
+    @Column(name = "FL_NOTA_DEVOLVIDA")
+    private  Integer flagNotaDevolvida;
 }

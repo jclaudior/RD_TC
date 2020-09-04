@@ -3,8 +3,10 @@ package br.com.rdevs.tc.repository;
 import br.com.rdevs.tc.model.entity.DocumentoFiscalEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DocumentoFiscalRepository extends JpaRepository<DocumentoFiscalEntity, Long> {
+import java.math.BigInteger;
 
-    DocumentoFiscalEntity findByOperacaoCdOperacaoAndIdDocumentoFiscal(Long idOperacao, Long idDocumentoFiscal);
+public interface DocumentoFiscalRepository extends JpaRepository<DocumentoFiscalEntity, BigInteger> {
+
+    DocumentoFiscalEntity findByOperacaoCdOperacaoAndIdDocumentoFiscal(BigInteger idOperacao, BigInteger idDocumentoFiscal);
 
 }

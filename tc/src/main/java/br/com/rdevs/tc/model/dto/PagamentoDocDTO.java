@@ -12,7 +12,7 @@ import java.math.BigInteger;
 public class PagamentoDocDTO {
 
     private BigInteger idPagamento;
-    private DocumentoFiscalDTO documentoFiscal;
+    //private DocumentoFiscalDTO documentoFiscal;
     private Double vlPagamento;
     private TipoPagamentoDTO tipoPagamento;
 

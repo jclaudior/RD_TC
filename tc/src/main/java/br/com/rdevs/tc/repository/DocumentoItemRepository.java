@@ -3,10 +3,14 @@ package br.com.rdevs.tc.repository;
 import br.com.rdevs.tc.model.entity.DocumentoItemEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.math.BigInteger;
 import java.util.List;
 
-public interface DocumentoItemRepository extends JpaRepository<DocumentoItemEntity, Long> {
+public interface DocumentoItemRepository extends JpaRepository<DocumentoItemEntity, BigInteger> {
 
-    List<DocumentoItemEntity> findByIdDocumentoFiscalIdDocumentoFiscal(Long idDocumentoItem);
+    List<DocumentoItemEntity> findByIdDocumentoFiscalIdDocumentoFiscal(BigInteger idDocumentoItem);
+
+    DocumentoItemEntity findByIdDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(BigInteger idDocumentoItem, BigInteger nrItemDocumento);
+
 
 }
