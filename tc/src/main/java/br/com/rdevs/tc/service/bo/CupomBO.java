@@ -15,7 +15,10 @@ import java.util.List;
 public class CupomBO {
 
     @Autowired
-    ProdutoBo bo;
+    ProdutoBo produtoBo;
+
+    @Autowired
+    ClienteBO clienteBO;
 
     @Autowired
     CupomItemRepository repository;
@@ -30,8 +33,7 @@ public class CupomBO {
         dto.setDtFinalCupom(entity.getDtFinalCupom());
 
         //SetCliente
-        ClienteBO cliente = new ClienteBO();
-        dto.setCliente(cliente.parseDTO(entity.getCliente()));
+        dto.setCliente(clienteBO.parseDTO(entity.getCliente()));
 
         //SetItens
         List<TcCupomItemEntity> listEntity = new ArrayList<>();
@@ -45,7 +47,7 @@ public class CupomBO {
 
             itemDTO.setIdCupomItem(itens.getIdCupomItem());
             itemDTO.setPcDesconto(itens.getPcDesconto());
-            itemDTO.setProduto(bo.ParseToDto(itens.getProdutoEntity()));
+            itemDTO.setProduto(produtoBo.ParseToDto(itens.getProdutoEntity()));
 
             listDTO.add(itemDTO);
         }

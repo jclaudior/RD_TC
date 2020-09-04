@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -35,14 +36,16 @@ public class ReservaService {
     private ReservaBO reservaBo;
 
 
-    public ResponseEntity listarPorCliente(BigInteger idCliente) {
+    public ResponseEntity listarPorClienteReservasValidas(BigInteger idCliente) {
         ResultData resultData = null;
         if(Integer.parseInt(idCliente.toString()) <= 0){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro id cliente invalido! ");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
         try {
-            List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
+            Date date = new Date();
+//            List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
+            List<ReservaEntity> listEntity = repository.findByClienteIdClienteAndDtBaixaIsNullAndDtFinalReservaGreaterThanEqual(idCliente, date);
             List<ReservaDTO> listDTO = new ArrayList<>();
             for (ReservaEntity entity : listEntity) {
 

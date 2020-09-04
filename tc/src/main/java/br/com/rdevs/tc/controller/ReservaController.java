@@ -18,12 +18,12 @@ public class ReservaController {
 
     @GetMapping("/reserva")
     public ResponseEntity listarPorCliente(@RequestParam("idCliente") BigInteger idCliente) {
-        return reservaService.listarPorCliente(idCliente);
+        return reservaService.listarPorClienteReservasValidas(idCliente);
 
     }
 
     @PostMapping("/reserva")
-    public ResponseEntity inserir(@RequestBody ReservaDTO dto){
+    public ResponseEntity inserir(@RequestBody ReservaDTO dto) {
         return reservaService.inserir(dto);
     }
 

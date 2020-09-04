@@ -1,6 +1,7 @@
 package br.com.rdevs.tc.model.entity;
 
 import lombok.Data;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -30,6 +31,9 @@ public class    ReservaEntity implements Serializable {
 
     @Column(name = "DT_BAIXA")
     private Date dtBaixa;
+
+    @Column(name = "NR_PEDIDO")
+    private BigInteger nrPedido;
 
     @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
     private List<ReservaItemEntity> itens;
