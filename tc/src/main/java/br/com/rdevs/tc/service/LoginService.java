@@ -55,5 +55,20 @@ public class LoginService {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao autenticar usuario " + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
+
     }
-}
+    public void atualizar(OperadorDTO dto) {
+
+        List<OperadorEntity> operadorEntityList = repository.findByNrMatriculaAndNrCpf(dto.getNrMatricula(), dto.getNrCpf());
+        OperadorEntity entity = operadorEntityList.get(0);
+        if (entity != null) {
+        //   entity = loginBO.parseToEntity(dto, entity);
+            String codificado = Base64.getEncoder().encodeToString(dto.getPwOperador().getBytes());
+            entity.setPwOperador(codificado);
+            repository.save((entity));
+        }
+    }
+
+    }
+
+
