@@ -61,7 +61,9 @@ public class ProdutoBo {
 
         ProdutoEntity produtoEntity = new ProdutoEntity();
         produtoEntity.setCdProduto(produtoDTO.getCdProduto());
-        produtoEntity.setCategoria(categoriaProdutoBO.parseEntity(produtoDTO.getCategoria()));
+        if(produtoDTO.getCategoria() != null){
+            produtoEntity.setCategoria(categoriaProdutoBO.parseEntity(produtoDTO.getCategoria()));
+        }
         produtoEntity.setStatusProduto(statusProdutoBO.parseToEntity(produtoDTO.getStatusProduto()));
         //produtoEntity.setIdStatusProduto(produtoDTO.getIdStatusProduto());
         produtoEntity.setIdTipoProduto(produtoDTO.getIdTipoProduto());

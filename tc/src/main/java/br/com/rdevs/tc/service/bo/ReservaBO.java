@@ -6,6 +6,7 @@ import br.com.rdevs.tc.model.dto.ReservaItemDTO;
 import br.com.rdevs.tc.model.entity.ProdutoEntity;
 import br.com.rdevs.tc.model.entity.ReservaEntity;
 import br.com.rdevs.tc.model.entity.ReservaItemEntity;
+import br.com.rdevs.tc.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +24,11 @@ public class ReservaBO {
     @Autowired
     private ProdutoBo produtoBo;
 
+    @Autowired
+    private  ReservaItemBO reservaItemBO;
+
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
 
     public ReservaDTO parseToDTO(ReservaEntity entity){
@@ -66,19 +72,11 @@ public class ReservaBO {
 
         List<ReservaItemEntity> listaItemEntity = new ArrayList<>();
         if (dto.getItens() != null) {
-
-
             for (ReservaItemDTO item : dto.getItens()) {
-                ReservaItemEntity itemEntity = new ReservaItemEntity();
-                // itemEntity.setIdTcReservaItem(item.getIdReserva());
-                ProdutoEntity produtoEntity = produtoBo.ParseEntity(item.getProduto());
-                itemEntity.setProduto(produtoEntity);
-                itemEntity.setQtProduto(item.getQtProduto());
-                listaItemEntity.add(itemEntity);
-                itemEntity.setReserva(entity);
+                ReservaItemEntity itemEntity = reservaItemBO.parseToEntity(item, null, entity);
+                //itemEntity.setReserva(entity);
             }
             entity.setItens(listaItemEntity);
-
         }
             return entity;
     }
