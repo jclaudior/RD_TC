@@ -36,7 +36,7 @@ public class ReservaItemBO {
     public ReservaItemEntity parseToEntity(ReservaItemDTO dto, ReservaItemEntity entity, ReservaEntity reserva) {
 
         if (entity == null)
-            return new ReservaItemEntity();
+            entity = new ReservaItemEntity();
 
         if (dto == null)
             return entity;

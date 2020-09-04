@@ -75,6 +75,7 @@ public class ReservaBO {
             for (ReservaItemDTO item : dto.getItens()) {
                 ReservaItemEntity itemEntity = reservaItemBO.parseToEntity(item, null, entity);
                 //itemEntity.setReserva(entity);
+                listaItemEntity.add(itemEntity);
             }
             entity.setItens(listaItemEntity);
         }
