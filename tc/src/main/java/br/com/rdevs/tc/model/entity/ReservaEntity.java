@@ -35,6 +35,10 @@ public class    ReservaEntity implements Serializable {
     @Column(name = "NR_PEDIDO")
     private BigInteger nrPedido;
 
+    @Column(name = "CD_FILIAL")
+    private BigInteger cdFilial;
+
+
     @OneToMany(mappedBy = "reserva", cascade = CascadeType.ALL)
     private List<ReservaItemEntity> itens;
 

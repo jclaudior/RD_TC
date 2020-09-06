@@ -17,9 +17,9 @@ public class ReservaController {
     @Autowired
     ReservaService reservaService;
 
-    @GetMapping
-    public ResponseEntity listarReservasValidasPorCliente(@RequestParam("idCliente") BigInteger idCliente) {
-        return reservaService.listarPorClienteReservasValidas(idCliente);
+    @GetMapping("/{codigoFilial}/{codigoCliente}")
+    public ResponseEntity listarReservasValidasPorCliente(@PathVariable("codigoFilial") BigInteger cdFlial, @PathVariable("codigoCliente") BigInteger idCliente) {
+        return reservaService.listarPorClienteReservasValidas(cdFlial, idCliente);
 
     }
 

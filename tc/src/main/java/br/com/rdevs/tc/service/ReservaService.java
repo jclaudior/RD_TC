@@ -38,7 +38,7 @@ public class ReservaService {
     @Autowired
     private  AlterarEstoqueService alterarEstoqueService;
 
-    public ResponseEntity listarPorClienteReservasValidas(BigInteger idCliente) {
+    public ResponseEntity listarPorClienteReservasValidas( BigInteger cdFilial, BigInteger idCliente) {
         ResultData resultData = null;
         if(Integer.parseInt(idCliente.toString()) <= 0){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro id cliente invalido! ");
@@ -47,7 +47,7 @@ public class ReservaService {
         try {
             Date date = new Date();
 //            List<ReservaEntity> listEntity = repository.findByClienteIdCliente(idCliente);
-            List<ReservaEntity> listEntity = repository.findByClienteIdClienteAndDtBaixaIsNullAndDtFinalReservaGreaterThanEqual(idCliente, date);
+            List<ReservaEntity> listEntity = repository.findByCdFilialAndClienteIdClienteAndDtBaixaIsNullAndDtFinalReservaGreaterThanEqual( cdFilial, idCliente, date);;
             List<ReservaDTO> listDTO = new ArrayList<>();
             for (ReservaEntity entity : listEntity) {
 

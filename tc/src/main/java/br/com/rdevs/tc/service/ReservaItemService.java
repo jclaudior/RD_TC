@@ -1,5 +1,6 @@
 package br.com.rdevs.tc.service;
 
+import br.com.rdevs.tc.model.dto.ReservaDTO;
 import br.com.rdevs.tc.model.dto.ReservaItemDTO;
 import br.com.rdevs.tc.model.dto.ResultData;
 import br.com.rdevs.tc.model.entity.ProdutoEntity;
@@ -32,6 +33,9 @@ public class ReservaItemService {
 
     @Autowired
     private ProdutoBo produtoBo;
+
+    @Autowired
+    private  AlterarEstoqueService alterarEstoqueService;
 
     public ReservaItemDTO buscarItem(BigInteger idTcReserva, BigInteger cdProduto) {
         ReservaItemPK pk = new ReservaItemPK();
@@ -71,7 +75,19 @@ public class ReservaItemService {
         }
 
         try {
+
+
             ReservaItemPK pk = new ReservaItemPK();
+            ReservaEntity reservaEntity = new ReservaEntity();
+            reservaEntity.setIdTcReserva(dto.getReserva().getIdTcReserva());
+            ProdutoEntity produtoEntity = new ProdutoEntity();
+            produtoEntity.setCdProduto(dto.getProduto().getCdProduto());
+
+            pk.setReserva(reservaEntity);
+            pk.setProduto(produtoEntity);
+
+            Integer qtAnterior = repository.getOne(pk).getQtProduto();
+
             pk.setReserva(reservaBO.parseToEntity(dto.getReserva(), null));
             pk.setProduto(produtoBo.ParseEntity(dto.getProduto()));
 
@@ -79,7 +95,10 @@ public class ReservaItemService {
 
             entity.setQtProduto(dto.getQtProduto());
 
+
+
             repository.save(entity);
+            alterarEstoqueService.alterarItemReserva(entity, qtAnterior);
 
             resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Alteração realizada com sucesso!", dto);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
@@ -121,6 +140,7 @@ public class ReservaItemService {
             ReservaItemEntity entity = repository.getOne(pk);
 
             repository.delete(entity);
+            alterarEstoqueService.removerItemReserva(entity);
 
             resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Item excluído com sucesso!");
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);

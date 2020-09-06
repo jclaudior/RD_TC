@@ -19,6 +19,7 @@ public class ReservaDTO {
     private Date dtFinalReserva;
     private Date dtBaixa;
     private BigInteger nrPedido;
+    private BigInteger cdFilial;
     private List<ReservaItemDTO> itens;
 
 
