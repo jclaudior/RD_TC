@@ -41,6 +41,7 @@ public class ReservaBO {
         dto.setDtInicialReserva(entity.getDtInicialReserva());
         dto.setDtFinalReserva(entity.getDtFinalReserva());
         dto.setDtBaixa(entity.getDtBaixa());
+        dto.setNrPedido(entity.getNrPedido());
         List<ReservaItemDTO> listaItemDTO = new ArrayList<>();
         for (ReservaItemEntity item : entity.getItens()) {
             ReservaItemDTO itemDTO = new ReservaItemDTO();
@@ -68,6 +69,7 @@ public class ReservaBO {
         entity.setDtInicialReserva(dto.getDtInicialReserva());
         entity.setDtFinalReserva(dto.getDtFinalReserva());
         entity.setDtBaixa(dto.getDtBaixa());
+        entity.setNrPedido(dto.getNrPedido());
         entity.setIdTcReserva(dto.getIdTcReserva());
 
         List<ReservaItemEntity> listaItemEntity = new ArrayList<>();

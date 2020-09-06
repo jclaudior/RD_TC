@@ -11,7 +11,7 @@ public class DocumentoItemDTO {
 
     private ProdutoDTO produto;
 
-    private Long qtItem;
+    private Integer qtItem;
 
     private Double valorItem;
 
