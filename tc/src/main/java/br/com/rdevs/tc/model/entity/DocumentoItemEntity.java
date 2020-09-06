@@ -21,7 +21,7 @@ public class DocumentoItemEntity implements Serializable {
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     @JsonIgnore
     @Id
-    private DocumentoFiscalEntity idDocumentoFiscal;
+    private DocumentoFiscalEntity documentoFiscal;
 
     @Id
     @Column(name = "NR_ITEM_DOCUMENTO")

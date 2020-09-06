@@ -148,12 +148,16 @@ public class DocumentoFiscalBO {
 
             devolucaoService.inserirDevolucao(devoDto);
 
-            //DocumentoItemEntity entityNota = repositoryDocumentoItem.findByIdDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(devoDto.getDocumentoFiscal(), devoDto.getNrItemDocumento());
+            List<DocumentoItemEntity> entityNota = repositoryDocumentoItem.findByDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(dto.getIdDocumnetoFiscalVenda(), dto.getNrNumeroItem());
 
-            //entityNota.setQtDevolvida(itemDTO.getQtItem());
+            for(DocumentoItemEntity itemDoc : entityNota) {
+                itemDoc.setQtDevolvida(itemDTO.getQtItem());
+                repositoryDocumentoItem.save(itemDoc);
+            }
+
             //repositoryDocumentoItem.save(entityNota);
 
-            entityItem.setIdDocumentoFiscal(entity);
+            entityItem.setDocumentoFiscal(entity);
             listItemEntity.add(entityItem);
         }
         entity.setItens(listItemEntity);

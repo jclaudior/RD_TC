@@ -10,7 +10,7 @@ public interface DocumentoItemRepository extends JpaRepository<DocumentoItemEnti
 
     List<DocumentoItemEntity> findByIdDocumentoFiscalIdDocumentoFiscal(BigInteger idDocumentoItem);
 
-    DocumentoItemEntity findByIdDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(BigInteger idDocumentoItem, BigInteger nrItemDocumento);
+    List<DocumentoItemEntity> findByDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(BigInteger idDocumentoItem, BigInteger nrItemDocumento);
 
 
 }
