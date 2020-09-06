@@ -36,7 +36,7 @@ public class ReservaBO {
 
         if(entity == null)
             return dto;
-
+        dto.setIdTcReserva(entity.getIdTcReserva());
         dto.setClienteDTO(clienteBO.parseDTO(entity.getCliente()));
         dto.setDtInicialReserva(entity.getDtInicialReserva());
         dto.setDtFinalReserva(entity.getDtFinalReserva());
