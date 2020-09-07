@@ -29,7 +29,7 @@ public class ReservaItemBO {
 //        dto.setReserva(reservaBO.parseToDTO(entity.getReserva()));
         dto.setProduto(produtoBo.ParseToDto(entity.getProduto()));
         dto.setQtProduto(entity.getQtProduto());
-
+        dto.setStSeparado(entity.getStSeparado());
         return dto;
     }
 
@@ -44,6 +44,7 @@ public class ReservaItemBO {
         entity.setReserva(reserva);
         entity.setProduto(produtoRepository.getOne(dto.getProduto().getCdProduto()));
         entity.setQtProduto(dto.getQtProduto());
+        entity.setStSeparado(dto.getStSeparado());
 
         return entity;
     }

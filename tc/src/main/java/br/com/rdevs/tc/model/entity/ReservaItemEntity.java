@@ -30,4 +30,7 @@ public class ReservaItemEntity implements Serializable {
     @Column(name = "QT_PRODUTO")
     private Integer qtProduto;
 
+    @Column(name = "ST_SEPARADO")
+    private Boolean stSeparado;
+
 }

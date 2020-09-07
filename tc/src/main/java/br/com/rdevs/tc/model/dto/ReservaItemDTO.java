@@ -18,5 +18,6 @@ public class ReservaItemDTO {
     private ReservaDTO reserva;
     private ProdutoDTO produto;
     private Integer qtProduto;
+    private Boolean stSeparado;
 
 }

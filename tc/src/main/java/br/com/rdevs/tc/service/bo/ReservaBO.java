@@ -50,6 +50,7 @@ public class ReservaBO {
             ProdutoDTO produtoDTO = produtoBo.ParseToDto(item.getProduto());
             itemDTO.setProduto(produtoDTO);
             itemDTO.setQtProduto(item.getQtProduto());
+            itemDTO.setStSeparado(item.getStSeparado());
             listaItemDTO.add(itemDTO);
 
         }

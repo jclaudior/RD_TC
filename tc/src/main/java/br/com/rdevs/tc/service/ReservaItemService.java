@@ -94,6 +94,7 @@ public class ReservaItemService {
             ReservaItemEntity entity = repository.getOne(pk);
 
             entity.setQtProduto(dto.getQtProduto());
+            entity.setStSeparado(dto.getStSeparado());
 
 
 
