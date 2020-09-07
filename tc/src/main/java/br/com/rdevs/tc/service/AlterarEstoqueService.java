@@ -67,8 +67,6 @@ public class AlterarEstoqueService {
             valorAjuste = entity.getQtProduto() - valorAnterior;
             valorAjuste = entityEstoque.getQtEmpenho() + valorAjuste;
         }else{
-            System.out.println(valorAnterior);
-            System.out.println(entity.getQtProduto());
             valorAjuste = valorAnterior -  entity.getQtProduto();
             valorAjuste = entityEstoque.getQtEmpenho() - valorAjuste;
         }
