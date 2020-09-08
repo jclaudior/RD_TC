@@ -35,6 +35,8 @@ public class ReservaService {
     @Autowired
     private ReservaBO reservaBo;
 
+    @Autowired
+    private  AlterarEstoqueService alterarEstoqueService;
 
     public ResponseEntity listarPorClienteReservasValidas(BigInteger idCliente) {
         ResultData resultData = null;
@@ -85,9 +87,10 @@ public class ReservaService {
             ReservaEntity entity = reservaBo.parseToEntity(dto, null);
             if (entity.getCliente() != null) {
                 repository.save(entity);
+                alterarEstoqueService.adicionarReserva(entity);
             }
-
-            resultData = new ResultData(HttpStatus.CREATED.value(), "Reserva gravada com sucesso!", entity);
+            ReservaDTO retornoReserva = reservaBo.parseToDTO(entity);
+            resultData = new ResultData(HttpStatus.CREATED.value(), "Reserva gravada com sucesso!", retornoReserva);
             return ResponseEntity.status(HttpStatus.CREATED).body(resultData);
         }catch(Exception e){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao gravar reserva! " + e.getMessage());

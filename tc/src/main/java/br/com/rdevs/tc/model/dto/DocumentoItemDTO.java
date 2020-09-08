@@ -7,7 +7,7 @@ import java.math.BigInteger;
 @Data
 public class DocumentoItemDTO {
 
-    private DocumentoFiscalDTO idDocumentoFiscal;
+    private DocumentoFiscalDTO documentoFiscal;
 
     private BigInteger numItemDocumento;
 

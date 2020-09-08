@@ -23,9 +23,10 @@ public class AlterarEstoqueService {
 
                 BigInteger cdProduto = currentItem.getProduto().getCdProduto();
                 BigInteger cdFilial = entity.getFilial().getCdFilial();
+                //EstoqueEntitty entityEstoque = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial, cdProduto);
 
-                EstoqueEntitty entityEstoque = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial, cdProduto);
-
+                List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial,cdProduto);
+                EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
                 Integer ajustEstoque = entityEstoque.getQtEstoque() + currentItem.getQtdItem();
                 entityEstoque.setQtEstoque(ajustEstoque);
 
@@ -40,8 +41,10 @@ public class AlterarEstoqueService {
 
             BigInteger cdProduto = currentItem.getProduto().getCdProduto();
 
-            EstoqueEntitty entityEstoque = estoqueRepository.findByProdutoCdProduto(cdProduto);
+            //List<EstoqueEntitty> List = estoqueRepository.findByProdutoCdProduto(cdProduto);
 
+            List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByProdutoCdProduto(cdProduto);
+            EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
             Integer ajustEstoque = entityEstoque.getQtEmpenho() + currentItem.getQtProduto();
             entityEstoque.setQtEmpenho(ajustEstoque);
 
@@ -51,7 +54,12 @@ public class AlterarEstoqueService {
     public void removerItemReserva (ReservaItemEntity entity) {
 
             BigInteger cdProduto = entity.getProduto().getCdProduto();
-            EstoqueEntitty entityEstoque = estoqueRepository.findByProdutoCdProduto(cdProduto);
+
+            //List<EstoqueEntitty> entityEstoque = estoqueRepository.findByProdutoCdProduto(cdProduto);
+
+            List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByProdutoCdProduto(cdProduto);
+            EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
+
             Integer ajustEstoque = entityEstoque.getQtEmpenho() - entity.getQtProduto();
             entityEstoque.setQtEmpenho(ajustEstoque);
             estoqueRepository.save(entityEstoque);
@@ -59,7 +67,9 @@ public class AlterarEstoqueService {
     public void alterarItemReserva (ReservaItemEntity entity, Integer novoEmpenho) {
 
         BigInteger cdProduto = entity.getProduto().getCdProduto();
-        EstoqueEntitty entityEstoque = estoqueRepository.findByProdutoCdProduto(cdProduto);
+        //List<EstoqueEntitty> entityEstoque = estoqueRepository.findByProdutoCdProduto(cdProduto);
+        List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByProdutoCdProduto(cdProduto);
+        EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
         Integer ajustEstoque = entityEstoque.getQtEmpenho() - entity.getQtProduto();
         entityEstoque.setQtEmpenho(ajustEstoque);
         ajustEstoque = entityEstoque.getQtEmpenho() + novoEmpenho;

@@ -45,13 +45,13 @@ public class EstoqueService {
         ResultData resultData = null;
 
         try {
-            EstoqueEntitty entity = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial, cdProduto);
-            EstoqueDTO dto = estoqueBO.parseToDto(entity);
-            //for (EstoqueEntitty entity : listEntity) {
-                //listDTO.add(estoqueBO.parseToDto(entity));
-            //}
+            List<EstoqueEntitty> listEntity = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial, cdProduto);
+            List<EstoqueDTO> listDTO = new ArrayList<>();
+            for (EstoqueEntitty entity : listEntity) {
+                listDTO.add(estoqueBO.parseToDto(entity));
+            }
 
-            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Consulta produto por id realizada com sucesso!", dto);
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Consulta produto por id realizada com sucesso!", listDTO);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
         } catch (Exception e) {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(),"Erro ao consultar produto por id! " + e.getMessage());

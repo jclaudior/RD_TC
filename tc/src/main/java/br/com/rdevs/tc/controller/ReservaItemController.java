@@ -28,8 +28,9 @@ public class ReservaItemController {
         return reservaItemService.alterar(dto);
     }
 
-    @DeleteMapping
-    public ResponseEntity deletar(@RequestBody ReservaItemDTO dto) {
-        return reservaItemService.deletar(dto);
+    @DeleteMapping("/{idTcReserva}/{cdProduto}")
+    public ResponseEntity deletar(@PathVariable("idTcReserva")BigInteger idTcReserva, @PathVariable("cdProduto")
+            BigInteger cdProduto) {
+        return reservaItemService.deletar(idTcReserva, cdProduto);
     }
 }

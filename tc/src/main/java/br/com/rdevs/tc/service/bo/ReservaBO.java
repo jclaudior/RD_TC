@@ -6,6 +6,7 @@ import br.com.rdevs.tc.model.dto.ReservaItemDTO;
 import br.com.rdevs.tc.model.entity.ProdutoEntity;
 import br.com.rdevs.tc.model.entity.ReservaEntity;
 import br.com.rdevs.tc.model.entity.ReservaItemEntity;
+import br.com.rdevs.tc.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -23,6 +24,11 @@ public class ReservaBO {
     @Autowired
     private ProdutoBo produtoBo;
 
+    @Autowired
+    private  ReservaItemBO reservaItemBO;
+
+    @Autowired
+    private ProdutoRepository produtoRepository;
 
 
     public ReservaDTO parseToDTO(ReservaEntity entity){
@@ -30,11 +36,12 @@ public class ReservaBO {
 
         if(entity == null)
             return dto;
-
+        dto.setIdTcReserva(entity.getIdTcReserva());
         dto.setClienteDTO(clienteBO.parseDTO(entity.getCliente()));
         dto.setDtInicialReserva(entity.getDtInicialReserva());
         dto.setDtFinalReserva(entity.getDtFinalReserva());
         dto.setDtBaixa(entity.getDtBaixa());
+        dto.setNrPedido(entity.getNrPedido());
         List<ReservaItemDTO> listaItemDTO = new ArrayList<>();
         for (ReservaItemEntity item : entity.getItens()) {
             ReservaItemDTO itemDTO = new ReservaItemDTO();
@@ -62,23 +69,17 @@ public class ReservaBO {
         entity.setDtInicialReserva(dto.getDtInicialReserva());
         entity.setDtFinalReserva(dto.getDtFinalReserva());
         entity.setDtBaixa(dto.getDtBaixa());
+        entity.setNrPedido(dto.getNrPedido());
         entity.setIdTcReserva(dto.getIdTcReserva());
 
         List<ReservaItemEntity> listaItemEntity = new ArrayList<>();
         if (dto.getItens() != null) {
-
-
             for (ReservaItemDTO item : dto.getItens()) {
-                ReservaItemEntity itemEntity = new ReservaItemEntity();
-                // itemEntity.setIdTcReservaItem(item.getIdReserva());
-                ProdutoEntity produtoEntity = produtoBo.ParseEntity(item.getProduto());
-                itemEntity.setProduto(produtoEntity);
-                itemEntity.setQtProduto(item.getQtProduto());
+                ReservaItemEntity itemEntity = reservaItemBO.parseToEntity(item, null, entity);
+                //itemEntity.setReserva(entity);
                 listaItemEntity.add(itemEntity);
-                itemEntity.setReserva(entity);
             }
             entity.setItens(listaItemEntity);
-
         }
             return entity;
     }

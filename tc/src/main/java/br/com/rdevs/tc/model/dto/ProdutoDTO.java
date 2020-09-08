@@ -13,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 public class ProdutoDTO {
 
+
     private BigInteger cdProduto;
     private StatusProdutoDTO statusProduto;
     private CategoriaProdutoDTO categoria;

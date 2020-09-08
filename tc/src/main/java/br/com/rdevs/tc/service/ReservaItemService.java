@@ -91,37 +91,38 @@ public class ReservaItemService {
 
     }
 
-    public ResponseEntity deletar(ReservaItemDTO dto) {
+    public ResponseEntity deletar(BigInteger idTcReserva, BigInteger cdProduto) {
         ResultData resultData = null;
 
-        if (dto.getReserva() == null) {
+        if (idTcReserva == null) {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados da reserva inválidos! ");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
 
-        if (dto.getProduto() == null) {
+        if (cdProduto == null) {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados do produto inválidos! ");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
-        }
-
-        if (dto.getQtProduto() <= 0 || dto.getQtProduto() == null) {
-            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Quantidade de produto inválido! ");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
 
         try {
             ReservaItemPK pk = new ReservaItemPK();
-            pk.setReserva(reservaBO.parseToEntity(dto.getReserva(), null));
-            pk.setProduto(produtoBo.ParseEntity(dto.getProduto()));
+
+            ReservaEntity reservaEntity = new ReservaEntity();
+            reservaEntity.setIdTcReserva(idTcReserva);
+
+            pk.setReserva(reservaEntity);
+
+
+            ProdutoEntity produtoEntity = new ProdutoEntity();
+            produtoEntity.setCdProduto(cdProduto);
+
+            pk.setProduto(produtoEntity);
 
             ReservaItemEntity entity = repository.getOne(pk);
 
-            entity.setProduto(produtoBo.ParseEntity(dto.getProduto()));
-            entity.setQtProduto(dto.getQtProduto());
-
             repository.delete(entity);
 
-            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Item excluído com sucesso!", dto);
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Item excluído com sucesso!");
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
 
         } catch (Exception e) {

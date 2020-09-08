@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface DocumentoItemRepository extends JpaRepository<DocumentoItemEntity, BigInteger> {
 
-    List<DocumentoItemEntity> findByIdDocumentoFiscalIdDocumentoFiscal(BigInteger idDocumentoItem);
+    List<DocumentoItemEntity> findByDocumentoFiscalIdDocumentoFiscal(BigInteger idDocumentoItem);
 
     List<DocumentoItemEntity> findByDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(BigInteger idDocumentoItem, BigInteger nrItemDocumento);
 

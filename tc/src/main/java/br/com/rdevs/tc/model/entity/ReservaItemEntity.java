@@ -23,7 +23,7 @@ public class ReservaItemEntity implements Serializable {
     private ReservaEntity reserva;
 
     @Id
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "CD_PRODUTO")
     private ProdutoEntity produto;
 

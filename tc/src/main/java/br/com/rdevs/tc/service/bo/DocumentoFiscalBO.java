@@ -81,7 +81,7 @@ public class DocumentoFiscalBO {
 
 
         //Set Itens
-        List<DocumentoItemEntity> listDocumentoEntity = repositoryDocumentoItem.findByIdDocumentoFiscalIdDocumentoFiscal(entity.getIdDocumentoFiscal());
+        List<DocumentoItemEntity> listDocumentoEntity = repositoryDocumentoItem.findByDocumentoFiscalIdDocumentoFiscal(entity.getIdDocumentoFiscal());
         List<DocumentoItemDTO> listDocumentoDTO = new ArrayList<>();
 
         for(DocumentoItemEntity itemEntity: listDocumentoEntity){
@@ -149,11 +149,14 @@ public class DocumentoFiscalBO {
             devolucaoService.inserirDevolucao(devoDto);
 
             List<DocumentoItemEntity> entityNota = repositoryDocumentoItem.findByDocumentoFiscalIdDocumentoFiscalAndNumItemDocumento(dto.getIdDocumnetoFiscalVenda(), dto.getNrNumeroItem());
-
-            for(DocumentoItemEntity itemDoc : entityNota) {
-                itemDoc.setQtDevolvida(itemDTO.getQtItem());
-                repositoryDocumentoItem.save(itemDoc);
-            }
+            DocumentoItemEntity entityDocumento = entityNota.get(0);
+//            entityDocumento.setDocumentoFiscal(docRepository.getOne(dto.getIdDocumnetoFiscalVenda()));
+            entityDocumento.setQtDevolvida(itemDTO.getQtItem());
+            repositoryDocumentoItem.save(entityDocumento);
+//            for(DocumentoItemEntity itemDoc : entityNota) {
+//                itemDoc.setQtDevolvida(itemDTO.getQtItem());
+//                repositoryDocumentoItem.save(itemDoc);
+//            }
 
             //repositoryDocumentoItem.save(entityNota);
 

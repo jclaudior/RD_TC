@@ -17,9 +17,9 @@ import java.math.BigInteger;
 @IdClass(DocumentoItemEntity.class)
 public class DocumentoItemEntity implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
-    @JsonIgnore
+    //@JsonIgnore
     @Id
     private DocumentoFiscalEntity documentoFiscal;
 
