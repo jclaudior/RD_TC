@@ -15,14 +15,12 @@ public class ClienteController {
     @GetMapping("/cliente")
     public ResponseEntity buscarCliente(@RequestParam("dadosCliente")String dadosCliente) {
         return service.buscarCliente(dadosCliente);
-
-
     }
 
     @PostMapping("/cliente")
     public ResponseEntity inserir(@RequestBody ClienteDTO dto){
-       return  service.inserir(dto);
-    }
 
+    return  service.inserir(dto);
+    }
 
 }

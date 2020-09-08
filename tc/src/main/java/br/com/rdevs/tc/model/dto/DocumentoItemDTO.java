@@ -2,12 +2,14 @@ package br.com.rdevs.tc.model.dto;
 
 import lombok.Data;
 
+import java.math.BigInteger;
+
 @Data
 public class DocumentoItemDTO {
 
-    private DocumentoFiscalDTO idDocumentoFiscal;
+    private DocumentoFiscalDTO documentoFiscal;
 
-    private Long numItemDocumento;
+    private BigInteger numItemDocumento;
 
     private ProdutoDTO produto;
 
@@ -18,4 +20,8 @@ public class DocumentoItemDTO {
     private Double porcentoIcms;
 
     private Double valorIcms;
+
+    private Integer qtDevolvida;
+
+    private TipoPagamentoDTO formaDevolucao;
 }

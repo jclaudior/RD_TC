@@ -19,6 +19,7 @@ public class LmpmItemEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "ID_LMPM")
     private LmpmEntitty lmpmEntitty;
+
     @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")

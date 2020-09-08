@@ -14,11 +14,14 @@ import java.util.List;
 @Data
 public class DocumentoFiscalDTO {
 
-    private Long idDocumentoFiscal;
+    private BigInteger idDocumentoFiscal;
     private OperacaoDTO operacao;
     private FilialDTO filial;
     private ClienteDTO cliente;
     private MotivoDTO motivo;
+
+    private BigInteger idDocumnetoFiscalVenda;
+    private BigInteger nrNumeroItem;
 
     private Date dataAbertura;
     private Date dataFechamento;
@@ -30,6 +33,11 @@ public class DocumentoFiscalDTO {
     private Integer numeroCaixa;
 
     private List<DocumentoItemDTO> itens;
+
+    private  List<PagamentoDocDTO> tipoPagamento;
+
+    private Integer notaDevolvida;
+
 
 
 

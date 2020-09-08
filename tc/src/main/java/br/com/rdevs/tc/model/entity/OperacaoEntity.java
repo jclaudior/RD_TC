@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_OPERACAO")
@@ -17,7 +18,7 @@ public class OperacaoEntity implements Serializable  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CD_OPERACAO")
-    private Long cdOperacao;
+    private BigInteger cdOperacao;
 
 /*    @ManyToOne
     @JoinColumn(name = "ID_TIPO_OPERACAO")

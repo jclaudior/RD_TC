@@ -9,10 +9,11 @@ import java.math.BigInteger;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class OperacaoDTO {
+public class PagamentoDocDTO {
 
-    private BigInteger cdOperacao;
-    private BigInteger tipoOperacao;
-    private String descricaoOperacao;
+    private BigInteger idPagamento;
+    //private DocumentoFiscalDTO documentoFiscal;
+    private Double vlPagamento;
+    private TipoPagamentoDTO tipoPagamento;
 
 }

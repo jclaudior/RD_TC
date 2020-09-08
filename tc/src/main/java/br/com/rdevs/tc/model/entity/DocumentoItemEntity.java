@@ -7,24 +7,25 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 
 @Entity
 @Table(name = "TB_DOCUMENTO_ITEM")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(DocumentoItemEntity.class)
+@IdClass(DocumentoItemPK.class)
 public class DocumentoItemEntity implements Serializable {
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Id
+    @OneToOne
     @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
     @JsonIgnore
-    @Id
-    private DocumentoFiscalEntity idDocumentoFiscal;
+    private DocumentoFiscalEntity documentoFiscal;
 
     @Id
     @Column(name = "NR_ITEM_DOCUMENTO")
-    private Long numItemDocumento;
+    private BigInteger numItemDocumento;
 
     @ManyToOne
     @JoinColumn(name = "CD_PRODUTO")
@@ -41,5 +42,8 @@ public class DocumentoItemEntity implements Serializable {
 
     @Column (name = "VL_ITEM")
     private Double valorItem;
+
+    @Column (name = "QT_DEVOLVIDA")
+    private Integer qtDevolvida;
 
 }

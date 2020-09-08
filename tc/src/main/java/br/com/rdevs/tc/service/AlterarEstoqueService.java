@@ -23,6 +23,7 @@ public class AlterarEstoqueService {
 
                 BigInteger cdProduto = currentItem.getProduto().getCdProduto();
                 BigInteger cdFilial = entity.getFilial().getCdFilial();
+                //EstoqueEntitty entityEstoque = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial, cdProduto);
 
                 List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial,cdProduto);
                 EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
@@ -41,6 +42,7 @@ public class AlterarEstoqueService {
             BigInteger cdProduto = currentItem.getProduto().getCdProduto();
 
             List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(entity.getCdFilial(), cdProduto);
+
             EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
             Integer ajustEstoque = entityEstoque.getQtEmpenho() + currentItem.getQtProduto();
             entityEstoque.setQtEmpenho(ajustEstoque);
@@ -51,8 +53,11 @@ public class AlterarEstoqueService {
     public void removerItemReserva (ReservaItemEntity entity) {
 
             BigInteger cdProduto = entity.getProduto().getCdProduto();
+
             List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(entity.getReserva().getCdFilial(), cdProduto);
+
             EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
+
             Integer ajustEstoque = entityEstoque.getQtEmpenho() - entity.getQtProduto();
             entityEstoque.setQtEmpenho(ajustEstoque);
             estoqueRepository.save(entityEstoque);
@@ -60,7 +65,9 @@ public class AlterarEstoqueService {
     public void alterarItemReserva (ReservaItemEntity entity, Integer valorAnterior) {
 
         BigInteger cdProduto = entity.getProduto().getCdProduto();
+
         List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(entity.getReserva().getCdFilial(), cdProduto);
+
         EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
         Integer valorAjuste = 0;
         if(valorAnterior > entity.getQtProduto()){
