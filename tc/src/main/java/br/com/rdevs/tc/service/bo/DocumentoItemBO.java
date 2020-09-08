@@ -27,7 +27,7 @@ public class DocumentoItemBO {
 
         DocumentoItemDTO itemDTO = new DocumentoItemDTO();
 
-        itemDTO.setDocumentoFiscal(documentoFiscalBO.parseToDTO(entity.getDocumentoFiscal()));
+        //itemDTO.setDocumentoFiscal(documentoFiscalBO.parseToDTO(entity.getDocumentoFiscal()));
         itemDTO.setNumItemDocumento(entity.getNumItemDocumento());
         itemDTO.setProduto(produtoBo.ParseToDto(entity.getProduto()));
         itemDTO.setQtItem(entity.getQtdItem());

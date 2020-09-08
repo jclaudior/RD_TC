@@ -14,13 +14,13 @@ import java.math.BigInteger;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(DocumentoItemEntity.class)
+@IdClass(DocumentoItemPK.class)
 public class DocumentoItemEntity implements Serializable {
 
-    @ManyToOne
-    @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
-    //@JsonIgnore
     @Id
+    @OneToOne
+    @JoinColumn(name = "ID_DOCUMENTO_FISCAL")
+    @JsonIgnore
     private DocumentoFiscalEntity documentoFiscal;
 
     @Id

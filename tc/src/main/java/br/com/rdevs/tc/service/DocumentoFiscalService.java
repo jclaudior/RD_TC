@@ -44,26 +44,72 @@ public class DocumentoFiscalService {
     public ResponseEntity buscarPorId(BigInteger idDocumentoFiscal) {
         ResultData resultData = null;
         try {
-            //Id da operação deve ser fixo, sempre pegar o ID da tabela de operação correspondente ao tipo "VENDA"
 
+            //Id da operação deve ser fixo, sempre pegar o ID da tabela de operação correspondente ao tipo "VENDA"
             DocumentoFiscalEntity documentoFiscal = repository.findByOperacaoCdOperacaoAndIdDocumentoFiscal(idOperacaoVenda, idDocumentoFiscal);
             DocumentoFiscalDTO documentoDTO = new DocumentoFiscalDTO();
             documentoDTO = bo.parseToDTO(documentoFiscal);
-            //return documentoDTO;
 
             resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Documentos fiscais listados com sucesso", documentoDTO);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+
         }catch (Exception e){
+
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(),"Erro ao listar os documentos fiscais" + e.getMessage());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+
         }
     }
 
-    public void inserir (DocumentoFiscalDTO dto) {
+    public ResponseEntity inserir (DocumentoFiscalDTO dto) {
+        ResultData resultData = null;
+        if(dto.getMotivo() == null || dto.getMotivo().equals(0)) {
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Motivo de Devolucao invalido! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+        if(dto.getCliente() == null){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Cliente invalido");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+        if(dto.getIdDocumnetoFiscalVenda() == null || dto.getIdDocumnetoFiscalVenda().equals(0)){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Nota de venda invalida! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+        if(dto.getNrNumeroItem() == null || dto.getNrNumeroItem().equals(0)){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Numero do item invalido! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
+        if(dto.getItens() == null){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Itens da devolucao invalidos! ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
 
-        DocumentoFiscalEntity entity = bo.parseToEntity(dto);
-        altEstoqueService.devolucaoParaEstoque(entity);
-        repository.save(entity);
+        for(DocumentoItemDTO itemDTO : dto.getItens()){
+            if(itemDTO.getProduto() == null){
+                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Produto da Devoluao invalido! ");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+            }
+            if(Integer.parseInt(itemDTO.getQtItem().toString()) <= 0){
+                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Quantidade de intens invalida! ");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+            }
+            if(itemDTO.getFormaDevolucao() == null){
+                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Forma de Devolucao invalida! ");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+            }
+        }
+        try {
+            DocumentoFiscalEntity entity = bo.parseToEntity(dto);
+            altEstoqueService.devolucaoParaEstoque(entity);
+            repository.save(entity);
+
+            resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Documento fiscal de Devolucao salvo com sucesso! ", entity);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+
+        }catch(Exception e){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(),"Erro ao salvar o documento fiscal de Devolucao! " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+        }
     }
 }
 
