@@ -143,12 +143,13 @@ public class DocumentoFiscalBO {
         entity.setNumeroCaixa(dto.getNumeroCaixa());
 
         List<DocumentoItemEntity> listItemEntity = new ArrayList<>();
+        int i = 0;
 
         for(DocumentoItemDTO itemDTO: dto.getItens()){
 
             DocumentoItemEntity entityItem = new DocumentoItemEntity();
 
-            entityItem.setNumItemDocumento(dto.getNrNumeroItem());
+            entityItem.setNumItemDocumento(dto.getNrNumeroItem().get(i));
             ProdutoEntity produtoEntity = produtoBo.ParseEntity(itemDTO.getProduto());
             entityItem.setProduto(produtoEntity);
             entityItem.setQtdItem(itemDTO.getQtItem());
@@ -160,7 +161,7 @@ public class DocumentoFiscalBO {
             DevolucaoDTO devoDto = new DevolucaoDTO();
 
             devoDto.setDocumentoFiscal(dto.getIdDocumnetoFiscalVenda());
-            devoDto.setNrItemDocumento(dto.getNrNumeroItem());
+            devoDto.setNrItemDocumento(dto.getNrNumeroItem().get(i));
             devoDto.setCliente(clienteBO.parseDTO(entity.getCliente()));
             devoDto.setVlDevolucao(entity.getValorDocumento());
             devoDto.setTipoPagamento(itemDTO.getFormaDevolucao());
@@ -169,16 +170,16 @@ public class DocumentoFiscalBO {
 
             DocumentoItemPK  pk = new DocumentoItemPK();
             pk.setDocumentoFiscal(docRepository.getOne(dto.getIdDocumnetoFiscalVenda()));
-            pk.setNumItemDocumento(dto.getNrNumeroItem());
+            pk.setNumItemDocumento(dto.getNrNumeroItem().get(i));
 
             DocumentoItemEntity entityItemNota = repositoryDocumentoItem.getOne(pk);
 
             entityItemNota.setQtDevolvida(itemDTO.getQtItem().intValue());
             repositoryDocumentoItem.save(entityItemNota);
 
-
             entityItem.setDocumentoFiscal(entity);
             listItemEntity.add(entityItem);
+            i++;
         }
 
         entity.setItens(listItemEntity);

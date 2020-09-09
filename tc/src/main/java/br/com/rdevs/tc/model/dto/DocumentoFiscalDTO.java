@@ -21,7 +21,7 @@ public class DocumentoFiscalDTO {
     private MotivoDTO motivo;
 
     private BigInteger idDocumnetoFiscalVenda;
-    private BigInteger nrNumeroItem;
+    private List<BigInteger> nrNumeroItem;
 
     private Date dataAbertura;
     private Date dataFechamento;
