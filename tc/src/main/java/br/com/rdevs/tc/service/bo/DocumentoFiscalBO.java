@@ -10,7 +10,6 @@ import br.com.rdevs.tc.service.DevolucaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -160,7 +159,7 @@ public class DocumentoFiscalBO {
 
             DevolucaoDTO devoDto = new DevolucaoDTO();
 
-            devoDto.setDocumentoFiscal(dto.getIdDocumnetoFiscalVenda());
+            devoDto.setDocumentoFiscal(dto.getIdDocumentoFiscalVenda());
             devoDto.setNrItemDocumento(dto.getNrNumeroItem().get(i));
             devoDto.setCliente(clienteBO.parseDTO(entity.getCliente()));
             devoDto.setVlDevolucao(entity.getValorDocumento());
@@ -169,7 +168,7 @@ public class DocumentoFiscalBO {
             devolucaoService.inserirDevolucao(devoDto);
 
             DocumentoItemPK  pk = new DocumentoItemPK();
-            pk.setDocumentoFiscal(docRepository.getOne(dto.getIdDocumnetoFiscalVenda()));
+            pk.setDocumentoFiscal(docRepository.getOne(dto.getIdDocumentoFiscalVenda()));
             pk.setNumItemDocumento(dto.getNrNumeroItem().get(i));
 
             DocumentoItemEntity entityItemNota = repositoryDocumentoItem.getOne(pk);

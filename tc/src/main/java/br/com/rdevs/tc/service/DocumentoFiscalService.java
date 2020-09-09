@@ -2,11 +2,8 @@ package br.com.rdevs.tc.service;
 
 import br.com.rdevs.tc.model.dto.DocumentoFiscalDTO;
 import br.com.rdevs.tc.model.dto.DocumentoItemDTO;
-import br.com.rdevs.tc.model.dto.EstoqueDTO;
 import br.com.rdevs.tc.model.dto.ResultData;
 import br.com.rdevs.tc.model.entity.DocumentoFiscalEntity;
-import br.com.rdevs.tc.model.entity.DocumentoItemEntity;
-import br.com.rdevs.tc.model.entity.EstoqueEntitty;
 import br.com.rdevs.tc.repository.DocumentoFiscalRepository;
 import br.com.rdevs.tc.repository.EstoqueRepository;
 import br.com.rdevs.tc.service.bo.DocumentoFiscalBO;
@@ -17,9 +14,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class DocumentoFiscalService {
@@ -71,7 +65,7 @@ public class DocumentoFiscalService {
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Cliente invalido");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
-        if(dto.getIdDocumnetoFiscalVenda() == null || dto.getIdDocumnetoFiscalVenda().equals(0)){
+        if(dto.getIdDocumentoFiscalVenda() == null || dto.getIdDocumentoFiscalVenda().equals(0)){
             resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Nota de venda invalida! ");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
