@@ -52,7 +52,7 @@ public class CupomService {
             SimpleMailMessage email = new SimpleMailMessage();
             email.setTo(dto.getCliente().getDsEmail());
             email.setSubject("RaiaDrogasil & Você");
-            email.setText(dto.getCliente().getNmCliente() + ", estas são suas ofertas do dia! " + corpoEmail);
+            email.setText(dto.getCliente().getNmCliente() + ", estas são suas ofertas do dia!  \n" + corpoEmail);
             mailSender.send(email);
         }
 
