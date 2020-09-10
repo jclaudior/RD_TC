@@ -71,7 +71,7 @@ public class LoginService {
                 String codificado = Base64.getEncoder().encodeToString(dto.getPwOperador().getBytes());
                 entity.setPwOperador(codificado);
                 repository.save((entity));
-                resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Usuario autenticado com sucesso!", dto);
+                resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Senha alterada com sucesso!", dto);
                 return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
             }
         }catch(Exception e){
