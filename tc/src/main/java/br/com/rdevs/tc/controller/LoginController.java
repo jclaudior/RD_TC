@@ -24,7 +24,7 @@ public class LoginController {
     @PutMapping
     public ResponseEntity atualizar(@RequestBody OperadorDTO dto){
 
-        loginService.atualizar(dto);
-        return ResponseEntity.ok().body(dto);
+
+        return  loginService.atualizar(dto);
     }
 }

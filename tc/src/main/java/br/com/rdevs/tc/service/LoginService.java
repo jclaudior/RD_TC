@@ -57,16 +57,29 @@ public class LoginService {
         }
 
     }
-    public void atualizar(OperadorDTO dto) {
-
-        List<OperadorEntity> operadorEntityList = repository.findByNrMatriculaAndNrCpf(dto.getNrMatricula(), dto.getNrCpf());
-        OperadorEntity entity = operadorEntityList.get(0);
-        if (entity != null) {
-        //   entity = loginBO.parseToEntity(dto, entity);
-            String codificado = Base64.getEncoder().encodeToString(dto.getPwOperador().getBytes());
-            entity.setPwOperador(codificado);
-            repository.save((entity));
+    public ResponseEntity  atualizar(OperadorDTO dto) {
+        ResultData resultData = null;
+        try {
+            List<OperadorEntity> operadorEntityList = repository.findByNrMatriculaAndNrCpf(dto.getNrMatricula(), dto.getNrCpf());
+            if(operadorEntityList.size() <= 0){
+                resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Dados invalidos!");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
+            }
+            OperadorEntity entity = operadorEntityList.get(0);
+            if (entity != null) {
+                //   entity = loginBO.parseToEntity(dto, entity);
+                String codificado = Base64.getEncoder().encodeToString(dto.getPwOperador().getBytes());
+                entity.setPwOperador(codificado);
+                repository.save((entity));
+                resultData = new ResultData(HttpStatus.ACCEPTED.value(), "Usuario autenticado com sucesso!", dto);
+                return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);
+            }
+        }catch(Exception e){
+            resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao alterar senha!");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
         }
+        resultData = new ResultData(HttpStatus.BAD_REQUEST.value(), "Erro ao alterar senha!");
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultData);
     }
 
     }
