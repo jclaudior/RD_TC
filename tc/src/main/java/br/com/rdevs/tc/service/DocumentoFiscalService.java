@@ -42,7 +42,7 @@ public class DocumentoFiscalService {
             //Id da operação deve ser fixo, sempre pegar o ID da tabela de operação correspondente ao tipo "VENDA"
             DocumentoFiscalEntity documentoFiscal = repository.findByOperacaoCdOperacaoAndIdDocumentoFiscal(idOperacaoVenda, idDocumentoFiscal);
             DocumentoFiscalDTO documentoDTO = new DocumentoFiscalDTO();
-            documentoDTO = bo.parseToDTO(documentoFiscal);
+            documentoDTO = bo.parseToDTOFind(documentoFiscal);
 
             resultData = new ResultData(HttpStatus.ACCEPTED.value(),"Documentos fiscais listados com sucesso", documentoDTO);
             return ResponseEntity.status(HttpStatus.ACCEPTED).body(resultData);

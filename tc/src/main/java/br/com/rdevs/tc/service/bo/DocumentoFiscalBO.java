@@ -115,6 +115,69 @@ public class DocumentoFiscalBO {
             entity.setFlagNotaDevolvida(1);
             docRepository.save(entity);
         }else {
+            entity.setFlagNotaDevolvida(1);
+            docRepository.save(entity);
+        }
+
+        dto.setNotaDevolvida(entity.getFlagNotaDevolvida());
+
+        return dto;
+    }
+
+    public DocumentoFiscalDTO parseToDTOFind(DocumentoFiscalEntity entity){
+        DocumentoFiscalDTO dto = new DocumentoFiscalDTO();
+
+        if(entity == null)
+            return dto;
+
+        dto.setIdDocumentoFiscal(entity.getIdDocumentoFiscal());
+        dto.setOperacao(operacaoBO.parseToDTO(entity.getOperacao()));
+        dto.setFilial(filialBO.parseToDTO(entity.getFilial()));
+        dto.setCliente(clienteBO.parseDTO(entity.getCliente()));
+        dto.setMotivo(motivoBO.parseToDTO(entity.getMotivoDevolucao()));
+        dto.setDataAbertura(entity.getDataAbertura());
+        dto.setDataFechamento(entity.getDataFechamento());
+        dto.setFlagNota(entity.getFlagNota());
+        dto.setValorDocumento(entity.getValorDocumento());
+        dto.setNumeroCaixa(entity.getNumeroCaixa());
+
+
+        //Set Itens
+        List<DocumentoItemEntity> listDocumentoEntity = repositoryDocumentoItem.findByDocumentoFiscalIdDocumentoFiscal(entity.getIdDocumentoFiscal());
+        List<DocumentoItemDTO> listDocumentoDTO = new ArrayList<>();
+
+        int totalItensDevolvido = 0;
+
+        for(DocumentoItemEntity itemEntity: listDocumentoEntity){
+            DocumentoItemDTO itemDTO = new DocumentoItemDTO();
+
+            itemDTO = documentoItemBO.parseToDTO(itemEntity);
+
+            if(itemDTO.getQtDevolvida() >= itemDTO.getQtItem()){
+                totalItensDevolvido++;
+            }
+
+            listDocumentoDTO.add(itemDTO);
+        }
+
+        dto.setItens(listDocumentoDTO);
+
+        //Set Tipos Pagamento
+        List<PagamentoDocEntity> listTipoPagamento  = repositoryPagamento.findBydocumentoFiscalIdDocumentoFiscal(entity.getIdDocumentoFiscal());
+        List<PagamentoDocDTO> listPagamentoDTO = new ArrayList<>();
+
+        for(PagamentoDocEntity pagDocEntity: listTipoPagamento){
+            PagamentoDocDTO pagDto = new PagamentoDocDTO();
+
+            pagDto = pagamentoBO.parseToDTO(pagDocEntity);
+            listPagamentoDTO.add(pagDto);
+        }
+        dto.setTipoPagamento(listPagamentoDTO);
+
+        if(totalItensDevolvido >= dto.getItens().size()){
+            entity.setFlagNotaDevolvida(1);
+            docRepository.save(entity);
+        }else {
 //            entity.setFlagNotaDevolvida(1);
 //            docRepository.save(entity);
         }
@@ -123,7 +186,6 @@ public class DocumentoFiscalBO {
 
         return dto;
     }
-
 
     public DocumentoFiscalEntity parseToEntity(DocumentoFiscalDTO dto){
 
