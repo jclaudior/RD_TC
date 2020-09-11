@@ -117,7 +117,8 @@ public class DocumentoFiscalBO {
             docRepository.save(entity);
 
         }else {
-
+            entity.setFlagNotaDevolvida(1);
+            docRepository.save(entity);
         }
 
         dto.setNotaDevolvida(entity.getFlagNotaDevolvida());
