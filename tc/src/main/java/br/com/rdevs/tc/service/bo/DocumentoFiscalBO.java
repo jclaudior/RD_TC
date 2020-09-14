@@ -111,13 +111,10 @@ public class DocumentoFiscalBO {
         }
         dto.setTipoPagamento(listPagamentoDTO);
 
-        if(totalItensDevolvido >= dto.getItens().size()){
+
             entity.setFlagNotaDevolvida(1);
             docRepository.save(entity);
-        }else {
-            entity.setFlagNotaDevolvida(1);
-            docRepository.save(entity);
-        }
+
 
         dto.setNotaDevolvida(entity.getFlagNotaDevolvida());
 

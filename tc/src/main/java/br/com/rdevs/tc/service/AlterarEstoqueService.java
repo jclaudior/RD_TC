@@ -27,7 +27,7 @@ public class AlterarEstoqueService {
 
                 List<EstoqueEntitty> entityEstoqueList = estoqueRepository.findByFilialCdFilialAndProdutoCdProduto(cdFilial,cdProduto);
                 EstoqueEntitty entityEstoque = entityEstoqueList.get(0);
-                Integer ajustEstoque = entityEstoque.getQtEstoque() + currentItem.getQtdItem();
+                Integer ajustEstoque = currentItem.getQtdItem();
                 entityEstoque.setQtEstoque(ajustEstoque);
 
                 estoqueRepository.save(entityEstoque);
